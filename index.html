@@ -1,64 +1,117 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>لبنة | تطبيقات عربية</title>
-<meta name="description" content="لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد: ميزان وسنا ومدماك.">
-<meta property="og:title" content="لبنة | تطبيقات عربية">
-<meta property="og:description" content="لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد: ميزان وسنا ومدماك.">
-<meta name="theme-color" content="#ECEDE9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121514" media="(prefers-color-scheme: dark)">
+<title>لبنة | معرض تطبيقات عربية</title>
+<meta name="description" content="معرض أعمال لبنة: ميزان وسنا ومدماك، تطبيقات عربية لآيفون وأندرويد، مع صفحات الدعم والخصوصية وشروط الاستخدام.">
+<link rel="canonical" href="https://labina.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="لبنة | معرض تطبيقات عربية">
+<meta property="og:description" content="معرض أعمال لبنة: ميزان وسنا ومدماك، تطبيقات عربية لآيفون وأندرويد، مع صفحات الدعم والخصوصية وشروط الاستخدام.">
+<meta property="og:url" content="https://labina.app/">
+<meta property="og:image" content="https://labina.app/assets/og.png">
+<meta name="theme-color" content="#0E1110" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1110" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/mizan-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
 <a class="skip" href="#main">انتقل إلى المحتوى</a>
-<div class="wrap">
-<div class="bar">
-  <a class="brand" href="./"><svg viewBox="0 0 30 22" aria-hidden="true"><rect x="0" y="0" width="14" height="10" rx="1.5" fill="var(--mizan)"/><rect x="16" y="0" width="14" height="10" rx="1.5" fill="var(--sana)"/><rect x="0" y="12" width="6" height="10" rx="1.5" fill="var(--ink3)"/><rect x="8" y="12" width="14" height="10" rx="1.5" fill="var(--midmak)"/><rect x="24" y="12" width="6" height="10" rx="1.5" fill="var(--ink3)"/></svg>لبنة</a>
-  <nav aria-label="الموقع"><a href="./#apps">التطبيقات</a><a href="./#contact">تواصل</a></nav>
-</div>
+<header class="bar dark"><div class="wrap">
+  <a class="brand" href="./"><svg viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="1" width="24" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="6" y="10" width="14" height="7" rx="1.5" fill="currentColor"/></svg>لبنة</a>
+  <nav aria-label="الموقع"><a href="./" aria-current="page">المعرض</a><a href="docs/">الوثائق</a><a href="./#contact">تواصل</a></nav>
+</div></header>
 <main id="main">
-<section class="hero">
-  <h1>تطبيقات عربية، تُبنى لبنةً لبنة</h1>
-  <p>لبنة استوديو صغير يصنع تطبيقات لآيفون وأندرويد بلغة أهلها. كل تطبيق يعمل على جهازك، بلا حسابات ولا إعلانات.</p>
-  <div class="wall" role="list" aria-label="تطبيقات لبنة">
-    <div role="listitem" style="display:contents"><a class="brick" href="mizan/" style="--app:var(--mizan)"><b>ميزان</b><span>ميزانيتك من رسائل البنك</span></a></div>
-    <div role="listitem" style="display:contents"><a class="brick" href="sana/" style="--app:var(--sana)"><b>سنا</b><span>أسماء الله الحسنى</span></a></div>
-    <span class="brick half" aria-hidden="true"></span>
-    <div role="listitem" style="display:contents"><a class="brick" href="midmak/" style="--app:var(--midmak)"><b>مدماك</b><span>دفتر بناء بيتك</span></a></div>
-    <span class="brick next"><span>اللبنة التالية</span></span>
+<section class="gallery dark" aria-labelledby="hall-h">
+  <div class="wrap">
+    <h1 id="hall-h">كل تطبيق قطعة، وهذا معرضها.</h1>
+    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد. ثلاثة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
+    <div class="hall">
+    <a class="work" href="mizan/" style="--app-lit:var(--mizan-lit)">
+      <i class="cone" aria-hidden="true"></i><i class="lamp" aria-hidden="true"></i>
+      <div class="frame"><img src="assets/mizan-icon.webp" width="512" height="512" alt=""></div>
+      <span class="plaque"><span class="no">العمل ١، ٢٠٢٦</span><b>ميزان</b><span>الصق رسالة البنك، واعرف كم تقدر تصرف اليوم.</span></span>
+    </a>
+    <a class="work" href="sana/" style="--app-lit:var(--sana-lit)">
+      <i class="cone" aria-hidden="true"></i><i class="lamp" aria-hidden="true"></i>
+      <div class="frame"><img src="assets/sana-icon.webp" width="512" height="512" alt=""></div>
+      <span class="plaque"><span class="no">العمل ٢، ٢٠٢٦</span><b>سنا</b><span>أسماء الله الحسنى: معناها وشواهدها ونصيبك منها.</span></span>
+    </a>
+    <a class="work" href="midmak/" style="--app-lit:var(--midmak-lit)">
+      <i class="cone" aria-hidden="true"></i><i class="lamp" aria-hidden="true"></i>
+      <div class="frame"><img src="assets/midmak-icon.webp" width="512" height="512" alt=""></div>
+      <span class="plaque"><span class="no">العمل ٣، ٢٠٢٦</span><b>مدماك</b><span>دفتر بناء بيتك، من الحفر إلى المفتاح.</span></span>
+    </a>
+    </div>
   </div>
 </section>
 
-<section class="block" id="apps" aria-labelledby="apps-h">
-  <h2 id="apps-h">التطبيقات</h2>
-  <ul class="apps"><li style="--app:var(--mizan)"><i class="swatch" aria-hidden="true"></i><div>
-<h3><a href="mizan/">ميزان</a></h3><p>الصق رسالة البنك، واعرف كم تقدر تصرف اليوم.</p><div class="meta">آيفون وآيباد · أندرويد قريبًا</div>
-<div class="links"><a href="mizan/">عن التطبيق</a><a href="https://apps.apple.com/app/id6808957329">App Store</a><a href="mizan/support/">الدعم</a><a href="mizan/privacy/">الخصوصية</a></div></div></li><li style="--app:var(--sana)"><i class="swatch" aria-hidden="true"></i><div>
-<h3><a href="sana/">سنا</a></h3><p>أسماء الله الحسنى: معناها وشواهدها ونصيبك منها.</p><div class="meta">آيفون وآيباد وساعة Apple</div>
-<div class="links"><a href="sana/">عن التطبيق</a><a href="https://apps.apple.com/app/id6812705355">App Store</a><a href="sana/support/">الدعم</a><a href="sana/privacy/">الخصوصية</a></div></div></li><li style="--app:var(--midmak)"><i class="swatch" aria-hidden="true"></i><div>
-<h3><a href="midmak/">مدماك</a></h3><p>دفتر بناء بيتك، من الحفر إلى المفتاح.</p><div class="meta">آيفون وآيباد · قريبًا على App Store</div>
-<div class="links"><a href="midmak/">عن التطبيق</a><a href="midmak/support/">الدعم</a><a href="midmak/privacy/">الخصوصية</a></div></div></li></ul>
-</section>
+<section class="section" aria-labelledby="cat-h"><div class="wrap">
+  <h2 id="cat-h">دليل المعرض</h2>
+  <p class="sub">لكل عمل قاعته: لقطاته، وقصته، ووثائقه.</p>
+  <div class="catalogue">
+      <article class="entry" style="--app:var(--mizan)">
+        <div class="fan" aria-hidden="true"><img src="assets/mizan-02-today.webp" alt="" loading="lazy" width="660" height="1434"><img src="assets/mizan-01-sms.webp" alt="" loading="lazy" width="660" height="1434"><img src="assets/mizan-04-budgets.webp" alt="" loading="lazy" width="660" height="1434"></div>
+        <div>
+          <div class="label"><div class="no">العمل ١، ٢٠٢٦</div><h3>ميزان</h3><p class="meta">تطبيق لآيفون وآيباد، وأندرويد قريبًا</p></div>
+          <p>تطبيق ميزانية عربي. تلصق رسالة البنك فيسجّل المصروف بنفسه، ويقول لك كم تقدر تصرف اليوم.</p>
+          <div class="actions"><a class="btn" href="mizan/">ادخل قاعة ميزان</a><a class="btn line" href="https://apps.apple.com/app/id6808957329">App Store</a></div>
+        </div>
+      </article>
+      <article class="entry" style="--app:var(--sana)">
+        <div class="fan" aria-hidden="true"><img src="assets/sana-01-sky.webp" alt="" loading="lazy" width="660" height="1434"><img src="assets/sana-03-name.webp" alt="" loading="lazy" width="660" height="1434"><img src="assets/sana-05-amal.webp" alt="" loading="lazy" width="660" height="1434"></div>
+        <div>
+          <div class="label"><div class="no">العمل ٢، ٢٠٢٦</div><h3>سنا</h3><p class="meta">تطبيق لآيفون وآيباد وساعة Apple</p></div>
+          <p>تطبيق لأسماء الله الحسنى يعرّفك بربك من خلال أسمائه: معنى كل اسم، وشواهده، ونصيبك منه عملًا في يومك.</p>
+          <div class="actions"><a class="btn" href="sana/">ادخل قاعة سنا</a><a class="btn line" href="https://apps.apple.com/app/id6812705355">App Store</a></div>
+        </div>
+      </article>
+      <article class="entry" style="--app:var(--midmak)">
+        <div class="fan" aria-hidden="true"><img src="assets/midmak-j10-house-hub.webp" alt="" loading="lazy" width="660" height="1434"><img src="assets/midmak-j09-wall-full.webp" alt="" loading="lazy" width="660" height="1434"><img src="assets/midmak-j02-money-hub.webp" alt="" loading="lazy" width="660" height="1434"></div>
+        <div>
+          <div class="label"><div class="no">العمل ٣، ٢٠٢٦</div><h3>مدماك</h3><p class="meta">تطبيق لآيفون وآيباد، قريبًا على App Store</p></div>
+          <p>تطبيق آيفون وآيباد للمالك الذي يبني بيته بنفسه: كل ريال مسجّل، وكل اتفاق محفوظ، وحقك واضح، من الحفر إلى المفتاح.</p>
+          <div class="actions"><a class="btn" href="midmak/">ادخل قاعة مدماك</a><span class="btn" aria-disabled="true">قريبًا على App Store</span></div>
+        </div>
+      </article>
+  </div>
+</div></section>
 
-<section class="block" aria-labelledby="ways-h">
-  <h2 id="ways-h">كيف نبني</h2>
-  <ul class="ways">
+<section class="section" aria-labelledby="ways-h"><div class="wrap">
+  <h2 id="ways-h">ما يجمع هذه الأعمال</h2>
+  <p class="sub">ثلاثة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
+  <ul class="principles">
     <li><b>بياناتك على جهازك</b><span>ما تسجّله يُحفظ ويُعالج على جهازك، وما نملك خادمًا يستقبله.</span></li>
     <li><b>بلا حسابات ولا إعلانات</b><span>تفتح التطبيق وتبدأ، ولا نبيع انتباهك لأحد.</span></li>
     <li><b>عربية من أول سطر</b><span>الكلمات والأرقام والاتجاه مصممة للعربية، لا مترجمة إليها.</span></li>
   </ul>
-</section>
+</div></section>
 
-<section class="block" id="contact" aria-labelledby="contact-h">
+<section class="section"><div class="wrap">
+  <div class="teaser">
+    <div><h2>الوثائق</h2><p>روابط الدعم وسياسات الخصوصية وشروط الاستخدام لكل الأعمال، في صفحة واحدة.</p></div>
+    <a class="btn line" href="docs/">افتح الوثائق</a>
+  </div>
+</div></section>
+
+<section class="section" aria-labelledby="contact-h"><div class="wrap">
   <h2 id="contact-h">تواصل</h2>
-  <div class="contact"><p>سؤال، أو خطأ وجدته، أو فكرة لتطبيق؟ راسلنا ونرد عادة خلال يومي عمل.</p><a class="mail" href="mailto:support@labina.app?subject=%D9%84%D8%A8%D9%86%D8%A9">support@labina.app</a></div>
-</section>
+  <p class="sub">سؤال، أو خطأ وجدته، أو فكرة لعمل قادم؟ نرد عادة خلال يومي عمل.</p>
+  <a class="mail" href="mailto:support@labina.app?subject=%D9%84%D8%A8%D9%86%D8%A9">support@labina.app</a>
+</div></section>
 </main>
-<footer class="site"><span>© 2026 لبنة</span><a href="mailto:support@labina.app">support@labina.app</a></footer>
-</div>
+<script>
+(function(){var h=document.querySelector('.gallery');if(!h)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('lit');return}
+var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){h.classList.add('lit');o.disconnect()}},{threshold:.3});o.observe(h)})();
+</script>
+<footer class="site" id="contact"><div class="wrap">
+  <span>© ٢٠٢٦ لبنة. صُنعت هذه الأعمال بعناية، لبنةً لبنة.</span>
+  <nav aria-label="روابط سريعة"><a href="docs/">الوثائق</a><a href="mailto:support@labina.app?subject=%D9%84%D8%A8%D9%86%D8%A9" class="latin">support@labina.app</a></nav>
+</div></footer>
 </body>
 </html>
