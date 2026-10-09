@@ -21,7 +21,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/labina-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=e610c893">
+<link rel="stylesheet" href="../style.css?v=f3ef7bef">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
@@ -96,6 +96,40 @@
   <div><h2>Documents</h2><p>Support, privacy policies and terms of use for every work, on one page.</p></div>
   <a class="btn line" href="docs/">Open documents</a>
 </div></div></section>
+
+<section class="section vwall" id="visitors" hidden aria-labelledby="vw-h" data-locale="en-US"><div class="wrap">
+  <div class="vw-grid">
+    <div class="vw-bricks" role="img" aria-label="Gallery visitors"></div>
+    <div class="vw-text">
+      <p class="vw-kicker">Visitors' wall</p>
+      <h2 id="vw-h" class="vw-title"><span class="vw-lead"></span> <span class="vw-num"></span></h2>
+      <p class="vw-tail"></p>
+      <p class="vw-body">Every visitor lays a brick in the gallery wall. We do not know who you are or where you came from; we only count the bricks.</p>
+    </div>
+  </div>
+</div></section>
+<script>
+(function(){
+var sec=document.getElementById('visitors');if(!sec||!window.fetch)return;
+var L={you:"You are brick number",back:"The gallery has had",back2:"visitors, and your brick is already in the wall."};
+var key='labina-brick',today=new Date().toISOString().slice(0,10),mine=null;
+try{mine=JSON.parse(localStorage.getItem(key)||'null')}catch(e){}
+var fresh=!(mine&&mine.d===today);
+fetch('https://count.labina.app/'+(fresh?'hit':''),{method:fresh?'POST':'GET',cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+  var n=j&&j.visits;if(typeof n!=='number'||n<1)return;
+  if(fresh){mine={d:today,n:n};try{localStorage.setItem(key,JSON.stringify(mine))}catch(e){}}
+  var fmt=new Intl.NumberFormat(sec.getAttribute('data-locale'),{useGrouping:false});
+  var digits=fmt.format(n).split('');
+  var box=sec.querySelector('.vw-bricks');box.innerHTML='';
+  digits.forEach(function(d,i){var b=document.createElement('span');b.className='vw-b'+(i===digits.length-1?' lit':'');b.textContent=d;b.style.setProperty('--i',i);box.appendChild(b)});
+  var g=new Intl.NumberFormat(sec.getAttribute('data-locale')).format(n);
+  if(fresh){sec.querySelector('.vw-lead').textContent=L.you;sec.querySelector('.vw-num').textContent=g;sec.querySelector('.vw-tail').textContent=''}
+  else{sec.querySelector('.vw-lead').textContent=L.back;sec.querySelector('.vw-num').textContent=g;sec.querySelector('.vw-tail').textContent=L.back2}
+  sec.hidden=false;
+  if(fresh&&!matchMedia('(prefers-reduced-motion: reduce)').matches)sec.classList.add('laying');
+}).catch(function(){});
+})();
+</script>
 <section class="section" aria-labelledby="contact-h"><div class="wrap">
   <h2 id="contact-h">Contact</h2>
   <p class="sub">A question, a mistake you spotted, or an idea for a future work? We usually reply within two working days.</p>

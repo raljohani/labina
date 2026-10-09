@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/labina-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=e610c893">
+<link rel="stylesheet" href="style.css?v=f3ef7bef">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
@@ -104,6 +104,40 @@
   </div>
 </div></section>
 
+
+<section class="section vwall" id="visitors" hidden aria-labelledby="vw-h" data-locale="ar-SA"><div class="wrap">
+  <div class="vw-grid">
+    <div class="vw-bricks" role="img" aria-label="عدد زوار المعرض"></div>
+    <div class="vw-text">
+      <p class="vw-kicker">جدار الزوار</p>
+      <h2 id="vw-h" class="vw-title"><span class="vw-lead"></span> <span class="vw-num"></span></h2>
+      <p class="vw-tail"></p>
+      <p class="vw-body">كل زائر يضع لبنة في جدار المعرض. لا نعرف من أنت ولا من أين جئت؛ نحسب اللبنات فقط.</p>
+    </div>
+  </div>
+</div></section>
+<script>
+(function(){
+var sec=document.getElementById('visitors');if(!sec||!window.fetch)return;
+var L={you:"\u0623\u0646\u062a \u0627\u0644\u0644\u0628\u0646\u0629 \u0631\u0642\u0645",back:"\u0632\u0627\u0631 \u0627\u0644\u0645\u0639\u0631\u0636",back2:"\u0632\u0627\u0626\u0631\u064b\u0627\u060c \u0648\u0644\u0628\u0646\u062a\u0643 \u0641\u064a \u0627\u0644\u062c\u062f\u0627\u0631 \u0645\u0646 \u0642\u0628\u0644."};
+var key='labina-brick',today=new Date().toISOString().slice(0,10),mine=null;
+try{mine=JSON.parse(localStorage.getItem(key)||'null')}catch(e){}
+var fresh=!(mine&&mine.d===today);
+fetch('https://count.labina.app/'+(fresh?'hit':''),{method:fresh?'POST':'GET',cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+  var n=j&&j.visits;if(typeof n!=='number'||n<1)return;
+  if(fresh){mine={d:today,n:n};try{localStorage.setItem(key,JSON.stringify(mine))}catch(e){}}
+  var fmt=new Intl.NumberFormat(sec.getAttribute('data-locale'),{useGrouping:false});
+  var digits=fmt.format(n).split('');
+  var box=sec.querySelector('.vw-bricks');box.innerHTML='';
+  digits.forEach(function(d,i){var b=document.createElement('span');b.className='vw-b'+(i===digits.length-1?' lit':'');b.textContent=d;b.style.setProperty('--i',i);box.appendChild(b)});
+  var g=new Intl.NumberFormat(sec.getAttribute('data-locale')).format(n);
+  if(fresh){sec.querySelector('.vw-lead').textContent=L.you;sec.querySelector('.vw-num').textContent=g;sec.querySelector('.vw-tail').textContent=''}
+  else{sec.querySelector('.vw-lead').textContent=L.back;sec.querySelector('.vw-num').textContent=g;sec.querySelector('.vw-tail').textContent=L.back2}
+  sec.hidden=false;
+  if(fresh&&!matchMedia('(prefers-reduced-motion: reduce)').matches)sec.classList.add('laying');
+}).catch(function(){});
+})();
+</script>
 <section class="section" aria-labelledby="contact-h"><div class="wrap">
   <h2 id="contact-h">تواصل</h2>
   <p class="sub">سؤال، أو خطأ وجدته، أو فكرة لعمل قادم؟ نرد عادة خلال يومي عمل.</p>
