@@ -78,15 +78,17 @@ APPS_EN = {
    meta='For iPhone and iPad, coming soon to Google Play',
    about=['An Arabic budgeting app. Paste a bank message and Mizan logs the expense for you, then tells you how much you can spend today.'],
    features=['Reads bank messages, statements (PDF and CSV) and receipt photos on your device.',
-             'Learns merchant categories from your decisions, and you can edit what it learned.',
-             'Tracks your budgets, goals, debts and zakat.',
+             'Correct a merchant\'s category once and it becomes a rule you can see and edit any time.',
+             'Tracks your budgets, goals and commitments, from instalments and loans to savings circles, plus your zakat.',
+             'Ask your ledger the way you think, like "restaurants this month", and export what you see to Excel.',
              'Your financial data never leaves your device; optional iCloud sync goes to your own account.'],
    caps=['What you can spend today', 'From bank message to expense', 'Budget caps', 'Zakat by nisab and hawl', 'Widgets']),
  'sana': dict(no='2', name='Sana', tag='The Beautiful Names of Allah: their meaning, evidence and your share.',
    meta='For iPhone, iPad and Apple Watch, coming soon to Google Play',
    about=['An app about the 99 Names of Allah that helps you know your Lord through His names: the meaning of each name, its evidence, and what it asks of you today.'],
    features=['A sky of names to explore, which turns into an ordered list whenever you need it.',
-             'A tasbih counter in the Dynamic Island and on the Lock Screen, plus a Watch app.',
+             'A tasbih counter in the Dynamic Island, on the Lock Screen and in Control Center, plus a Watch app.',
+             '99 panels in Thuluth calligraphy; every quoted line carries its source, and verses follow the Madinah Mushaf.',
              'A daily name reminder, and widgets for the Home and Lock Screens.',
              'Works fully offline and collects no data about you.'],
    caps=['The sky of names', 'The name, written before you', 'Your share in practice', 'The mihrab card', 'Tasbih in the Dynamic Island']),
@@ -104,10 +106,10 @@ DOCNAMES_EN = {'support': ('Support', 'Contact us and FAQs'), 'privacy': ('Priva
 
 SUPPORT_EN = {
  'mizan': ('Found a bug, a bank message Mizan did not recognise, or have a suggestion? Write to us. If it is about a bank message, send its text after removing any account or card number.', [
-   ('Does Mizan read my messages?', 'On iPhone the app does not read your messages. You paste a bank message, or build your own Shortcuts automation that passes its text to Mizan. The message is processed on your device.'),
+   ('Does Mizan read my messages?', 'On iPhone the app does not read your messages. You paste a bank message, or build your own Shortcuts automation that passes its text to Mizan (automatic logging is a Mizan Pro feature). The message is processed on your device.'),
    ('How do I move my data to a new device?', 'On iPhone, turn on iCloud sync in Settings and your data appears on your devices. Or create a backup in Settings, save the file, and open it on the new device.'),
    ('How do I cancel Mizan Pro?', 'iPhone Settings → your name → Subscriptions → Mizan → Cancel Subscription.'),
-   ('How do I delete my data?', 'Settings → Backup → Delete all data. If iCloud sync is on, also remove the app\'s data from iCloud in your device settings.'),
+   ('How do I delete my data?', 'Settings → Danger zone → Delete all data. If iCloud sync is on, also remove the app\'s data from iCloud in your device settings.'),
    ('How do I request a refund?', 'Refunds are handled by Apple. Request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> with your Apple Account.')]),
  'sana': ('Found a mistake in the content, or have a question or suggestion? Write to us and we will reply soon. In the app, Settings → "Report a content error" opens a ready email with the app and content versions.', [
    ('The daily name reminder does not arrive', 'Turn the reminder on in Settings → Notifications, and make sure notifications for Sana are allowed in your device settings.'),

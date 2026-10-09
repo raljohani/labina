@@ -47,8 +47,9 @@ APPS = {
    store='https://apps.apple.com/app/id6808957329',
    about=['تطبيق ميزانية عربي. تلصق رسالة البنك فيسجّل المصروف بنفسه، ويقول لك كم تقدر تصرف اليوم.',],
    features=['يقرأ رسائل البنك وكشوف الحساب (PDF وCSV) وصور الفواتير على جهازك.',
-             'يتعلّم تصنيف التجّار من قراراتك، وتعدّل ما تعلّمه متى شئت.',
-             'يتابع ميزانياتك وأهدافك وديونك وزكاتك.',
+             'تصحيحك لتصنيف تاجر يصير قاعدة، تراها وتعدّلها متى شئت.',
+             'يتابع ميزانياتك وأهدافك والتزاماتك من أقساط وقروض وجمعيات، وزكاتك.',
+             'اسأل دفترك كما تفكّر: «مطاعم هذا الشهر»، وصدّر ما تراه ملف إكسل.',
              'بياناتك المالية لا تغادر جهازك، ومزامنة iCloud اختيارية تذهب إلى حسابك أنت.'],
    shots=[('mizan-02-today','كم تقدر تصرف اليوم'),('mizan-01-sms','من رسالة البنك إلى مصروف'),
           ('mizan-04-budgets','سقوف الميزانية'),('mizan-07-zakat','الزكاة بالنصاب والحول'),('mizan-09-widgets','الودجتات')],
@@ -60,7 +61,8 @@ APPS = {
    store='https://apps.apple.com/app/id6812705355',
    about=['تطبيق لأسماء الله الحسنى يعرّفك بربك من خلال أسمائه: معنى كل اسم، وشواهده، ونصيبك منه عملًا في يومك.'],
    features=['سماء من الأسماء تتنقل فيها، وتتحول إلى قائمة مرتبة متى احتجت.',
-             'سبحة تظهر في الجزيرة الديناميكية وشاشة القفل، وتطبيق للساعة.',
+             'سبحة تظهر في الجزيرة الديناميكية وشاشة القفل ومركز التحكّم، وتطبيق للساعة.',
+             'تسع وتسعون لوحة بخط الثلث، وكل سطر منقول تحته عزوه، والآيات برسم مصحف المدينة.',
              'تذكير باسم اليوم، وأدوات للشاشة الرئيسية وشاشة القفل.',
              'يعمل كاملًا دون إنترنت، ولا يجمع عنك أي بيانات.'],
    shots=[('sana-01-sky','سماء الأسماء'),('sana-03-name','الاسم يُكتب أمامك'),('sana-05-amal','نصيبك من الاسم عملًا'),
@@ -405,10 +407,10 @@ def documents():
 <p>وجدت خللًا، أو رسالة بنك ما تعرّف عليها ميزان، أو عندك اقتراح؟ راسلنا. وإذا كانت المشكلة مع رسالة بنك، أرسل نصها بعد حذف أي رقم حساب أو بطاقة منه.</p>
 {contact_box('دعم ميزان')}
 <h2>أسئلة شائعة</h2>
-<details><summary>هل يقرأ ميزان رسائلي؟</summary><p>على آيفون لا يقرأ التطبيق رسائلك. أنت تلصق رسالة البنك، أو تنشئ بنفسك أتمتة في تطبيق «الاختصارات» تمرّر نصها إلى ميزان. وتُعالج الرسالة على جهازك.</p></details>
+<details><summary>هل يقرأ ميزان رسائلي؟</summary><p>على آيفون لا يقرأ التطبيق رسائلك. أنت تلصق رسالة البنك، أو تنشئ بنفسك أتمتة في تطبيق «الاختصارات» تمرّر نصها إلى ميزان (التسجيل التلقائي من مزايا ميزان برو). وتُعالج الرسالة على جهازك.</p></details>
 <details><summary>كيف أنقل بياناتي إلى جهاز جديد؟</summary><p>على آيفون فعّل مزامنة iCloud من الإعدادات فتظهر بياناتك على أجهزتك. أو أنشئ نسخة احتياطية من الإعدادات واحفظ الملف، ثم افتحه على الجهاز الجديد.</p></details>
 <details><summary>كيف ألغي اشتراك ميزان برو؟</summary><p>من إعدادات الآيفون ← اسمك ← الاشتراكات ← ميزان ← إلغاء الاشتراك.</p></details>
-<details><summary>كيف أحذف بياناتي؟</summary><p>الإعدادات ← النسخ الاحتياطي ← حذف جميع البيانات. وإن كانت مزامنة iCloud مفعّلة فاحذف بيانات التطبيق من إعدادات iCloud في جهازك كذلك.</p></details>
+<details><summary>كيف أحذف بياناتي؟</summary><p>الإعدادات ← منطقة الخطر ← حذف جميع البيانات. وإن كانت مزامنة iCloud مفعّلة فاحذف بيانات التطبيق من إعدادات iCloud في جهازك كذلك.</p></details>
 <details><summary>كيف أطلب استرجاع مبلغ؟</summary><p>الاسترجاع تديره Apple. اطلبه من <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> بحسابك في Apple.</p></details>''',
             'الدعم والأسئلة الشائعة لتطبيق ميزان.')
     s = read('mizan-privacy/index.html')
@@ -536,7 +538,7 @@ def en_home():
   <p class="lede">Labina is a small studio making Arabic apps for iPhone and Android. Three works are on show today, and the wall has room for more.</p>
   <div class="hall">{works}
   </div>
-  <div class="bricks" aria-label="Move between works">{''.join(f'<button type="button" data-i="{i}" aria-label="Work {e['no']}: {e['name']}"></button>' for i, e in enumerate(APPS_EN.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
+  <div class="bricks" aria-label="Move between works">{''.join(f'<button type="button" data-i="{i}" aria-label="Work {e["no"]}: {e["name"]}"></button>' for i, e in enumerate(APPS_EN.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
 </div></section>
 <section class="section" aria-labelledby="cat-h"><div class="wrap">
   <h2 id="cat-h">Gallery guide</h2>
@@ -744,7 +746,8 @@ def press(lang):
         about = (e['about'] if en else a['about'])[0]
         meta = e['meta'] if en else a['meta']
         pdir = os.path.join(PRESS, k)
-        shots = sorted(f for f in os.listdir(pdir) if 'icon' not in f)
+        files = os.listdir(pdir)  # pair each press file with its shot by name, not by sort order
+        shots = [f for sh, _ in a['shots'] for f in files if os.path.splitext(f)[0] == sh]
         thumbs = ''
         if shots:
             caps = e['caps'] if en else [c for _, c in a['shots']]
