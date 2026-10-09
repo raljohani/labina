@@ -99,7 +99,7 @@ APPS_EN = {
              'Site photos, invoices and documents in one place.',
              'Log an expense by voice, with reminders for appointments and payments.',
              'Your data stays on your device and in your own iCloud.'],
-   caps=[]),
+   caps=['Every riyal recorded', 'Before you pay', 'The contractor\'s account', 'The house wall', 'Reading the invoice']),
 }
 DOCNAMES_EN = {'support': ('Support', 'Contact us and FAQs'), 'privacy': ('Privacy Policy', 'What the app collects, and does not'),
                'terms': ('Terms of Use', 'License and subscriptions'), 'accessibility': ('Accessibility', 'What the app supports today')}

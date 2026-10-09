@@ -78,9 +78,9 @@ APPS = {
              'صور الموقع والفواتير والمستندات في مكان واحد.',
              'تسجيل المصروف بصوتك، وتذكير بالمواعيد والدفعات.',
              'بياناتك على جهازك وفي حسابك الخاص على iCloud.'],
-   shots=[('midmak-j10-house-hub','البيت'),('midmak-j09-wall-full','جدار البيت ومراحله'),
-          ('midmak-j02-money-hub','الفلوس'),('midmak-j07-papers-hub','الأوراق')],
-   phone=True, docs=['support','privacy','terms'], subs=True),
+   shots=[('midmak-01-home','كل ريال مسجّل'),('midmak-02-pay','قبل ما تدفع'),('midmak-03-contractor','حساب المقاول'),
+          ('midmak-04-wall','جدار البيت'),('midmak-05-scan','قراءة الفاتورة')],
+   phone=False, docs=['support','privacy','terms'], subs=True),
 }
 DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائعة'),
             'privacy': ('سياسة الخصوصية', 'ما يجمعه التطبيق، ولا يجمعه'),
@@ -325,7 +325,7 @@ def exhibit(k):
         <p class="tag">{a["tag"]}</p><p class="meta">{a["meta"]}</p>
         <div class="actions">{store}</div></div>
     </div>
-    {f'<div class="strip" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['store'] else soon_block('ar', k)}
+    {f'<div class="strip" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['shots'] else soon_block('ar', k)}
   </div>
 </section>
 <section class="reading"><div class="wrap narrow">
@@ -593,7 +593,7 @@ def en_exhibit(k):
     if k == 'mizan':
         video = ('<h2 class="h2" style="margin-top:44px">The work in motion</h2><video src="../../mizan/media/mizan.mp4" poster="../../mizan/media/cover.jpg" controls playsinline preload="none" '
                  'style="width:100%;max-width:260px;aspect-ratio:9/16;border-radius:18px;background:#000;margin-top:14px" aria-label="A short demo of Mizan"></video>')
-    show = f'<div class="strip" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['store'] else soon_block('en', k)
+    show = f'<div class="strip" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['shots'] else soon_block('en', k)
     body = f"""<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h"><div class="wrap">
   <p class="crumbs"><a href="../">Gallery</a> / {e['name']} room</p>
