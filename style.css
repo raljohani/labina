@@ -215,6 +215,9 @@ footer.site a:hover{color:var(--ink)}
   .frame{width:120px}
   .plaque{margin-top:0}
   .exhibit-head{grid-template-columns:1fr;gap:20px}
-  .strip{padding-inline:18px;margin-inline:-18px}
+  .strip{padding-inline:18px;margin-inline:-18px;gap:14px;scroll-padding-inline:18px}
+  .strip figure{flex-basis:58vw}
+  .exhibit-head .frame{width:110px}
+  .exhibit-head .label h1{font-size:40px}
   .teaser{padding:22px}
 }
