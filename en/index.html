@@ -21,7 +21,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/labina-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=0d4f4b92">
+<link rel="stylesheet" href="../style.css?v=52166ff2">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
@@ -51,6 +51,7 @@
       <span class="plaque"><span class="no">Work 3, 2026 <em class="pill">Soon</em></span><b>Midmak</b><span>The logbook for building your home, from excavation to keys.</span></span>
     </a>
   </div>
+  <div class="bricks" aria-label="Move between works"><button type="button" data-i="0" aria-label="Work 1: Mizan"></button><button type="button" data-i="1" aria-label="Work 2: Sana"></button><button type="button" data-i="2" aria-label="Work 3: Midmak"></button><span class="ghost-brick" aria-hidden="true"></span></div>
 </div></section>
 <section class="section" aria-labelledby="cat-h"><div class="wrap">
   <h2 id="cat-h">Gallery guide</h2>
@@ -103,8 +104,16 @@
 </main>
 <script>
 (function(){var h=document.querySelector('.gallery');if(!h)return;
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('lit');return}
-var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){h.classList.add('lit');o.disconnect()}},{threshold:.3});o.observe(h)})();
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(rm){h.classList.add('lit')}else{var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){h.classList.add('lit');o.disconnect()}},{threshold:.3});o.observe(h)}
+/* corridor (phones): light follows the work in front of you */
+var hall=h.querySelector('.hall'),works=[].slice.call(hall.querySelectorAll('.work')),dots=[].slice.call(h.querySelectorAll('.bricks button'));
+function set(i){works.forEach(function(w,j){w.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.classList.toggle('on',j===i);d.setAttribute('aria-current',j===i?'true':'false')})}
+set(0);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(works.indexOf(e.target))})},{root:hall,threshold:.6});
+works.forEach(function(w){io.observe(w)});
+dots.forEach(function(d,i){d.addEventListener('click',function(){works[i].scrollIntoView({behavior:rm?'auto':'smooth',inline:'center',block:'nearest'})})});
+})();
 </script>
 <footer class="site" id="contact"><div class="wrap">
   <div class="sig"><svg class="wm" viewBox="0 0 130 70" role="img" aria-label="لبنة"><rect class="ink" x="0.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="0.8" y="30.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="0.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="lamp" x="10.8" y="0.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="10.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="10.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="lamp" x="20.8" y="0.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="20.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="20.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="30.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="30.8" y="30.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="30.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="40.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="50.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="lamp" x="60.8" y="0.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="60.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="60.8" y="30.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="60.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="70.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="80.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="90.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="90.8" y="30.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="90.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="lamp" x="90.8" y="60.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="100.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="110.8" y="40.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="120.8" y="0.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="120.8" y="10.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="120.8" y="20.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="120.8" y="30.8" width="8.5" height="8.5" rx="0.6"/><rect class="ink" x="120.8" y="40.8" width="8.5" height="8.5" rx="0.6"/></svg></div>
