@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ميزان — فلوسك، بميزان</title>
+<meta property="og:title" content="ميزان — فلوسك، بميزان">
+<meta property="og:description" content="تطبيق ميزانية عربي: الصق رسالة البنك، واعرف كم تقدر تصرف اليوم.">
+<meta property="og:image" content="cover.jpg">
+<meta property="og:video" content="mizan.mp4">
+<style>
+  :root { --bg: #F1F1EC; --ink: #14181C; --ink3: #676E75; --riyal: #0B6B4F; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0E1216; --ink: #EDEFF1; --ink3: #838B94; --riyal: #2E9B77; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); min-height: 100vh;
+         font-family: -apple-system, "SF Arabic", "Segoe UI", Tahoma, sans-serif;
+         display: flex; flex-direction: column; align-items: center; padding: 32px 16px; gap: 20px; }
+  h1 { margin: 0; font-size: 28px; }
+  p { margin: 0; color: var(--ink3); text-align: center; line-height: 1.6; }
+  video { width: 100%; max-width: 380px; aspect-ratio: 9 / 16; border-radius: 22px; background: #000;
+          box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+  a { color: var(--riyal); font-weight: 700; text-decoration: none; }
+  small { color: var(--ink3); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>ميزان</h1>
+  <p>فلوسك، بميزان — الصق رسالة البنك، واعرف كم تقدر تصرف اليوم.</p>
+  <video src="mizan.mp4" poster="cover.jpg" controls playsinline preload="metadata"></video>
+  <a href="../">الخصوصية</a>
+  <small>Apple وشعار Apple وApp Store علاماتٌ تجارية لشركة Apple Inc</small>
+</body>
+</html>
