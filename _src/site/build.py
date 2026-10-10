@@ -71,7 +71,7 @@ APPS = {
  'midmak': dict(
    no='٣', name='مدماك', latin='Midmak', year='٢٠٢٦',
    tag='دفتر بناء بيتك، من الحفر إلى المفتاح.',
-   meta='تطبيق لآيفون وآيباد، قريبًا على App Store', play=False,
+   meta='تطبيق لآيفون وآيباد، في التجربة على TestFlight، وقريبًا على App Store', play=False, beta=True,
    store=None,
    about=['تطبيق آيفون وآيباد للمالك الذي يبني بيته بنفسه: كل ريال مسجّل، وكل اتفاق محفوظ، وحقك واضح، من الحفر إلى المفتاح.'],
    features=['المصروفات والمقاولون والعمالة اليومية في دفتر واحد.',
@@ -86,6 +86,14 @@ DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائع
             'privacy': ('سياسة الخصوصية', 'ما يجمعه التطبيق، ولا يجمعه'),
             'terms': ('شروط الاستخدام', 'اتفاقية الاستخدام والاشتراكات'),
             'accessibility': ('إمكانية الوصول', 'ما يدعمه التطبيق اليوم')}
+
+def notice(a, en=False):
+    """the pill on a work: TestFlight before launch, Android soon while Google Play is pending"""
+    if a.get('beta'): t = 'TestFlight'
+    elif not a['store']: t = 'Soon' if en else 'قريبًا'
+    elif a.get('play') is None: t = 'Android soon' if en else 'قريبًا على أندرويد'
+    else: return ''
+    return f' <em class="pill">{t}</em>'
 
 def read(p): return open(os.path.join(SRC, p), encoding='utf-8').read()
 def mailto(subject): return f'mailto:{EMAIL}?subject={quote(subject)}'
@@ -223,7 +231,7 @@ def home():
     <a class="work" href="{k}/" style="--app-lit:var(--{k}-lit)">
       <i class="cone" aria-hidden="true"><i class="beam"></i></i><i class="lamp" aria-hidden="true"></i>
       {frame(k, '', alt=False)}
-      <span class="plaque"><span class="no">العمل {a["no"]}، {a["year"]}{' <em class="pill">قريبًا</em>' if not a['store'] else ''}</span><b>{a["name"]}</b><span>{a["tag"]}</span></span>
+      <span class="plaque"><span class="no">العمل {a["no"]}، {a["year"]}{notice(a)}</span><b>{a["name"]}</b><span>{a["tag"]}</span></span>
     </a>''' for k, a in APPS.items())
     entries = ''
     for k, a in APPS.items():
@@ -235,7 +243,7 @@ def home():
       <article class="entry" style="--app:var(--{k});--app-lit:var(--{k}-lit)">
         {fan}
         <div>
-          <div class="label"><div class="no">العمل {a["no"]}، {a["year"]}</div><h3>{a["name"]}</h3><p class="meta">{a["meta"]}</p></div>
+          <div class="label"><div class="no">العمل {a["no"]}، {a["year"]}{notice(a)}</div><h3>{a["name"]}</h3><p class="meta">{a["meta"]}</p></div>
           <p>{a["about"][0]}</p>
           <div class="actions"><a class="btn" href="{k}/">ادخل قاعة {a["name"]}</a>{store}</div>
         </div>
@@ -515,7 +523,7 @@ def en_home():
     <a class="work" href="{k}/" style="--app-lit:var(--{k}-lit)">
       <i class="cone" aria-hidden="true"><i class="beam"></i></i><i class="lamp" aria-hidden="true"></i>
       <div class="frame"><img src="{rel}assets/{k}-icon.webp" width="512" height="512" alt=""></div>
-      <span class="plaque"><span class="no">Work {e['no']}, 2026{' <em class="pill">Soon</em>' if not APPS[k]['store'] else ''}</span><b>{e['name']}</b><span>{e['tag']}</span></span>
+      <span class="plaque"><span class="no">Work {e['no']}, 2026{notice(APPS[k], en=True)}</span><b>{e['name']}</b><span>{e['tag']}</span></span>
     </a>""" for k, e in APPS_EN.items())
     entries = ''
     for k, e in APPS_EN.items():
@@ -527,7 +535,7 @@ def en_home():
       <article class="entry" style="--app:var(--{k});--app-lit:var(--{k}-lit)">
         {fan}
         <div>
-          <div class="label"><div class="no">Work {e['no']}, 2026</div><h3>{e['name']}</h3><p class="meta">{e['meta']}</p></div>
+          <div class="label"><div class="no">Work {e['no']}, 2026{notice(a, en=True)}</div><h3>{e['name']}</h3><p class="meta">{e['meta']}</p></div>
           <p>{e['about'][0]}</p>
           <div class="actions"><a class="btn" href="{k}/">Enter the {e['name']} room</a>{store}</div>
         </div>

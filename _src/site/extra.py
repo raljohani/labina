@@ -93,7 +93,7 @@ APPS_EN = {
              'Works fully offline and collects no data about you.'],
    caps=['The sky of names', 'The name, written before you', 'Your share in practice', 'The mihrab card', 'Tasbih in the Dynamic Island']),
  'midmak': dict(no='3', name='Midmak', tag='The logbook for building your home, from excavation to keys.',
-   meta='For iPhone and iPad, coming soon to the App Store',
+   meta='For iPhone and iPad, in testing on TestFlight, coming soon to the App Store',
    about=['An iPhone and iPad app for owners building their own home: every riyal recorded, every agreement kept, and your rights clear, from excavation to handing over the keys.'],
    features=['Expenses, contractors and daily labour in one logbook.',
              'Site photos, invoices and documents in one place.',
