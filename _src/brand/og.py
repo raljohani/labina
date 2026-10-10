@@ -25,9 +25,9 @@ def app_html(k):
 <div style="font-size:36px;line-height:1.6;color:#ECEDEA">{t}</div></div>
 <div style="position:absolute;right:90px;bottom:56px;display:flex;align-items:center;gap:22px;direction:ltr"><span style="font-family:-apple-system,Helvetica,Arial;font-size:24px;color:#A3ABA8">labina.app</span><div style="width:104px">{wl}</div></div>'''
 home=base+f'''<div style="position:absolute;inset:0;background:radial-gradient(ellipse 40% 70% at 80% 0,#EDB23026,transparent 70%)"></div>
-<div style="position:absolute;right:110px;top:64px;width:440px">{wl}</div>
+<div style="position:absolute;right:110px;top:36px;width:330px">{wl}</div>
 <div dir="rtl" style="position:absolute;right:110px;bottom:90px;width:900px">
-<div style="font-family:'Noto Kufi Arabic';font-weight:700;font-size:58px;line-height:1.35">كل تطبيق قطعة، وهذا معرضها.</div>
+<div style="font-family:'Noto Kufi Arabic';font-weight:700;font-size:54px;line-height:1.35;white-space:nowrap">كل تطبيق قطعة، وهذا معرضها.</div>
 <div style="font-size:30px;color:#A3ABA8;margin-top:6px">معرض تطبيقات لبنة: ميزان، سنا، مدماك</div></div>
 <div style="position:absolute;left:110px;bottom:96px;font-family:-apple-system,Helvetica,Arial;font-size:26px;color:#A3ABA8">labina.app</div>'''
 async def main():

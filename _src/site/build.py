@@ -36,7 +36,7 @@ def _cells(cells, gold, cls_ink='ink', cls_lamp='lamp'):
     return ''.join(f'<rect class="{cls_lamp if p in gold else cls_ink}" x="{p[0]*U+G/2:.1f}" y="{p[1]*U+G/2:.1f}" width="{U-G:.1f}" height="{U-G:.1f}" rx="{R}"/>' for p in sorted(cells | gold))
 MARK = (f'<svg class="mk" viewBox="0 0 30 30" aria-hidden="true">{_cells(_logo.MARK_C, _logo.MARK_G)}</svg>')
 _wc, _wd = _word(); _wc = {(x, y-1) for x, y in _wc}; _wd = {(x, y-1) for x, y in _wd}
-WORDMARK = f'<svg class="wm" viewBox="0 0 130 70" role="img" aria-label="لبنة">{_cells(_wc, _wd)}</svg>'
+WORDMARK = f'<svg class="wm" viewBox="{_logo.VB}" role="img" aria-label="لَبِنَة">{_cells(_wc, _wd)}{_logo.harakat(cls="hk")}</svg>'
 FAVICON = _logo.mark('#ECEDEA', '#EDB230', '#0E1110', pad=7)
 
 APPS = {
@@ -702,7 +702,7 @@ if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{
 PRESS_TXT = {
  'ar': dict(title='الملف الصحفي', crumb='المعرض', lede='كل ما تحتاجه للكتابة عن لبنة وأعمالها أو الإعلان عنها: الشعار، والأيقونات، واللقطات بدقتها الكاملة، ووصف جاهز لكل تطبيق. استعملها بحرية في المقالات والمراجعات والإعلانات.',
             about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت.',
-            logo_h='الشعار', logo_p='الشعار كلمة «لبنة» مبنية بالخط الكوفي المربّع، كل خلية فيها لبنة، ونقاطها بلون القنديل. والعلامة المختصرة حرف اللام واللبنة الأولى.',
+            logo_h='الشعار', logo_p='الشعار كلمة «لبنة» مبنية بالخط الكوفي المربّع، كل خلية فيها لبنة، ونقاطها بلون القنديل، وحركاتها لبنات مائلة لم تستقرّ بعد في الجدار. والعلامة المختصرة حرف اللام واللبنة الأولى.',
             on_light='على الفاتح', on_dark='على الداكن', icon='الأيقونة', mono='أحادي اللون',
             rules=['استعمل الملفات كما هي، ولا تكتب الاسم بخط آخر بدلها.', 'اترك حول الشعار مسافة خالية بعرض لبنة على الأقل.', 'لا تمدّ الشعار ولا تميّله ولا تغيّر ألوانه أو تضع عليه ظلًا.'],
             colors_h='الألوان', cn=('ليل', 'جصّ', 'قنديل'),
@@ -711,7 +711,7 @@ PRESS_TXT = {
             contact_h='للتواصل الإعلامي', contact_p='لطلب مقابلة أو نسخة تجريبية أو مواد إضافية، راسلنا ونرد خلال يومي عمل.', subject='طلب إعلامي'),
  'en': dict(title='Press kit', crumb='Gallery', lede='Everything you need to write about Labina and its works, or to feature them: the logo, icons, full-resolution screenshots, and a ready description of each app. Use them freely in articles, reviews and promotions.',
             about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone and Android. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; and Midmak, for documenting the building of a home.',
-            logo_h='Logo', logo_p='The logo is the word لبنة (Labina, "a brick") built in square Kufic: every cell is a brick, and the dots glow in lantern amber. The mark is the letter lām with the first brick.',
+            logo_h='Logo', logo_p='The logo is the word لبنة (Labina, "a brick") built in square Kufic: every cell is a brick, the dots glow in lantern amber, and the vowel marks are slanted bricks still being laid. The mark is the letter lām with the first brick.',
             on_light='On light', on_dark='On dark', icon='Icon', mono='One colour',
             rules=['Use the files as they are; do not set the name in another typeface instead.', 'Leave clear space of at least one brick around the logo.', 'Do not stretch, tilt, recolour or add shadows to the logo.'],
             colors_h='Colours', cn=('Night', 'Gypsum', 'Lantern'),
@@ -729,10 +729,10 @@ def press(lang):
     def copyblock(text):
         return f'<div class="quote"><p>{text}</p><button class="copy" type="button" data-copy="{text}">{t["copy"]}</button></div>'
     logos = f"""<div class="kit-logos">
-  <figure class="kit-tile light"><img src="{F}labina/wordmark.svg" alt="" width="260" height="140"><figcaption>{t['on_light']} <a href="{F}labina/wordmark.svg" download>SVG</a> <a href="{F}labina/wordmark-2000.png" download>PNG</a></figcaption></figure>
-  <figure class="kit-tile dark"><img src="{F}labina/wordmark-light.svg" alt="" width="260" height="140"><figcaption>{t['on_dark']} <a href="{F}labina/wordmark-light.svg" download>SVG</a> <a href="{F}labina/wordmark-light-2000.png" download>PNG</a></figcaption></figure>
+  <figure class="kit-tile light"><img src="{F}labina/wordmark.svg" alt="" width="260" height="220"><figcaption>{t['on_light']} <a href="{F}labina/wordmark.svg" download>SVG</a> <a href="{F}labina/wordmark-2000.png" download>PNG</a></figcaption></figure>
+  <figure class="kit-tile dark"><img src="{F}labina/wordmark-light.svg" alt="" width="260" height="220"><figcaption>{t['on_dark']} <a href="{F}labina/wordmark-light.svg" download>SVG</a> <a href="{F}labina/wordmark-light-2000.png" download>PNG</a></figcaption></figure>
   <figure class="kit-tile light"><img src="{F}labina/mark-icon.svg" alt="" width="120" height="120" style="width:96px"><figcaption>{t['icon']} <a href="{F}labina/mark-icon.svg" download>SVG</a> <a href="{F}labina/labina-icon-1024.png" download>PNG</a></figcaption></figure>
-  <figure class="kit-tile light"><img src="{F}labina/wordmark-mono.svg" alt="" width="260" height="140"><figcaption>{t['mono']} <a href="{F}labina/wordmark-mono.svg" download>SVG</a> <a href="{F}labina/mark-mono.svg" download>{'العلامة' if not en else 'Mark'}</a></figcaption></figure>
+  <figure class="kit-tile light"><img src="{F}labina/wordmark-mono.svg" alt="" width="260" height="220"><figcaption>{t['mono']} <a href="{F}labina/wordmark-mono.svg" download>SVG</a> <a href="{F}labina/mark-mono.svg" download>{'العلامة' if not en else 'Mark'}</a></figcaption></figure>
 </div>
 <ul class="kit-rules">{''.join(f'<li>{r}</li>' for r in t['rules'])}</ul>
 <p><a class="btn line" href="{F}labina.zip" download>{t['all_logo']} (ZIP{'، ' if not en else ', '}{_size(os.path.join(PRESS, 'labina.zip'))})</a></p>"""

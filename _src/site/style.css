@@ -32,7 +32,7 @@ a{color:inherit}
 .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;padding-bottom:20px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--kufi);font-weight:700;font-size:21px;line-height:1}
 .brand .mk{width:24px;height:24px;flex:none}
-.mk .ink,.wm .ink{fill:currentColor}.mk .lamp,.wm .lamp{fill:var(--lantern)}
+.mk .ink,.wm .ink{fill:currentColor}.wm .hk{fill:currentColor;opacity:.62}.mk .lamp,.wm .lamp{fill:var(--lantern)}
 .sig{flex-basis:100%;margin-bottom:18px;color:var(--ink)}.sig .wm{width:120px;height:auto;display:block}
 .bar nav{display:flex;gap:22px;font-family:var(--kufi);font-size:14px}
 .bar nav a{text-decoration:none;opacity:.75}

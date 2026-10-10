@@ -10,3 +10,8 @@ def word():
     cells.add((0,4)); cells.add((3,4))
     dots={(9,7),(6,1),(1,1),(2,1)}                      # ب below, ن above, ة two above
     return cells,dots
+
+# لَبِنَة: the harakat are bricks still being laid, slanted like a fatha/kasra stroke.
+# (cx, cy) centres in cells, unshifted rows: fatha on ل and ن on one course above the word, kasra under the ب dot.
+HARAKAT=[(10.9,0.1),(6.5,0.1),(9.5,9.1)]
+HK_W,HK_H,HK_A,HK_O=1.7,0.6,-22,0.62   # size in cells, angle, opacity
