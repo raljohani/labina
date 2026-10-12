@@ -88,10 +88,9 @@ DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائع
             'accessibility': ('إمكانية الوصول', 'ما يدعمه التطبيق اليوم')}
 
 def notice(a, en=False):
-    """the pill on a work: TestFlight before launch, Android soon while Google Play is pending"""
+    """the pill on a work: TestFlight before launch"""
     if a.get('beta'): t = 'TestFlight'
     elif not a['store']: t = 'Soon' if en else 'قريبًا'
-    elif a.get('play') is None: t = 'Android soon' if en else 'قريبًا على أندرويد'
     else: return ''
     return f' <em class="pill">{t}</em>'
 
