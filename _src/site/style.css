@@ -238,7 +238,7 @@ html[lang="en"] .exhibit-head .label h1,html[lang="en"] .label h3{letter-spacing
 .bar nav a.lang:lang(ar){font-family:"Noto Kufi Arabic",sans-serif}
 
 /* ---------- coming soon: the wall under construction ---------- */
-.pill{font-style:normal;font-family:var(--kufi);font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;margin-inline-start:6px;background:var(--lantern);color:#0E1110;vertical-align:1px}
+.pill{display:inline-block;white-space:nowrap;line-height:1.6;font-style:normal;font-family:var(--kufi);font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;margin-inline-start:6px;background:var(--lantern);color:#0E1110;vertical-align:1px}
 .soon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:56px 0 72px}
 .soon-wall{max-width:420px;width:100%;justify-self:center}
 .wall{width:100%;height:auto;overflow:visible}
