@@ -22,7 +22,7 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/labina-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=628d8c12">
+<link rel="stylesheet" href="../../style.css?v=27741642">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body style="--app:var(--mizan);--app-lit:var(--mizan-lit)">
@@ -40,12 +40,22 @@
   </div>
   <div class="strip" tabindex="0" aria-label="Screens from Mizan"><figure><img src="../../assets/mizan-02-today.webp" alt="What you can spend today" loading="lazy" width="660" height="1434"><figcaption>What you can spend today</figcaption></figure><figure><img src="../../assets/mizan-01-sms.webp" alt="From bank message to expense" loading="lazy" width="660" height="1434"><figcaption>From bank message to expense</figcaption></figure><figure><img src="../../assets/mizan-04-budgets.webp" alt="Budget caps" loading="lazy" width="660" height="1434"><figcaption>Budget caps</figcaption></figure><figure><img src="../../assets/mizan-07-zakat.webp" alt="Zakat by nisab and hawl" loading="lazy" width="660" height="1434"><figcaption>Zakat by nisab and hawl</figcaption></figure><figure><img src="../../assets/mizan-09-widgets.webp" alt="Widgets" loading="lazy" width="660" height="1434"><figcaption>Widgets</figcaption></figure></div>
 </div></section>
+<section class="film dark" id="film" aria-labelledby="film-h"><div class="wrap film-in">
+  <div class="film-text"><p class="kicker">The film</p><h2 id="film-h">It is the 27th. Where did the money go?</h2><p>Mizan in thirty seconds: from a bank message to what you can spend today.</p>
+    <p class="film-dur">With sound, 0:30</p></div>
+  <div class="film-stage"><i class="film-lamp" aria-hidden="true"></i>
+    <div class="film-screen"><video src="../../mizan/media/film.mp4" poster="../../mizan/media/cover.jpg" controls playsinline preload="none" aria-label="Mizan promo film"></video>
+      <button type="button" class="film-play" hidden><span>Play the film</span></button></div></div>
+</div></section>
+<script>(function(){var s=document.querySelector('.film-screen'),v=s.querySelector('video'),b=s.querySelector('.film-play');
+v.removeAttribute('controls');b.hidden=false;
+b.addEventListener('click',function(){b.hidden=true;v.controls=true;v.play();});
+v.addEventListener('ended',function(){v.controls=false;b.hidden=false;v.load();});})();</script>
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">About the work</h2>
   <p>An Arabic budgeting app. Paste a bank message and Mizan logs the expense for you, then tells you how much you can spend today.</p>
   <ul><li>Reads bank messages, statements (PDF and CSV) and receipt photos on your device.</li><li>Correct a merchant's category once and it becomes a rule you can see and edit any time.</li><li>Tracks your budgets, goals and commitments, from instalments and loans to savings circles, plus your zakat.</li><li>Ask your ledger the way you think, like "restaurants this month", and export what you see to Excel.</li><li>Your financial data never leaves your device; optional iCloud sync goes to your own account.</li></ul>
   <section class="pcard" aria-label="Privacy label"><div class="pc-head"><b>Privacy label</b><a href="privacy/">Read the full policy</a></div><div class="pc-grid"><div class="pc-cell"><span>Data collected</span><b>None of your financial data</b></div><div class="pc-cell"><span>Account</span><b>None</b></div><div class="pc-cell"><span>Ads & tracking</span><b>None</b></div><div class="pc-cell"><span>Stored</span><b>On your device; iCloud optional</b></div></div><p class="pc-note">On Android, Google's ML Kit library sends technical diagnostics that never include your data.</p></section>
-  <h2 class="h2" style="margin-top:44px">The work in motion</h2><video src="../../mizan/media/mizan.mp4" poster="../../mizan/media/cover.jpg" controls playsinline preload="none" style="width:100%;max-width:260px;aspect-ratio:9/16;border-radius:18px;background:#000;margin-top:14px" aria-label="A short demo of Mizan"></video>
   <h2 class="h2" style="margin-top:44px">Mizan documents</h2>
   <div class="docs-grid"><a class="doc" href="support/"><b>Support</b><span>Contact us and FAQs</span></a><a class="doc" href="privacy/"><b>Privacy Policy</b><span>What the app collects, and does not</span></a><a class="doc" href="terms/"><b>Terms of Use</b><span>License and subscriptions</span></a></div>
 </div></section>

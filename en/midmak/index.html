@@ -21,7 +21,7 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/labina-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=628d8c12">
+<link rel="stylesheet" href="../../style.css?v=27741642">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body style="--app:var(--midmak);--app-lit:var(--midmak-lit)">
@@ -39,12 +39,22 @@
   </div>
   <div class="strip" tabindex="0" aria-label="Screens from Midmak"><figure><img src="../../assets/midmak-01-home.webp" alt="Every riyal recorded" loading="lazy" width="660" height="1434"><figcaption>Every riyal recorded</figcaption></figure><figure><img src="../../assets/midmak-02-pay.webp" alt="Before you pay" loading="lazy" width="660" height="1434"><figcaption>Before you pay</figcaption></figure><figure><img src="../../assets/midmak-03-contractor.webp" alt="The contractor's account" loading="lazy" width="660" height="1434"><figcaption>The contractor's account</figcaption></figure><figure><img src="../../assets/midmak-04-wall.webp" alt="The house wall" loading="lazy" width="660" height="1434"><figcaption>The house wall</figcaption></figure><figure><img src="../../assets/midmak-05-scan.webp" alt="Reading the invoice" loading="lazy" width="660" height="1434"><figcaption>Reading the invoice</figcaption></figure></div>
 </div></section>
+<section class="film dark" id="film" aria-labelledby="film-h"><div class="wrap film-in">
+  <div class="film-text"><p class="kicker">The film</p><h2 id="film-h">The house is rising. Where is the money going?</h2><p>Midmak in thirty-eight seconds: every riyal recorded, every agreement kept, from excavation to keys.</p>
+    <p class="film-dur">With sound, 0:38</p></div>
+  <div class="film-stage"><i class="film-lamp" aria-hidden="true"></i>
+    <div class="film-screen"><video src="../../midmak/media/film.mp4" poster="../../midmak/media/cover.jpg" controls playsinline preload="none" aria-label="Midmak promo film"></video>
+      <button type="button" class="film-play" hidden><span>Play the film</span></button></div></div>
+</div></section>
+<script>(function(){var s=document.querySelector('.film-screen'),v=s.querySelector('video'),b=s.querySelector('.film-play');
+v.removeAttribute('controls');b.hidden=false;
+b.addEventListener('click',function(){b.hidden=true;v.controls=true;v.play();});
+v.addEventListener('ended',function(){v.controls=false;b.hidden=false;v.load();});})();</script>
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">About the work</h2>
   <p>An iPhone and iPad app for owners building their own home: every riyal recorded, every agreement kept, and your rights clear, from excavation to handing over the keys.</p>
   <ul><li>Expenses, contractors and daily labour in one logbook.</li><li>Site photos, invoices and documents in one place.</li><li>Log an expense by voice, with reminders for appointments and payments.</li><li>Your data stays on your device and in your own iCloud.</li></ul>
   <section class="pcard" aria-label="Privacy label"><div class="pc-head"><b>Privacy label</b><a href="privacy/">Read the full policy</a></div><div class="pc-grid"><div class="pc-cell"><span>Data collected</span><b>None</b></div><div class="pc-cell"><span>Account</span><b>None</b></div><div class="pc-cell"><span>Ads & tracking</span><b>None</b></div><div class="pc-cell"><span>Stored</span><b>On your device and your own iCloud</b></div></div></section>
-  
   <h2 class="h2" style="margin-top:44px">Midmak documents</h2>
   <div class="docs-grid"><a class="doc" href="support/"><b>Support</b><span>Contact us and FAQs</span></a><a class="doc" href="privacy/"><b>Privacy Policy</b><span>What the app collects, and does not</span></a><a class="doc" href="terms/"><b>Terms of Use</b><span>License and subscriptions</span></a></div>
 </div></section>

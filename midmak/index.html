@@ -21,7 +21,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/labina-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=628d8c12">
+<link rel="stylesheet" href="../style.css?v=27741642">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body style="--app:var(--midmak);--app-lit:var(--midmak-lit)">
@@ -43,12 +43,22 @@
     <div class="strip" tabindex="0" aria-label="لقطات من مدماك"><figure><img src="../assets/midmak-01-home.webp" alt="كل ريال مسجّل" loading="lazy" width="660" height="1434"><figcaption>كل ريال مسجّل</figcaption></figure><figure><img src="../assets/midmak-02-pay.webp" alt="قبل ما تدفع" loading="lazy" width="660" height="1434"><figcaption>قبل ما تدفع</figcaption></figure><figure><img src="../assets/midmak-03-contractor.webp" alt="حساب المقاول" loading="lazy" width="660" height="1434"><figcaption>حساب المقاول</figcaption></figure><figure><img src="../assets/midmak-04-wall.webp" alt="جدار البيت" loading="lazy" width="660" height="1434"><figcaption>جدار البيت</figcaption></figure><figure><img src="../assets/midmak-05-scan.webp" alt="قراءة الفاتورة" loading="lazy" width="660" height="1434"><figcaption>قراءة الفاتورة</figcaption></figure></div>
   </div>
 </section>
+<section class="film dark" id="film" aria-labelledby="film-h"><div class="wrap film-in">
+  <div class="film-text"><p class="kicker">العرض</p><h2 id="film-h">بيتك يرتفع… وفلوسك وين؟</h2><p>مدماك في ثمانٍ وثلاثين ثانية: كل ريال مسجّل، وكل اتفاق محفوظ، من الحفر إلى المفتاح.</p>
+    <p class="film-dur">بالصوت، ومدته <bdi dir="ltr">٠:٣٨</bdi></p></div>
+  <div class="film-stage"><i class="film-lamp" aria-hidden="true"></i>
+    <div class="film-screen"><video src="media/film.mp4" poster="media/cover.jpg" controls playsinline preload="none" aria-label="العرض الترويجي لتطبيق مدماك"></video>
+      <button type="button" class="film-play" hidden><span>شغّل العرض</span></button></div></div>
+</div></section>
+<script>(function(){var s=document.querySelector('.film-screen'),v=s.querySelector('video'),b=s.querySelector('.film-play');
+v.removeAttribute('controls');b.hidden=false;
+b.addEventListener('click',function(){b.hidden=true;v.controls=true;v.play();});
+v.addEventListener('ended',function(){v.controls=false;b.hidden=false;v.load();});})();</script>
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">عن العمل</h2>
   <p>تطبيق آيفون وآيباد للمالك الذي يبني بيته بنفسه: كل ريال مسجّل، وكل اتفاق محفوظ، وحقك واضح، من الحفر إلى المفتاح.</p>
   <ul><li>المصروفات والمقاولون والعمالة اليومية في دفتر واحد.</li><li>صور الموقع والفواتير والمستندات في مكان واحد.</li><li>تسجيل المصروف بصوتك، وتذكير بالمواعيد والدفعات.</li><li>بياناتك على جهازك وفي حسابك الخاص على iCloud.</li></ul>
   <section class="pcard" aria-label="ملصق الخصوصية"><div class="pc-head"><b>ملصق الخصوصية</b><a href="privacy/">اقرأ السياسة كاملة</a></div><div class="pc-grid"><div class="pc-cell"><span>البيانات المجموعة</span><b>لا شيء</b></div><div class="pc-cell"><span>الحساب</span><b>لا يوجد</b></div><div class="pc-cell"><span>الإعلانات والتتبّع</span><b>لا يوجد</b></div><div class="pc-cell"><span>أين تُحفظ</span><b>على جهازك وفي iCloud الخاص بك</b></div></div></section>
-  
   <h2 class="h2" style="margin-top:44px">وثائق مدماك</h2>
   <div class="docs-grid"><a class="doc" href="support/"><b>الدعم</b><span>تواصل معنا وأسئلة شائعة</span></a><a class="doc" href="privacy/"><b>سياسة الخصوصية</b><span>ما يجمعه التطبيق، ولا يجمعه</span></a><a class="doc" href="terms/"><b>شروط الاستخدام</b><span>اتفاقية الاستخدام والاشتراكات</span></a></div>
 </div></section>

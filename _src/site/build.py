@@ -9,6 +9,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))            # the repo root
 SRC = os.path.join(ROOT, '_src', 'content')              # the apps' original pages (privacy/support text source)
 ASSETS = os.path.join(ROOT, '_src', 'assets')            # resized icons + screenshots (webp)
+MEDIA = os.path.join(ROOT, '_src', 'media')              # promo films (9:16, with voice) and their covers
 BRAND = os.path.join(ROOT, '_src', 'brand')              # logo generator, svg, share images
 OUT = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else ROOT
 PRESS = os.path.join(OUT, 'press', 'files')              # full-res press files live in the site itself
@@ -93,6 +94,30 @@ def notice(a, en=False):
     elif not a['store']: t = 'Soon' if en else 'قريبًا'
     else: return ''
     return f' <em class="pill">{t}</em>'
+
+def film_block(k, lang, src):
+    """the screening room: the 9:16 promo under the work's lamp; plays with sound on demand"""
+    f = FILMS[k][lang]; secs = FILMS[k]['secs']
+    dur = f'٠:{str(secs).translate(str.maketrans("0123456789","٠١٢٣٤٥٦٧٨٩"))}' if lang == 'ar' else f'0:{secs}'
+    play = 'شغّل العرض' if lang == 'ar' else 'Play the film'
+    dur_line = f'بالصوت، ومدته <bdi dir="ltr">{dur}</bdi>' if lang == 'ar' else f'With sound, {dur}'
+    return f'''<section class="film dark" id="film" aria-labelledby="film-h"><div class="wrap film-in">
+  <div class="film-text"><p class="kicker">{f["kicker"]}</p><h2 id="film-h">{f["hook"]}</h2><p>{f["body"]}</p>
+    <p class="film-dur">{dur_line}</p></div>
+  <div class="film-stage"><i class="film-lamp" aria-hidden="true"></i>
+    <div class="film-screen"><video src="{src}media/film.mp4" poster="{src}media/cover.jpg" controls playsinline preload="none" aria-label="{f["label"]}"></video>
+      <button type="button" class="film-play" hidden><span>{play}</span></button></div></div>
+</div></section>
+<script>(function(){{var s=document.querySelector('.film-screen'),v=s.querySelector('video'),b=s.querySelector('.film-play');
+v.removeAttribute('controls');b.hidden=false;
+b.addEventListener('click',function(){{b.hidden=true;v.controls=true;v.play();}});
+v.addEventListener('ended',function(){{v.controls=false;b.hidden=false;v.load();}});}})();</script>'''
+
+def film_link(k, lang, rel):
+    if k not in FILMS: return ''
+    n = APPS[k]['name'] if lang == 'ar' else APPS_EN[k]['name']; s = FILMS[k]['secs']
+    t = f'شاهد {n} في {str(s).translate(str.maketrans("0123456789","٠١٢٣٤٥٦٧٨٩"))} ثانية' if lang == 'ar' else f'Watch {n} in {s} seconds'
+    return f'<a class="film-link" href="{rel}{k}/#film">{t}</a>'
 
 def read(p): return open(os.path.join(SRC, p), encoding='utf-8').read()
 def mailto(subject): return f'mailto:{EMAIL}?subject={quote(subject)}'
@@ -245,7 +270,7 @@ def home():
         <div>
           <div class="label"><div class="no">العمل {a["no"]}، {a["year"]}{notice(a)}</div><h3>{a["name"]}</h3><p class="meta">{a["meta"]}</p></div>
           <p>{a["about"][0]}</p>
-          <div class="actions"><a class="btn" href="{k}/">ادخل قاعة {a["name"]}</a>{store}</div>
+          <div class="actions"><a class="btn" href="{k}/">ادخل قاعة {a["name"]}</a>{store}</div>{film_link(k, 'ar', '')}
         </div>
       </article>'''
     body = f'''<main id="main">
@@ -318,12 +343,7 @@ def exhibit(k):
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">احصل عليه من Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">قريبًا على Google Play</span>'
     docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES[d][0]}</b><span>{DOCNAMES[d][1]}</span></a>' for d in a['docs'])
-    video = ''
-    if k == 'mizan':
-        video = ('<h2 class="h2" style="margin-top:44px">العمل في حركته</h2>'
-                 '<video src="media/mizan.mp4" poster="media/cover.jpg" controls playsinline preload="none" '
-                 'style="width:100%;max-width:260px;aspect-ratio:9/16;border-radius:18px;background:#000;margin-top:14px" '
-                 'aria-label="عرض قصير لتطبيق ميزان"></video>')
+    film = film_block(k, 'ar', '') if k in FILMS else ''
     body = f'''<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h">
   <div class="wrap">
@@ -337,12 +357,12 @@ def exhibit(k):
     {f'<div class="strip" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['shots'] else soon_block('ar', k)}
   </div>
 </section>
+{film}
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">عن العمل</h2>
   {''.join(f'<p>{p}</p>' for p in a['about'])}
   <ul>{''.join(f'<li>{f}</li>' for f in a['features'])}</ul>
   {privacy_card('ar', k, 'privacy/')}
-  {video}
   <h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2>
   <div class="docs-grid">{docs}</div>
 </div></section>
@@ -540,7 +560,7 @@ def en_home():
         <div>
           <div class="label"><div class="no">Work {e['no']}, 2026{notice(a, en=True)}</div><h3>{e['name']}</h3><p class="meta">{e['meta']}</p></div>
           <p>{e['about'][0]}</p>
-          <div class="actions"><a class="btn" href="{k}/">Enter the {e['name']} room</a>{store}</div>
+          <div class="actions"><a class="btn" href="{k}/">Enter the {e['name']} room</a>{store}</div>{film_link(k, 'en', '')}
         </div>
       </article>"""
     body = f"""<main id="main">
@@ -601,10 +621,7 @@ def en_exhibit(k):
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">Get it on Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">Coming soon to Google Play</span>'
     docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES_EN[d][0]}</b><span>{DOCNAMES_EN[d][1]}</span></a>' for d in a['docs'])
-    video = ''
-    if k == 'mizan':
-        video = ('<h2 class="h2" style="margin-top:44px">The work in motion</h2><video src="../../mizan/media/mizan.mp4" poster="../../mizan/media/cover.jpg" controls playsinline preload="none" '
-                 'style="width:100%;max-width:260px;aspect-ratio:9/16;border-radius:18px;background:#000;margin-top:14px" aria-label="A short demo of Mizan"></video>')
+    film = film_block(k, 'en', f'../../{k}/') if k in FILMS else ''
     show = f'<div class="strip" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['shots'] else soon_block('en', k)
     body = f"""<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h"><div class="wrap">
@@ -615,12 +632,12 @@ def en_exhibit(k):
   </div>
   {show}
 </div></section>
+{film}
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">About the work</h2>
   {''.join(f'<p>{x}</p>' for x in e['about'])}
   <ul>{''.join(f'<li>{x}</li>' for x in e['features'])}</ul>
   {privacy_card('en', k, 'privacy/')}
-  {video}
   <h2 class="h2" style="margin-top:44px">{e['name']} documents</h2>
   <div class="docs-grid">{docs}</div>
 </div></section>
@@ -816,9 +833,10 @@ def build():
     shutil.copy(os.path.join(HERE, 'style.css'), os.path.join(OUT, 'style.css'))
     shutil.copytree(ASSETS, os.path.join(OUT, 'assets'))
     for f in os.listdir(os.path.join(BRAND, 'out')): shutil.copy(os.path.join(BRAND, 'out', f), os.path.join(OUT, 'assets', f))
-    os.makedirs(os.path.join(OUT, 'mizan/media'), exist_ok=True)
-    for f in ('cover.jpg', 'mizan.mp4'):
-        shutil.copy(os.path.join(SRC, 'mizan-privacy/video', f), os.path.join(OUT, 'mizan/media', f))
+    for k in FILMS:
+        os.makedirs(os.path.join(OUT, k, 'media'), exist_ok=True)
+        shutil.copy(os.path.join(MEDIA, f'{k}.mp4'), os.path.join(OUT, k, 'media', 'film.mp4'))
+        shutil.copy(os.path.join(MEDIA, f'{k}-cover.jpg'), os.path.join(OUT, k, 'media', 'cover.jpg'))
     home(); [exhibit(k) for k in APPS]; documents(); docs_centre()
     en_home(); [en_exhibit(k) for k in APPS]; en_documents(); en_docs_centre()
     shutil.copytree(_press_tmp, os.path.join(OUT, 'press', 'files'))

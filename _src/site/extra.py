@@ -36,6 +36,15 @@ def wall_svg(cls='wall', courses=7, cols=8, bw=40, bh=17, gap=3, laid_top=4):
     out.append(f'<path class="bob" d="M{px-6} {top+courses*(bh+gap)-40} h12 l-6 12 z"/>')
     return f'<svg class="{cls}" viewBox="0 0 {W+24} {H}" aria-hidden="true">{"".join(out)}</svg>'
 
+FILMS = {
+ 'mizan': dict(secs=30,
+   ar=dict(kicker='العرض', hook='٢٧ الشهر… وين راحت فلوسك؟', body='ميزان في ثلاثين ثانية: من رسالة البنك، إلى كم تقدر تصرف اليوم.', label='العرض الترويجي لتطبيق ميزان'),
+   en=dict(kicker='The film', hook='It is the 27th. Where did the money go?', body='Mizan in thirty seconds: from a bank message to what you can spend today.', label='Mizan promo film')),
+ 'midmak': dict(secs=38,
+   ar=dict(kicker='العرض', hook='بيتك يرتفع… وفلوسك وين؟', body='مدماك في ثمانٍ وثلاثين ثانية: كل ريال مسجّل، وكل اتفاق محفوظ، من الحفر إلى المفتاح.', label='العرض الترويجي لتطبيق مدماك'),
+   en=dict(kicker='The film', hook='The house is rising. Where is the money going?', body='Midmak in thirty-eight seconds: every riyal recorded, every agreement kept, from excavation to keys.', label='Midmak promo film')),
+}
+
 SOON = {
  'ar': dict(kicker='تحت البناء', title='الجدار يرتفع مدماكًا مدماكًا.',
             body='نضع الآن آخر المداميك في مدماك. اللقطات تُعلَّق هنا يوم الافتتاح.',
