@@ -72,8 +72,8 @@ APPS = {
  'midmak': dict(
    no='٣', name='مدماك', latin='Midmak', year='٢٠٢٦',
    tag='دفتر بناء بيتك، من الحفر إلى المفتاح.',
-   meta='تطبيق لآيفون وآيباد، في التجربة على TestFlight، وقريبًا على App Store', play=False, beta='https://testflight.apple.com/join/7zyJHkA6',
-   store=None,
+   meta='تطبيق لآيفون وآيباد', play=False,
+   store='https://apps.apple.com/app/id6820624449',
    about=['تطبيق آيفون وآيباد للمالك الذي يبني بيته بنفسه: كل ريال مسجّل، وكل اتفاق محفوظ، وحقك واضح، من الحفر إلى المفتاح.'],
    features=['المصروفات والمقاولون والعمالة اليومية في دفتر واحد.',
              'صور الموقع والفواتير والمستندات في مكان واحد.',
@@ -89,9 +89,8 @@ DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائع
             'accessibility': ('إمكانية الوصول', 'ما يدعمه التطبيق اليوم')}
 
 def notice(a, en=False):
-    """the pill on a work: TestFlight before launch"""
-    if a.get('beta'): t = 'TestFlight'
-    elif not a['store']: t = 'Soon' if en else 'قريبًا'
+    """the pill on a work: «soon» before launch"""
+    if not a['store']: t = 'Soon' if en else 'قريبًا'
     else: return ''
     return f' <em class="pill">{t}</em>'
 
@@ -131,7 +130,7 @@ T = {
  'en': dict(nav=('Gallery','Documents','Contact'), skip='Skip to content', brand='Labina', navlabel='Site',
             foot='© 2026 Labina. Made with care, brick by brick.', quick='Quick links', press='Press kit', switch='العربية', switch_lang='ar'),
 }
-STORE_ID = {'mizan': '6808957329', 'sana': '6812705355'}
+STORE_ID = {'mizan': '6808957329', 'sana': '6812705355', 'midmak': '6820624449'}
 
 def shell(rel, title, desc, body, here=None, app=None, dark_top=False, path='', lang='ar'):
     """rel: prefix back to the site root. path: this page's path from the root (en pages start with en/)."""
@@ -262,7 +261,6 @@ def home():
         imgs = ''.join(f'<img src="assets/{s}.webp" alt="" loading="lazy" width="660" height="1434">' for s, _ in a['shots'][:3])
         fan = f'<div class="fan" aria-hidden="true">{imgs}</div>' if a['store'] else f'<div class="fan wallfan">{wall_svg("wall mini")}</div>' 
         store = (f'<a class="btn line" href="{a["store"]}">App Store</a>' if a['store']
-                 else f'<a class="btn line" href="{a["beta"]}">جرّبه على TestFlight</a>' if a.get('beta')
                  else '<span class="btn" aria-disabled="true">قريبًا على App Store</span>')
         entries += f'''
       <article class="entry" style="--app:var(--{k});--app-lit:var(--{k}-lit)">
@@ -339,7 +337,6 @@ def exhibit(k):
         for s, c in a['shots'])
     store = (f'<a class="btn" href="{a["store"]}">حمّل من App Store</a>' if a['store']
              else '<span class="btn line" aria-disabled="true">قريبًا على App Store</span>')
-    if not a['store'] and a.get('beta'): store = f'<a class="btn" href="{a["beta"]}">جرّبه على TestFlight</a>' + store
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">احصل عليه من Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">قريبًا على Google Play</span>'
     docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES[d][0]}</b><span>{DOCNAMES[d][1]}</span></a>' for d in a['docs'])
@@ -552,7 +549,6 @@ def en_home():
         imgs = ''.join(f'<img src="{rel}assets/{sh}.webp" alt="" loading="lazy" width="660" height="1434">' for sh, _ in a['shots'][:3])
         fan = f'<div class="fan" aria-hidden="true">{imgs}</div>' if a['store'] else f'<div class="fan wallfan">{wall_svg("wall mini")}</div>'
         store = (f'<a class="btn line" href="{a["store"]}">App Store</a>' if a['store']
-                 else f'<a class="btn line" href="{a["beta"]}">Try it on TestFlight</a>' if a.get('beta')
                  else '<span class="btn" aria-disabled="true">Coming soon</span>')
         entries += f"""
       <article class="entry" style="--app:var(--{k});--app-lit:var(--{k}-lit)">
@@ -617,7 +613,6 @@ def en_exhibit(k):
     figs = ''.join(f'<figure><img src="{rel}assets/{sh}.webp" alt="{c}" loading="lazy" width="660" height="1434"><figcaption>{c}</figcaption></figure>'
                    for (sh, _), c in zip(a['shots'], e['caps']))
     store = (f'<a class="btn" href="{a["store"]}">Download on the App Store</a>' if a['store'] else '<span class="btn line" aria-disabled="true">Coming soon to the App Store</span>')
-    if not a['store'] and a.get('beta'): store = f'<a class="btn" href="{a["beta"]}">Try it on TestFlight</a>' + store
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">Get it on Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">Coming soon to Google Play</span>'
     docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES_EN[d][0]}</b><span>{DOCNAMES_EN[d][1]}</span></a>' for d in a['docs'])
@@ -786,8 +781,7 @@ def press(lang):
         else:
             gallery = f'<p class="kit-soon">{t["soon_shots"]}</p>'
         store = (f'<a href="{a["store"]}">App Store</a>' if a['store']
-                 else f'<a href="{a["beta"]}">TestFlight</a>، {t["soon"]}' if a.get('beta') and not en
-                 else f'<a href="{a["beta"]}">TestFlight</a>, {t["soon"]}' if a.get('beta') else t['soon'])
+                 else t['soon'])
         apps_html += f"""
 <section class="kit-app" style="--app:var(--{k})" aria-labelledby="k-{k}">
   <div class="kit-app-head"><img src="{rel}assets/{k}-icon.webp" alt="" width="64" height="64">
