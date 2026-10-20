@@ -64,7 +64,7 @@ tools/counter-worker.js← كود عدّاد الزوار على Cloudflare
 
 - **النطاق** محجوز في Cloudflare. DNS: `@` و`www` CNAME إلى `raljohani.github.io` (DNS only، رمادي). HTTPS مفعّل من GitHub Pages.
 - **البريد** `support@labina.app` عبر iCloud+ (سجلات MX/TXT/DKIM في Cloudflare). لا تلمس سجلات البريد.
-- **عدّاد الزوار:** Cloudflare Worker `labina-counter` على `count.labina.app` مع KV `labina-visits` (المتغير `COUNTER`). يحفظ رقمًا واحدًا فقط. `GET /` يقرأ، `POST /hit` يضيف. الواجهة تخفي القسم إن فشل الطلب، ولا تعدّ الزائر مرتين في اليوم (localStorage).
+- **عدّاد الزوار:** Cloudflare Worker `labina-counter` على `count.labina.app` مع KV `labina-visits` (المتغير `COUNTER`)، وكوده في `tools/counter-worker.js` (يلصقه المستخدم في لوحة Cloudflare؛ لا نشر آلي). يحفظ أرقامًا فقط: `visits` لجدار الزوار، و`page:<app>` لكل قاعة. `GET /` يقرأ، `POST /hit` لبنة في الجدار، `POST /hit/<app>` زيارة قاعة، `GET /stats` كل الأرقام. حدّ العدّ: مرة في اليوم لكل جهاز ولكل عدّاد، ببصمة SHA-256 بملح يومي في الذاكرة المؤقتة، ولا يُحفظ العنوان. الواجهة تخفي القسم إن فشل الطلب، وتمنع التكرار في المتصفح أيضًا (localStorage). خطة KV المجانية: ١٠٠٠ كتابة في اليوم.
 - **الصفحات القديمة** ما زالت حيّة ولا تُحذف حتى تتحدث روابط المتاجر: `raljohani.github.io/mizan-privacy/`، `/sana-support/`، `/midmak/`.
 
 ## مهام متبقية

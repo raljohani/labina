@@ -119,6 +119,12 @@ def film_link(k, lang, rel):
     t = f'شاهد {n} في {str(s).translate(str.maketrans("0123456789","٠١٢٣٤٥٦٧٨٩"))} ثانية' if lang == 'ar' else f'Watch {n} in {s} seconds'
     return f'<a class="film-link" href="{rel}{k}/#film">{t}</a>'
 
+def page_hit(k):
+    """one brick per device per day for this work's room; no UI, fails silently"""
+    return (f"<script>(function(){{if(!window.fetch)return;var k='labina-room-{k}',d=new Date().toISOString().slice(0,10);"
+            f"try{{if(localStorage.getItem(k)===d)return;localStorage.setItem(k,d)}}catch(e){{}}"
+            f"fetch('{COUNTER}/hit/{k}',{{method:'POST',cache:'no-store',keepalive:true}}).catch(function(){{}});}})();</script>")
+
 def read(p): return open(os.path.join(SRC, p), encoding='utf-8').read()
 def mailto(subject): return f'mailto:{EMAIL}?subject={quote(subject)}'
 def write(path, html):
@@ -364,7 +370,7 @@ def exhibit(k):
   <h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2>
   <div class="docs-grid">{docs}</div>
 </div></section>
-</main>'''
+</main>{page_hit(k)}'''
     write(f'{k}/index.html', shell(rel, f'{a["name"]} | معرض لبنة', a['tag'], body, app=k, dark_top=True, path=f'{k}/'))
 
 # ---------------- documents ----------------
@@ -637,7 +643,7 @@ def en_exhibit(k):
   <h2 class="h2" style="margin-top:44px">{e['name']} documents</h2>
   <div class="docs-grid">{docs}</div>
 </div></section>
-</main>"""
+</main>{page_hit(k)}"""
     write(f'en/{k}/index.html', shell(rel, f'{e["name"]} | Labina gallery', e['tag'], body, app=k, dark_top=True, path=f'en/{k}/', lang='en'))
 
 def en_docpage(k, d, inner, desc):
