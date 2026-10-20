@@ -16,7 +16,7 @@
 
 ## البنية والبناء
 
-الموقع ثابت (HTML/CSS) يُولَّد بسكربت، ويُنشر عبر **GitHub Pages** من فرع `main` (الجذر)، والنطاق `labina.app` (ملف `CNAME`).
+الموقع ثابت (HTML/CSS) يُولَّد بسكربت إلى `_site/` (لا يُتتبَّع في git)، ويُنشر عبر **GitHub Pages** بسير عمل `.github/workflows/pages.yml` عند كل push إلى `main`، فلا يصل إلى labina.app إلا الموقع المبني، ولا يُنشر `_src` ولا `tools` ولا هذا الملف. النطاق `labina.app` (يكتب المولّد ملف `CNAME`).
 
 ```
 _src/site/build.py     ← المولّد الوحيد. لا تعدّل ملفات HTML في الجذر يدويًا؛ عدّل هنا ثم ابنِ
@@ -26,14 +26,15 @@ _src/content/          ← صفحات التطبيقات الأصلية (منه�
 _src/assets/           ← أيقونات ولقطات webp مصغّرة
 _src/media/            ← الأفلام الترويجية وأغلفتها (faststart)
 _src/brand/            ← مولّد الشعار (logo.py, kufic.py)، ملفات svg، وصور المشاركة og (og.py)
-press/files/           ← ملفات الملف الصحفي بدقتها الكاملة + zip (يحافظ عليها البناء)
-brand/                 ← نسخ عامة من ملفات الشعار
+_src/press-files/      ← ملفات الملف الصحفي بدقتها الكاملة + zip (تُنسخ إلى /press/files/)
+.github/workflows/     ← بناء الموقع ونشره على GitHub Pages
 tools/counter-worker.js← كود عدّاد الزوار على Cloudflare
 ```
 
-- **البناء:** `python3 _src/site/build.py` من جذر المستودع. يمسح كل ما في الجذر ويعيد توليده، ما عدا: `.git` `README.md` `CLAUDE.md` `brand` `tools` `_src` و`press/files`.
+- **البناء:** `python3 _src/site/build.py` من جذر المستودع، فيمسح `_site/` ويعيد توليده كاملًا (ومنه `/brand/` من `_src/brand/svg`). يرفض البناء داخل المستودع نفسه.
 - **معاينة في مكان آخر:** `python3 _src/site/build.py /tmp/preview`.
-- **النشر:** commit ثم push إلى `main`، ويتحدث الموقع خلال دقيقة أو دقيقتين.
+- **النشر:** commit ثم push إلى `main`؛ يبني سير العمل الموقع وينشره خلال دقيقتين. لا تُضف ملفات مبنية إلى المستودع.
+- **المستودع عام:** لا تكتب في أي ملف متتبَّع اسمًا شخصيًا أو بريدًا غير `support@labina.app`.
 - بعد البناء افحص الروابط الداخلية (لا رابط مكسور) والتمرير الأفقي على عرض ٣٩٠.
 - **صور المشاركة** (`og-*.png`) تُولَّد بـ `_src/brand/og.py` ويحتاج Playwright وخطي Noto Kufi/Naskh Arabic (woff2) في `FONTS_DIR`.
 

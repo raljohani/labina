@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Builds the Labina gallery site.
-usage (from the repo root):  python3 _src/site/build.py        → writes the site into the repo root
-                              python3 _src/site/build.py OUT    → writes it elsewhere (preview)"""
+usage (from the repo root):  python3 _src/site/build.py        → writes the site into _site/ (what GitHub Pages deploys)
+                              python3 _src/site/build.py OUT    → writes it elsewhere (preview)
+Only the built site is published: _src, tools and CLAUDE.md never reach labina.app."""
 import os, re, shutil, sys, json
 from urllib.parse import quote
 
@@ -11,8 +12,8 @@ SRC = os.path.join(ROOT, '_src', 'content')              # the apps' original pa
 ASSETS = os.path.join(ROOT, '_src', 'assets')            # resized icons + screenshots (webp)
 MEDIA = os.path.join(ROOT, '_src', 'media')              # promo films (9:16, with voice) and their covers
 BRAND = os.path.join(ROOT, '_src', 'brand')              # logo generator, svg, share images
-OUT = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else ROOT
-PRESS = os.path.join(OUT, 'press', 'files')              # full-res press files live in the site itself
+OUT = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(ROOT, '_site')
+PRESS = os.path.join(ROOT, '_src', 'press-files')       # full-res press files + zips, copied to /press/files/
 DOMAIN = 'https://labina.app'
 EMAIL = 'support@labina.app'
 YEAR = '٢٠٢٦'
@@ -811,19 +812,11 @@ if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{
     write(path + 'index.html', shell(rel, f'{t["title"]} | {"Labina" if en else "لبنة"}', t['lede'][:150], body, here='press/', path=path, lang=lang))
 
 def build():
-    global PRESS
-    import tempfile
-    _tmp = tempfile.mkdtemp()
-    global _press_tmp
-    _press_tmp = os.path.join(_tmp, 'press')
-    src_press = PRESS if os.path.isdir(PRESS) else os.path.join(ROOT, 'press', 'files')
-    shutil.copytree(src_press, _press_tmp)
-    PRESS = _press_tmp
-    if os.path.exists(OUT):
-        for n in os.listdir(OUT):
-            if n in ('.git', 'README.md', 'CLAUDE.md', 'brand', 'tools', '_src'): continue
-            p = os.path.join(OUT, n); shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
-    os.makedirs(OUT, exist_ok=True)
+    # the output is a dedicated folder we own entirely; never the repo itself
+    if os.path.realpath(OUT) == os.path.realpath(ROOT) or os.path.isdir(os.path.join(OUT, '.git')):
+        sys.exit(f'refusing to build into {OUT}: it holds the source')
+    if os.path.exists(OUT): shutil.rmtree(OUT)
+    os.makedirs(OUT)
     shutil.copy(os.path.join(HERE, 'style.css'), os.path.join(OUT, 'style.css'))
     shutil.copytree(ASSETS, os.path.join(OUT, 'assets'))
     for f in os.listdir(os.path.join(BRAND, 'out')): shutil.copy(os.path.join(BRAND, 'out', f), os.path.join(OUT, 'assets', f))
@@ -833,7 +826,11 @@ def build():
         shutil.copy(os.path.join(MEDIA, f'{k}-cover.jpg'), os.path.join(OUT, k, 'media', 'cover.jpg'))
     home(); [exhibit(k) for k in APPS]; documents(); docs_centre()
     en_home(); [en_exhibit(k) for k in APPS]; en_documents(); en_docs_centre()
-    shutil.copytree(_press_tmp, os.path.join(OUT, 'press', 'files'))
+    shutil.copytree(PRESS, os.path.join(OUT, 'press', 'files'))
+    # public copies of the logo at /brand/
+    os.makedirs(os.path.join(OUT, 'brand'))
+    for f in os.listdir(os.path.join(BRAND, 'svg')): shutil.copy(os.path.join(BRAND, 'svg', f), os.path.join(OUT, 'brand', f))
+    shutil.copy(os.path.join(BRAND, 'out', 'labina-512.png'), os.path.join(OUT, 'brand', 'labina-512.png'))
     press('ar'); press('en'); extras()
 
 build(); print('built', OUT)
