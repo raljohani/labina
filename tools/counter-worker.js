@@ -8,7 +8,8 @@
 // المسارات:
 //   GET  /             → {"visits": 1234}                     قراءة عدد زيارات الموقع
 //   POST /hit          → {"visits": 1235}                     لبنة في جدار الزوار (الصفحة الرئيسية)
-//   POST /hit/<app>    → {"ok": true}                         زيارة قاعة تطبيق: mizan | sana | midmak
+//   GET  /room/<app>   → {"visits": 42, "room": "<app>"}                     قراءة عدد زوار قاعة تطبيق: mizan | sana | midmak
+//   POST /hit/<app>    → {"visits": 43, "room": "<app>"}                     لبنة في جدار قاعة التطبيق
 //   GET  /stats        → {"visits": …, "pages": {…}, "since": "…"}   كل الأرقام
 //
 // حدّ العدّ: كل جهاز يُعدّ مرة واحدة في اليوم لكل عدّاد، ومهما أرسل من طلبات بعدها
@@ -70,6 +71,12 @@ export default {
       return json({ visits: await num(env, 'visits') }, headers);
     }
 
+    if (request.method === 'GET' && path.startsWith('/room/')) {
+      const page = path.slice(6);
+      if (!PAGES.includes(page)) return json({ error: 'unknown page' }, headers, 404);
+      return json({ visits: await num(env, 'page:' + page), room: page }, headers);
+    }
+
     if (request.method === 'GET' && path === '/stats') {
       const pages = {};
       for (const p of PAGES) pages[p] = await num(env, 'page:' + p);
@@ -81,7 +88,7 @@ export default {
       if (page !== null && !PAGES.includes(page)) return json({ error: 'unknown page' }, headers, 404);
       const key = page ? 'page:' + page : 'visits';
       // يُقبل العدّ فقط من صفحات الموقع نفسه
-      if (!ALLOWED.includes(origin)) return json(page ? { ok: false } : { visits: await num(env, key) }, headers, 403);
+      if (!ALLOWED.includes(origin)) return json({ visits: await num(env, key) }, headers, 403);
 
       let n = await num(env, key);
       if (await firstToday(request, env, key)) {
@@ -89,7 +96,7 @@ export default {
         await env.COUNTER.put(key, String(n));
         if (page && !(await env.COUNTER.get('pages-since'))) await env.COUNTER.put('pages-since', today());
       }
-      return json(page ? { ok: true } : { visits: n }, headers);
+      return json(page ? { visits: n, room: page } : { visits: n }, headers);
     }
 
     return json({ error: 'not found' }, headers, 404);

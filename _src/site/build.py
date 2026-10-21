@@ -119,12 +119,6 @@ def film_link(k, lang, rel):
     t = f'شاهد {n} في {str(s).translate(str.maketrans("0123456789","٠١٢٣٤٥٦٧٨٩"))} ثانية' if lang == 'ar' else f'Watch {n} in {s} seconds'
     return f'<a class="film-link" href="{rel}{k}/#film">{t}</a>'
 
-def page_hit(k):
-    """one brick per device per day for this work's room; no UI, fails silently"""
-    return (f"<script>(function(){{if(!window.fetch)return;var k='labina-room-{k}',d=new Date().toISOString().slice(0,10);"
-            f"try{{if(localStorage.getItem(k)===d)return;localStorage.setItem(k,d)}}catch(e){{}}"
-            f"fetch('{COUNTER}/hit/{k}',{{method:'POST',cache:'no-store',keepalive:true}}).catch(function(){{}});}})();</script>")
-
 def read(p): return open(os.path.join(SRC, p), encoding='utf-8').read()
 def mailto(subject): return f'mailto:{EMAIL}?subject={quote(subject)}'
 def write(path, html):
@@ -212,16 +206,24 @@ def frame(k, rel, alt=True):
 
 
 # ================= visitors' wall =================
+ROOM_VW = {
+ 'ar': lambda n: dict(kicker=f'جدار قاعة {n}', you='أنت اللبنة رقم', back=f'زار قاعة {n}', back2='زائرًا، ولبنتك في جدارها من قبل.',
+            body='كل من يدخل هذه القاعة يضع لبنة في جدارها. لا نعرف من أنت ولا من أين جئت؛ نحسب اللبنات فقط.', locale='ar-SA', label=f'عدد زوار قاعة {n}'),
+ 'en': lambda n: dict(kicker=f'The {n} room wall', you='You are brick number', back=f'The {n} room has had', back2='visitors, and your brick is already in its wall.',
+            body='Everyone who enters this room lays a brick in its wall. We do not know who you are or where you came from; we only count the bricks.', locale='en-US', label=f'{n} room visitors'),
+}
 VW = {
  'ar': dict(kicker='جدار الزوار', you='أنت اللبنة رقم', back='زار المعرض', back2='زائرًا، ولبنتك في الجدار من قبل.',
             body='كل زائر يضع لبنة في جدار المعرض. لا نعرف من أنت ولا من أين جئت؛ نحسب اللبنات فقط.', locale='ar-SA', label='عدد زوار المعرض'),
  'en': dict(kicker="Visitors' wall", you='You are brick number', back='The gallery has had', back2='visitors, and your brick is already in the wall.',
             body='Every visitor lays a brick in the gallery wall. We do not know who you are or where you came from; we only count the bricks.', locale='en-US', label='Gallery visitors'),
 }
-def visitors_wall(lang):
-    v = VW[lang]
+def visitors_wall(lang, room=None):
+    """the visitors' wall: the gallery's (room=None) or one work's room, whose last brick takes the room's lamp"""
+    v = VW[lang] if room is None else ROOM_VW[lang](APPS[room]['name'] if lang == 'ar' else APPS_EN[room]['name'])
+    hit, get, key = ('hit', '', 'labina-brick') if room is None else (f'hit/{room}', f'room/{room}', f'labina-brick-{room}')
     return f"""
-<section class="section vwall" id="visitors" hidden aria-labelledby="vw-h" data-locale="{v['locale']}"><div class="wrap">
+<section class="section vwall{' room' if room else ''}" id="visitors" hidden aria-labelledby="vw-h" data-locale="{v['locale']}"><div class="wrap">
   <div class="vw-grid">
     <div class="vw-bricks" role="img" aria-label="{v['label']}"></div>
     <div class="vw-text">
@@ -236,11 +238,11 @@ def visitors_wall(lang):
 (function(){{
 var sec=document.getElementById('visitors');if(!sec||!window.fetch)return;
 var L={{you:{json.dumps(v['you'])},back:{json.dumps(v['back'])},back2:{json.dumps(v['back2'])}}};
-var key='labina-brick',today=new Date().toISOString().slice(0,10),mine=null;
+var room='{room or ''}',key='{key}',today=new Date().toISOString().slice(0,10),mine=null;
 try{{mine=JSON.parse(localStorage.getItem(key)||'null')}}catch(e){{}}
 var fresh=!(mine&&mine.d===today);
-fetch('{COUNTER}/'+(fresh?'hit':''),{{method:fresh?'POST':'GET',cache:'no-store'}}).then(function(r){{if(!r.ok)throw 0;return r.json()}}).then(function(j){{
-  var n=j&&j.visits;if(typeof n!=='number'||n<1)return;
+fetch('{COUNTER}/'+(fresh?'{hit}':'{get}'),{{method:fresh?'POST':'GET',cache:'no-store'}}).then(function(r){{if(!r.ok)throw 0;return r.json()}}).then(function(j){{
+  var n=j&&j.visits;if(typeof n!=='number'||n<1||(room&&j.room!==room))return;
   if(fresh){{mine={{d:today,n:n}};try{{localStorage.setItem(key,JSON.stringify(mine))}}catch(e){{}}}}
   var fmt=new Intl.NumberFormat(sec.getAttribute('data-locale'),{{useGrouping:false}});
   var digits=fmt.format(n).split('');
@@ -370,7 +372,8 @@ def exhibit(k):
   <h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2>
   <div class="docs-grid">{docs}</div>
 </div></section>
-</main>{page_hit(k)}'''
+{visitors_wall('ar', k)}
+</main>'''
     write(f'{k}/index.html', shell(rel, f'{a["name"]} | معرض لبنة', a['tag'], body, app=k, dark_top=True, path=f'{k}/'))
 
 # ---------------- documents ----------------
@@ -643,7 +646,8 @@ def en_exhibit(k):
   <h2 class="h2" style="margin-top:44px">{e['name']} documents</h2>
   <div class="docs-grid">{docs}</div>
 </div></section>
-</main>{page_hit(k)}"""
+{visitors_wall('en', k)}
+</main>"""
     write(f'en/{k}/index.html', shell(rel, f'{e["name"]} | Labina gallery', e['tag'], body, app=k, dark_top=True, path=f'en/{k}/', lang='en'))
 
 def en_docpage(k, d, inner, desc):
