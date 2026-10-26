@@ -129,6 +129,7 @@ def install_block(lang):
     t = INSTALL[lang]
     return (f'<h2 class="h2" id="install" style="margin-top:44px">{t["h"]}</h2><p>{t["intro"]}</p>'
             f'<ol class="steps">{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'
+            f'<p>{t["alt"]}</p>'
             f'<p>{t["win"]} <a href="{mailto(t["win_subj"])}" class="latin">{EMAIL}</a></p>')
 
 def film_block(k, lang, src):

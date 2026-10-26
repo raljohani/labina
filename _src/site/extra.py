@@ -196,17 +196,19 @@ PRIV_NOTE['en']['sakan'] = 'It works offline, and connects in three places only,
 INSTALL = {
  'ar': dict(h='التحميل والتثبيت',
    intro=f'سَكَن لا يُباع في متجر: يُنزَّل ملفًا (APK) من صفحة إصداراته، ثم يحدّث نفسه من داخله. يعمل على أندرويد ٧ فأحدث (Android TV وGoogle TV)، والإصدار الحالي <bdi dir="ltr">{SAKAN_VER}</bdi>.',
-   steps=['حمّل الملف على جوالك أو حاسوبك من <a href="apk/" class="latin">labina.app/sakan/apk</a>، وانسخه إلى فلاش.',
-          'صِل الفلاش بالتلفاز وافتح الملف من مدير الملفات. وإن طلب التلفاز السماح بالتثبيت من مصدر غير معروف، فاسمح لمدير الملفات وحده.',
+   steps=['ثبّت تطبيق Downloader من Google Play على التلفاز.',
+          'افتحه واكتب في خانة العنوان <a href="apk/" class="latin">labina.app/sakan/apk</a>، فيتحمّل سَكَن على التلفاز نفسه ويظهر زر التثبيت. وإن طلب التلفاز السماح بالتثبيت من مصدر غير معروف، فاسمح لـ Downloader وحده.',
           'من إعدادات التلفاز: تفضيلات الجهاز ← شاشة التوقف ← اختر «سَكَن»، واضبط وقت البدء.',
           'بعض التلفزيونات تخفي صفحة شاشة التوقف أو تمنع البرامج المثبّتة من خارج متجرها؛ خطواتها في <a href="support/">صفحة الدعم</a>.'],
+   alt='وإن لم يكن في التلفاز Google Play: حمّل الملف على جوالك أو حاسوبك من الرابط نفسه، وانسخه إلى فلاش، وافتحه من مدير الملفات في التلفاز.',
    win='ونسخة ويندوز ١٠ و١١ (شاشة توقف بالواجهة نفسها) نرسلها لمن يطلبها بالبريد.', win_subj='نسخة سكن لويندوز'),
  'en': dict(h='Download and install',
    intro=f'Sakan is not sold in a store: you download it as a file (APK) from its releases page, and it then updates itself from inside. It runs on Android 7 or later (Android TV and Google TV). The current version is {SAKAN_VER}.',
-   steps=['Download the file on your phone or computer from <a href="../../sakan/apk/">labina.app/sakan/apk</a>, and copy it to a USB stick.',
-          'Plug the stick into the TV and open the file from a file manager. If the TV asks to allow installs from unknown sources, allow the file manager only.',
+   steps=['Install the Downloader app from Google Play on the TV.',
+          'Open it and type <a href="../../sakan/apk/">labina.app/sakan/apk</a> in the address box. Sakan downloads on the TV itself and an Install button appears. If the TV asks to allow installs from unknown sources, allow Downloader only.',
           'In the TV settings: Device Preferences → Screen saver → choose "Sakan", and set when it starts.',
           'Some TVs hide the screen saver page or block apps installed outside their store; see the steps on the <a href="support/">support page</a>.'],
+   alt='If the TV has no Google Play: download the file on your phone or computer from the same address, copy it to a USB stick, and open it from a file manager on the TV.',
    win='A Windows 10 and 11 version (a screen saver with the same interface) is sent by email on request.', win_subj='Sakan for Windows'),
 }
 
@@ -214,7 +216,8 @@ SAKAN_SUPPORT = '''<h1>الدعم</h1>
 <p>وجدت خللًا في مشهد، أو وقتًا لا يطابق مدينتك، أو عندك اقتراح؟ راسلنا، واذكر طراز التلفاز ورقم إصدار سَكَن (من «عن سَكَن» في إعداداته).</p>
 {contact}
 <h2>أسئلة شائعة</h2>
-<details><summary>كيف أثبّت سَكَن على التلفاز؟</summary><p>حمّل الملف من <a href="../apk/">labina.app/sakan/apk</a> وانسخه إلى فلاش، ثم افتحه من مدير الملفات في التلفاز، واسمح لمدير الملفات وحده بالتثبيت من مصدر غير معروف إن طُلب منك. ثم اختره من الإعدادات ← تفضيلات الجهاز ← شاشة التوقف.</p></details>
+<details><summary>كيف أثبّت سَكَن على التلفاز؟</summary><p>ثبّت تطبيق Downloader من Google Play على التلفاز، وافتحه واكتب <a href="../apk/">labina.app/sakan/apk</a>، ثم اضغط «تثبيت». وإن طلب التلفاز السماح بالتثبيت من مصدر غير معروف، فاسمح لـ Downloader وحده. ثم اختر سَكَن من الإعدادات ← تفضيلات الجهاز ← شاشة التوقف.</p></details>
+<details><summary>ما عندي Downloader، أو التلفاز ما فيه Google Play</summary><p>حمّل الملف على جوالك أو حاسوبك من <a href="../apk/">labina.app/sakan/apk</a> وانسخه إلى فلاش، ثم صِل الفلاش بالتلفاز وافتح الملف من مدير الملفات، واسمح لمدير الملفات وحده بالتثبيت.</p></details>
 <details><summary>التلفاز ما فيه صفحة لشاشة التوقف</summary><p>بعض التلفزيونات تخفيها. يحتاج سَكَن حينها إذنًا يُمنح مرة واحدة من حاسوب عليه adb والتلفاز على الشبكة نفسها، بعد تفعيل تصحيح الأخطاء من خيارات المطوّر:</p><p class="latin" dir="ltr">adb connect &lt;TV-IP&gt;:5555<br>adb shell pm grant app.sakan.tv android.permission.WRITE_SECURE_SETTINGS</p><p>ثم من داخل سَكَن: «اجعلها شاشة التوقف». ويُسحب الإذن متى شئت بـ <span class="latin">pm revoke</span>.</p></details>
 <details><summary>تلفاز TCL لا يبدأ شاشة التوقف عند الخمول</summary><p>نظامه يمنع البرامج المثبّتة من خارج متجره من العمل تلقائيًا. من الحاسوب نفسه بعد <span class="latin">adb connect</span>:</p><p class="latin" dir="ltr">adb shell appops set app.sakan.tv APP_AUTO_START allow</p></details>
 <details><summary>كيف أفعّل التنبيه فوق القنوات ومؤقت المشاهدة؟</summary><p>يحتاجان إذن الظهور فوق التطبيقات، يُمنح مرة واحدة:</p><p class="latin" dir="ltr">adb shell appops set app.sakan.tv SYSTEM_ALERT_WINDOW allow</p><p>ثم فعّلهما من إعدادات سَكَن. وكلاهما متوقف حتى تفعّله.</p></details>
@@ -321,7 +324,8 @@ APPS_EN['sakan'] = dict(no='4', name='Sakan', tag='The home screen for when nobo
    caps=['The city panel', 'The day dial', 'The calendar', 'The weather', 'Ramadan', 'The verse of the day'])
 DOCNAMES_EN_SUB = {'sakan': {'terms': 'License and downloads'}}
 SUPPORT_EN['sakan'] = ('Found a glitch in a scene, a time that does not match your city, or have a suggestion? Write to us, and mention your TV model and Sakan\'s version (from "About Sakan" in its settings).', [
-   ('How do I install Sakan on the TV?', 'Download the file from <a href="../../../sakan/apk/">labina.app/sakan/apk</a> and copy it to a USB stick, then open it from a file manager on the TV, allowing that file manager alone to install from unknown sources if asked. Then choose it in Settings → Device Preferences → Screen saver.'),
+   ('How do I install Sakan on the TV?', 'Install the Downloader app from Google Play on the TV, open it, type <a href="../../../sakan/apk/">labina.app/sakan/apk</a>, then press Install. If the TV asks to allow installs from unknown sources, allow Downloader only. Then choose Sakan in Settings → Device Preferences → Screen saver.'),
+   ('I do not have Downloader, or the TV has no Google Play', 'Download the file on your phone or computer from <a href="../../../sakan/apk/">labina.app/sakan/apk</a> and copy it to a USB stick, then plug it into the TV and open the file from a file manager, allowing that file manager alone to install.'),
    ('My TV has no screen saver page', 'Some TVs hide it. Sakan then needs a permission granted once from a computer with adb on the same network, after turning on debugging in Developer options:<br><span class="latin">adb connect &lt;TV-IP&gt;:5555<br>adb shell pm grant app.sakan.tv android.permission.WRITE_SECURE_SETTINGS</span><br>Then, inside Sakan, choose to make it the screen saver. You can revoke the permission any time with <span class="latin">pm revoke</span>.'),
    ('A TCL TV does not start the screen saver when idle', 'Its system blocks apps installed outside its store from starting on their own. From the same computer, after <span class="latin">adb connect</span>:<br><span class="latin">adb shell appops set app.sakan.tv APP_AUTO_START allow</span>'),
    ('How do I turn on the alert over channels and the viewing timer?', 'They need the display-over-other-apps permission, granted once:<br><span class="latin">adb shell appops set app.sakan.tv SYSTEM_ALERT_WINDOW allow</span><br>Then turn them on in Sakan\'s settings. Both are off until you do.'),
