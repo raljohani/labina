@@ -13,7 +13,8 @@ wl=open(os.path.join(HERE,'svg','wordmark-light.svg')).read()
 def b64(p): return 'data:image/webp;base64,'+base64.b64encode(open(p,'rb').read()).decode()
 A={'mizan':('ميزان','الصق رسالة البنك، واعرف كم تقدر تصرف اليوم.','#3FAF86','العمل ١'),
    'sana':('سنا','أسماء الله الحسنى: معناها وشواهدها ونصيبك منها.','#E2C27A','العمل ٢'),
-   'midmak':('مدماك','دفتر بناء بيتك، من الحفر إلى المفتاح.','#E8865F','العمل ٣')}
+   'midmak':('مدماك','دفتر بناء بيتك، من الحفر إلى المفتاح.','#E8865F','العمل ٣'),
+   'sakan':('سَكَن','شاشة البيت حين لا يشاهد أحد شيئًا.','#8E9BEA','العمل ٤')}
 base=f"<style>{css}*{{margin:0;box-sizing:border-box}}body{{width:1200px;height:630px;background:#0E1110;color:#ECEDEA;font-family:'Noto Naskh Arabic';position:relative;overflow:hidden}}</style>"
 def app_html(k):
     n,t,c,no=A[k]
@@ -28,7 +29,7 @@ home=base+f'''<div style="position:absolute;inset:0;background:radial-gradient(e
 <div style="position:absolute;right:110px;top:36px;width:330px">{wl}</div>
 <div dir="rtl" style="position:absolute;right:110px;bottom:90px;width:900px">
 <div style="font-family:'Noto Kufi Arabic';font-weight:700;font-size:54px;line-height:1.35;white-space:nowrap">كل تطبيق قطعة، وهذا معرضها.</div>
-<div style="font-size:30px;color:#A3ABA8;margin-top:6px">معرض تطبيقات لبنة: ميزان، سنا، مدماك</div></div>
+<div style="font-size:30px;color:#A3ABA8;margin-top:6px">معرض تطبيقات لبنة: ميزان، سنا، مدماك، سَكَن</div></div>
 <div style="position:absolute;left:110px;bottom:96px;font-family:-apple-system,Helvetica,Arial;font-size:26px;color:#A3ABA8">labina.app</div>'''
 async def main():
     async with async_playwright() as p:

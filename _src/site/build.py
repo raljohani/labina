@@ -83,17 +83,53 @@ APPS = {
    shots=[('midmak-01-home','كل ريال مسجّل'),('midmak-02-pay','قبل ما تدفع'),('midmak-03-contractor','حساب المقاول'),
           ('midmak-04-wall','جدار البيت'),('midmak-05-scan','قراءة الفاتورة')],
    phone=False, docs=['support','privacy','terms'], subs=True),
+ 'sakan': dict(
+   no='٤', name='سَكَن', latin='Sakan', year='٢٠٢٦',
+   tag='شاشة البيت حين لا يشاهد أحد شيئًا.',
+   meta='لتلفزيونات أندرويد وويندوز', play=False,
+   store=None, apk=SAKAN_APK,
+   about=['شاشة توقف لتلفزيونات أندرويد تعرف يومك: تتبدّل مشاهدها مع أوقات الصلاة في مدينتك، وتعرض التقويم الهجري والميلادي والطقس والمباريات وصور العائلة، وتنبّهك فوق القنوات حين يقترب الأذان. وله نسخة شاشة توقف لويندوز.'],
+   features=['مشاهد ليومك: لوحة المدينة وأوقات الصلاة، وقرص اليوم، والتقويم الهجري والميلادي، والطقس، وآية اليوم، ورمضان، وسكون الليل.',
+             'حلقة الأربع والعشرين ساعة: لكل جزء من اليوم مشاهده، وحدود الأجزاء تتحرك مع أوقات الصلاة دون أن تضبطها.',
+             'الملعب: مباريات فريقك وجدول الترتيب، و«على الهواء» حين تتزامن المباريات.',
+             'ألبوم البيت والملصقات والمواعيد تكتبها من جوالك عبر رابط على شبكة البيت، بلا تطبيق ولا حساب.',
+             'تنبيه هادئ فوق القنوات قبل الأذان، ومؤقت مشاهدة برقم سري؛ وكلاهما متوقف حتى تفعّله.',
+             'أوقات الصلاة بتقويم أم القرى تُحسب في الجهاز نفسه، بلا إعلانات ولا حسابات ولا تتبّع.'],
+   shots=[('sakan-01-city','لوحة المدينة'),('sakan-02-dial','قرص اليوم'),('sakan-03-calendar','التقويم'),
+          ('sakan-04-weather','الطقس'),('sakan-05-ramadan','رمضان'),('sakan-06-ayah','آية اليوم')],
+   tv=True, phone=False, docs=['support','privacy','terms'], subs=False),
 }
 DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائعة'),
             'privacy': ('سياسة الخصوصية', 'ما يجمعه التطبيق، ولا يجمعه'),
             'terms': ('شروط الاستخدام', 'اتفاقية الاستخدام والاشتراكات'),
             'accessibility': ('إمكانية الوصول', 'ما يدعمه التطبيق اليوم')}
+DOCNAMES_SUB = {'sakan': {'terms': 'الترخيص والتحميل'}}
+def docsub(k, d, en=False):
+    return (DOCNAMES_EN_SUB if en else DOCNAMES_SUB).get(k, {}).get(d) or (DOCNAMES_EN if en else DOCNAMES)[d][1]
 
 def notice(a, en=False):
     """the pill on a work: «soon» before launch"""
-    if not a['store']: t = 'Soon' if en else 'قريبًا'
+    if not a['store'] and not a.get('apk'): t = 'Soon' if en else 'قريبًا'
     else: return ''
     return f' <em class="pill">{t}</em>'
+
+def shot_img(a, s, alt, rel):
+    """a screen: phones are 660×1434, TV scenes 1280×720"""
+    w, h = (1280, 720) if a.get('tv') else (660, 1434)
+    return f'<img src="{rel}assets/{s}.webp" alt="{alt}" loading="lazy" width="{w}" height="{h}">'
+
+def get_btn(k, a, en, line=True):
+    """the catalogue's second button: the store, or for Sakan its download and install notes"""
+    cls = 'btn line' if line else 'btn'
+    if a.get('apk'): return f'<a class="{cls}" href="{k}/#install">{"Download for TV" if en else "التحميل للتلفاز"}</a>'
+    if a['store']: return f'<a class="{cls}" href="{a["store"]}">App Store</a>'
+    return f'<span class="btn" aria-disabled="true">{"Coming soon" if en else "قريبًا على App Store"}</span>'
+
+def install_block(lang):
+    t = INSTALL[lang]
+    return (f'<h2 class="h2" id="install" style="margin-top:44px">{t["h"]}</h2><p>{t["intro"]}</p>'
+            f'<ol class="steps">{"".join(f"<li>{s}</li>" for s in t["steps"])}</ol>'
+            f'<p>{t["win"]} <a href="{mailto(t["win_subj"])}" class="latin">{EMAIL}</a></p>')
 
 def film_block(k, lang, src):
     """the screening room: the 9:16 promo under the work's lamp; plays with sound on demand"""
@@ -267,10 +303,10 @@ def home():
     </a>''' for k, a in APPS.items())
     entries = ''
     for k, a in APPS.items():
-        imgs = ''.join(f'<img src="assets/{s}.webp" alt="" loading="lazy" width="660" height="1434">' for s, _ in a['shots'][:3])
-        fan = f'<div class="fan" aria-hidden="true">{imgs}</div>' if a['store'] else f'<div class="fan wallfan">{wall_svg("wall mini")}</div>' 
-        store = (f'<a class="btn line" href="{a["store"]}">App Store</a>' if a['store']
-                 else '<span class="btn" aria-disabled="true">قريبًا على App Store</span>')
+        imgs = ''.join(shot_img(a, s, '', '') for s, _ in a['shots'][:3])
+        fan = (f'<div class="fan{" tv" if a.get("tv") else ""}" aria-hidden="true">{imgs}</div>' if a['shots']
+               else f'<div class="fan wallfan">{wall_svg("wall mini")}</div>')
+        store = get_btn(k, a, False)
         entries += f'''
       <article class="entry" style="--app:var(--{k});--app-lit:var(--{k}-lit)">
         {fan}
@@ -284,7 +320,7 @@ def home():
 <section class="gallery dark" aria-labelledby="hall-h">
   <div class="wrap">
     <h1 id="hall-h">كل تطبيق قطعة، وهذا معرضها.</h1>
-    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد. ثلاثة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
+    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. أربعة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
     <div class="hall">{works}
     </div>
     <div class="bricks" aria-label="التنقل بين الأعمال">{''.join(f'<button type="button" data-i="{i}" aria-label="العمل {a["no"]}: {a["name"]}"></button>' for i, a in enumerate(APPS.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
@@ -300,7 +336,7 @@ def home():
 
 <section class="section" aria-labelledby="ways-h"><div class="wrap">
   <h2 id="ways-h">ما يجمع هذه الأعمال</h2>
-  <p class="sub">ثلاثة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
+  <p class="sub">أربعة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
   <ul class="principles">
     <li><b>بياناتك على جهازك</b><span>ما تسجّله يُحفظ ويُعالج على جهازك، وما نملك خادمًا يستقبله.</span></li>
     <li><b>بلا حسابات ولا إعلانات</b><span>تفتح التطبيق وتبدأ، ولا نبيع انتباهك لأحد.</span></li>
@@ -335,20 +371,23 @@ works.forEach(function(w){{io.observe(w)}});
 dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scrollIntoView({{behavior:rm?'auto':'smooth',inline:'center',block:'nearest'}})}})}});
 }})();
 </script>'''
-    write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك، تطبيقات عربية لآيفون وأندرويد، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
+    write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
 
 # ---------------- exhibit ----------------
 def exhibit(k):
     a = APPS[k]; rel = '../'
     figs = ''.join(
         (f'<figure><div class="phone"><img src="{rel}assets/{s}.webp" alt="{c}" loading="lazy" width="416" height="900"></div><figcaption>{c}</figcaption></figure>' if a['phone'] else
-         f'<figure><img src="{rel}assets/{s}.webp" alt="{c}" loading="lazy" width="660" height="1434"><figcaption>{c}</figcaption></figure>')
+         f'<figure>{shot_img(a, s, c, rel)}<figcaption>{c}</figcaption></figure>')
         for s, c in a['shots'])
-    store = (f'<a class="btn" href="{a["store"]}">حمّل من App Store</a>' if a['store']
-             else '<span class="btn line" aria-disabled="true">قريبًا على App Store</span>')
+    if a.get('apk'):
+        store = f'<a class="btn" href="{a["apk"]}">حمّل APK للتلفاز</a><a class="btn line" href="#install">طريقة التثبيت</a>'
+    else:
+        store = (f'<a class="btn" href="{a["store"]}">حمّل من App Store</a>' if a['store']
+                 else '<span class="btn line" aria-disabled="true">قريبًا على App Store</span>')
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">احصل عليه من Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">قريبًا على Google Play</span>'
-    docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES[d][0]}</b><span>{DOCNAMES[d][1]}</span></a>' for d in a['docs'])
+    docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES[d][0]}</b><span>{docsub(k, d)}</span></a>' for d in a['docs'])
     film = film_block(k, 'ar', '') if k in FILMS else ''
     body = f'''<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h">
@@ -360,7 +399,7 @@ def exhibit(k):
         <p class="tag">{a["tag"]}</p><p class="meta">{a["meta"]}</p>
         <div class="actions">{store}</div></div>
     </div>
-    {f'<div class="strip" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['shots'] else soon_block('ar', k)}
+    {f'<div class="strip{" tv" if a.get("tv") else ""}" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['shots'] else soon_block('ar', k)}
   </div>
 </section>
 {film}
@@ -368,6 +407,7 @@ def exhibit(k):
   <h2 class="h2">عن العمل</h2>
   {''.join(f'<p>{p}</p>' for p in a['about'])}
   <ul>{''.join(f'<li>{f}</li>' for f in a['features'])}</ul>
+  {install_block('ar') if a.get('apk') else ''}
   {privacy_card('ar', k, 'privacy/')}
   <h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2>
   <div class="docs-grid">{docs}</div>
@@ -375,6 +415,11 @@ def exhibit(k):
 {visitors_wall('ar', k)}
 </main>'''
     write(f'{k}/index.html', shell(rel, f'{a["name"]} | معرض لبنة', a['tag'], body, app=k, dark_top=True, path=f'{k}/'))
+    if a.get('apk'):  # a short address to type on a phone or computer: labina.app/<k>/apk → the current APK
+        write(f'{k}/apk/index.html', f'''<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={a["apk"]}"><title>تحميل {a["name"]}</title></head>
+<body><p>يبدأ تحميل {a["name"]}… وإن لم يبدأ: <a href="{a["apk"]}">حمّل الملف</a>.</p></body></html>
+''')
 
 # ---------------- documents ----------------
 def docpage(k, d, inner, desc):
@@ -398,6 +443,12 @@ def contact_box(subject, line='راسلنا بالبريد، ونرد عادة �
 
 def terms(k):
     a = APPS[k]
+    if k == 'sakan':  # not on the App Store: its own licence, no Apple EULA
+        en = SAKAN_TERMS_EN.replace('{nature}', NATURE_EN[k])
+        en = re.sub(r'<h1>.*?</h1>\s*<p class="date">.*?</p>', '', en, flags=re.S).replace('<h2>Contact</h2>', '')
+        inner = (SAKAN_TERMS + contact_box('شروط ' + a['name'], 'لأي سؤال عن هذه الشروط')
+                 + f'<section class="en" dir="ltr" lang="en"><h2>Terms of Use (English)</h2>{en}</section>')
+        return docpage(k, 'terms', inner, f'شروط استخدام {a["name"]}.')
     subs = ''
     if a['subs']:
         product = 'ميزان برو' if k == 'mizan' else 'مدماك بلس'
@@ -488,6 +539,10 @@ def documents():
     pri = re.sub(r'<div class="card">.*?</div>\s*</div>', contact_box('خصوصية مدماك', 'لأي سؤال عن الخصوصية'), pri, count=1, flags=re.S)
     docpage('midmak', 'privacy', pri, 'سياسة الخصوصية لتطبيق مدماك.')
 
+    # sakan: no original policy page exists; written from the app's behaviour (its «عن سَكَن» text, weather.js, Updater.java)
+    docpage('sakan', 'support', SAKAN_SUPPORT.replace('{contact}', contact_box('دعم سكن')), 'الدعم والأسئلة الشائعة لسَكَن.')
+    docpage('sakan', 'privacy', SAKAN_PRIVACY + contact_box('خصوصية سكن', 'لأي سؤال عن الخصوصية'), 'سياسة الخصوصية لسَكَن.')
+
     for k in APPS: terms(k)
 
 # ---------------- docs centre ----------------
@@ -500,6 +555,7 @@ def docs_centre():
                   'terms': 'Terms of Use (EULA)', 'accessibility': 'Accessibility'}[d], f'{DOMAIN}/{k}/{d}/') for d in a['docs']]
         if a['store']: rows.append(('في App Store', 'App Store', a['store']))
         if a.get('play'): rows.append(('في Google Play', 'Google Play', a['play']))
+        if a.get('apk'): rows += [('التحميل', 'APK', f'{DOMAIN}/{k}/apk/'), ('صفحة الإصدارات', 'Releases', SAKAN_REL)]
         rh = ''.join(f'<div class="row"><div class="k">{t}<small>{e}</small></div>'
                      f'<a class="v" href="{u}">{u}</a><button class="copy" type="button" data-copy="{u}">نسخ</button></div>' for t, e, u in rows)
         blocks += f'''<section class="ref" style="--app:var(--{k})" aria-labelledby="r-{k}">
@@ -511,7 +567,7 @@ def docs_centre():
 <div class="prose" style="padding-bottom:8px">
 <h1>الوثائق</h1>
 <p>روابط الدعم وسياسات الخصوصية وشروط الاستخدام لكل أعمال لبنة. وهي الروابط المعتمدة لصفحات التطبيقات في المتاجر.</p>
-<p>تخضع التطبيقات لـ<a href="{EULA}">اتفاقية ترخيص المستخدم النهائي القياسية من Apple</a>، وتكمّلها صفحة شروط الاستخدام لكل تطبيق.</p>
+<p>تخضع تطبيقات App Store لـ<a href="{EULA}">اتفاقية ترخيص المستخدم النهائي القياسية من Apple</a>، وتكمّلها صفحة شروط الاستخدام لكل تطبيق. وسَكَن يُنزَّل من صفحة إصداراته، وترخيصه في صفحة شروطه.</p>
 </div>
 {blocks}
 <section class="ref"><div class="rows">
@@ -524,7 +580,7 @@ document.addEventListener('click',function(e){{var b=e.target.closest('.copy');i
 var t=b.getAttribute('data-copy');var done=function(){{b.textContent='نُسخ';b.setAttribute('data-done','');setTimeout(function(){{b.textContent='نسخ';b.removeAttribute('data-done')}},1600)}};
 if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{}})}}}});
 </script>'''
-    write('docs/index.html', shell(rel, 'الوثائق | لبنة', 'روابط الدعم وسياسات الخصوصية وشروط الاستخدام لتطبيقات لبنة: ميزان وسنا ومدماك.', body, here='docs/', path='docs/'))
+    write('docs/index.html', shell(rel, 'الوثائق | لبنة', 'روابط الدعم وسياسات الخصوصية وشروط الاستخدام لتطبيقات لبنة: ميزان وسنا ومدماك وسَكَن.', body, here='docs/', path='docs/'))
 
 def extras():
     write('favicon.svg', FAVICON)
@@ -556,10 +612,10 @@ def en_home():
     entries = ''
     for k, e in APPS_EN.items():
         a = APPS[k]
-        imgs = ''.join(f'<img src="{rel}assets/{sh}.webp" alt="" loading="lazy" width="660" height="1434">' for sh, _ in a['shots'][:3])
-        fan = f'<div class="fan" aria-hidden="true">{imgs}</div>' if a['store'] else f'<div class="fan wallfan">{wall_svg("wall mini")}</div>'
-        store = (f'<a class="btn line" href="{a["store"]}">App Store</a>' if a['store']
-                 else '<span class="btn" aria-disabled="true">Coming soon</span>')
+        imgs = ''.join(shot_img(a, sh, '', rel) for sh, _ in a['shots'][:3])
+        fan = (f'<div class="fan{" tv" if a.get("tv") else ""}" aria-hidden="true">{imgs}</div>' if a['shots']
+               else f'<div class="fan wallfan">{wall_svg("wall mini")}</div>')
+        store = get_btn(k, a, True)
         entries += f"""
       <article class="entry" style="--app:var(--{k});--app-lit:var(--{k}-lit)">
         {fan}
@@ -572,7 +628,7 @@ def en_home():
     body = f"""<main id="main">
 <section class="gallery dark" aria-labelledby="hall-h"><div class="wrap">
   <h1 id="hall-h">Every app is a piece, and this is its gallery.</h1>
-  <p class="lede">Labina is a small studio making Arabic apps for iPhone and Android. Three works are on show today, and the wall has room for more.</p>
+  <p class="lede">Labina is a small studio making Arabic apps for iPhone, Android and the TV. Four works are on show today, and the wall has room for more.</p>
   <div class="hall">{works}
   </div>
   <div class="bricks" aria-label="Move between works">{''.join(f'<button type="button" data-i="{i}" aria-label="Work {e["no"]}: {e["name"]}"></button>' for i, e in enumerate(APPS_EN.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
@@ -585,7 +641,7 @@ def en_home():
 </div></section>
 <section class="section" aria-labelledby="ways-h"><div class="wrap">
   <h2 id="ways-h">What these works share</h2>
-  <p class="sub">Three different apps, one way of making them.</p>
+  <p class="sub">Four different apps, one way of making them.</p>
   <ul class="principles">
     <li><b>Your data stays on your device</b><span>What you record is stored and processed on your device. We have no server to receive it.</span></li>
     <li><b>No accounts, no ads</b><span>Open the app and start. We do not sell your attention to anyone.</span></li>
@@ -616,18 +672,21 @@ works.forEach(function(w){{io.observe(w)}});
 dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scrollIntoView({{behavior:rm?'auto':'smooth',inline:'center',block:'nearest'}})}})}});
 }})();
 </script>"""
-    write('en/index.html', shell(rel, 'Labina | A gallery of Arabic apps', 'The works of Labina: Mizan, Sana and Midmak, Arabic apps for iPhone and Android, with support, privacy and terms pages.', body, here='', dark_top=True, path='en/', lang='en'))
+    write('en/index.html', shell(rel, 'Labina | A gallery of Arabic apps', 'The works of Labina: Mizan, Sana, Midmak and Sakan, Arabic apps for iPhone, Android and the TV, with support, privacy and terms pages.', body, here='', dark_top=True, path='en/', lang='en'))
 
 def en_exhibit(k):
     a, e = APPS[k], APPS_EN[k]; rel = '../../'
-    figs = ''.join(f'<figure><img src="{rel}assets/{sh}.webp" alt="{c}" loading="lazy" width="660" height="1434"><figcaption>{c}</figcaption></figure>'
+    figs = ''.join(f'<figure>{shot_img(a, sh, c, rel)}<figcaption>{c}</figcaption></figure>'
                    for (sh, _), c in zip(a['shots'], e['caps']))
-    store = (f'<a class="btn" href="{a["store"]}">Download on the App Store</a>' if a['store'] else '<span class="btn line" aria-disabled="true">Coming soon to the App Store</span>')
+    if a.get('apk'):
+        store = f'<a class="btn" href="{a["apk"]}">Download the APK for TV</a><a class="btn line" href="#install">How to install</a>'
+    else:
+        store = (f'<a class="btn" href="{a["store"]}">Download on the App Store</a>' if a['store'] else '<span class="btn line" aria-disabled="true">Coming soon to the App Store</span>')
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">Get it on Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">Coming soon to Google Play</span>'
-    docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES_EN[d][0]}</b><span>{DOCNAMES_EN[d][1]}</span></a>' for d in a['docs'])
+    docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES_EN[d][0]}</b><span>{docsub(k, d, True)}</span></a>' for d in a['docs'])
     film = film_block(k, 'en', f'../../{k}/') if k in FILMS else ''
-    show = f'<div class="strip" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['shots'] else soon_block('en', k)
+    show = f'<div class="strip{" tv" if a.get("tv") else ""}" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['shots'] else soon_block('en', k)
     body = f"""<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h"><div class="wrap">
   <p class="crumbs"><a href="../">Gallery</a> / {e['name']} room</p>
@@ -642,6 +701,7 @@ def en_exhibit(k):
   <h2 class="h2">About the work</h2>
   {''.join(f'<p>{x}</p>' for x in e['about'])}
   <ul>{''.join(f'<li>{x}</li>' for x in e['features'])}</ul>
+  {install_block('en') if a.get('apk') else ''}
   {privacy_card('en', k, 'privacy/')}
   <h2 class="h2" style="margin-top:44px">{e['name']} documents</h2>
   <div class="docs-grid">{docs}</div>
@@ -667,6 +727,8 @@ def en_docpage(k, d, inner, desc):
 
 def en_terms(k):
     a, e = APPS[k], APPS_EN[k]
+    if k == 'sakan':
+        return en_docpage(k, 'terms', SAKAN_TERMS_EN.replace('{nature}', NATURE_EN[k]) + en_contact('Sakan terms', 'Questions about these terms'), 'Terms of use for Sakan.')
     subs = ''
     if a['subs']:
         product = 'Mizan Pro' if k == 'mizan' else 'Midmak Plus'
@@ -704,6 +766,7 @@ def en_documents():
     en_docpage('sana', 'privacy', '<h1>Privacy Policy</h1><p class="date">Last updated: September 25, 2026</p>' + sp
                + f'<p><a href="{mailto("Sana privacy")}">A question about privacy? Email us</a></p>', 'Privacy policy for Sana.')
     en_docpage('midmak', 'privacy', MIDMAK_PRIVACY_EN + en_contact('Midmak privacy', 'Questions about privacy'), 'Privacy policy for Midmak.')
+    en_docpage('sakan', 'privacy', SAKAN_PRIVACY_EN + en_contact('Sakan privacy', 'Questions about privacy'), 'Privacy policy for Sakan.')
     en_docpage('sana', 'accessibility', SANA_A11Y_EN + f'<p><a href="{mailto("Sana accessibility")}">Suggest an improvement or report a barrier</a></p>', 'Accessibility support in Sana.')
 
 def en_docs_centre():
@@ -714,13 +777,14 @@ def en_docs_centre():
         rows = [('Product page', 'Marketing URL', f'{DOMAIN}/en/{k}/')] + [(DOCNAMES_EN[d][0], lbl[d], f'{DOMAIN}/en/{k}/{d}/') for d in a['docs']]
         if a['store']: rows.append(('On the App Store', 'App Store', a['store']))
         if a.get('play'): rows.append(('On Google Play', 'Google Play', a['play']))
+        if a.get('apk'): rows += [('Download', 'APK', f'{DOMAIN}/{k}/apk/'), ('Releases page', 'Releases', SAKAN_REL)]
         rh = ''.join(f'<div class="row"><div class="k">{t}<small>{x}</small></div><a class="v" href="{u}">{u}</a><button class="copy" type="button" data-copy="{u}">Copy</button></div>' for t, x, u in rows)
         blocks += f'<section class="ref" style="--app:var(--{k})"><div class="ref-head"><img src="{rel}assets/{k}-icon.webp" alt="" width="44" height="44"><div><h2>{e["name"]}</h2><span>Work {e["no"]}</span></div></div><div class="rows">{rh}</div></section>'
     body = f"""<main id="main"><div class="wrap narrow">
 <div class="dochead"><p class="crumbs"><a href="../">Gallery</a> / Documents</p></div>
 <div class="prose" style="padding-bottom:8px"><h1>Documents</h1>
 <p>Support, privacy policies and terms of use for every Labina work. Arabic versions live at the same paths without <span class="latin">/en</span>.</p>
-<p>The apps are governed by Apple's <a href="{EULA}">Standard End User License Agreement</a>, supplemented by each app's terms page.</p></div>
+<p>App Store apps are governed by Apple's <a href="{EULA}">Standard End User License Agreement</a>, supplemented by each app's terms page. Sakan is downloaded from its releases page, and its licence is on its terms page.</p></div>
 {blocks}
 <section class="ref"><div class="rows">
 <div class="row"><div class="k">Support email<small>Email</small></div><a class="v" href="mailto:{EMAIL}">{EMAIL}</a><button class="copy" type="button" data-copy="{EMAIL}">Copy</button></div>
@@ -731,12 +795,12 @@ document.addEventListener('click',function(e){{var b=e.target.closest('.copy');i
 var done=function(){{b.textContent='Copied';b.setAttribute('data-done','');setTimeout(function(){{b.textContent='Copy';b.removeAttribute('data-done')}},1600)}};
 if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{}})}}}});
 </script>"""
-    write('en/docs/index.html', shell(rel, 'Documents | Labina', 'Support, privacy and terms pages for Labina apps: Mizan, Sana and Midmak.', body, here='docs/', path='en/docs/', lang='en'))
+    write('en/docs/index.html', shell(rel, 'Documents | Labina', 'Support, privacy and terms pages for Labina apps: Mizan, Sana, Midmak and Sakan.', body, here='docs/', path='en/docs/', lang='en'))
 
 # ================= press kit =================
 PRESS_TXT = {
  'ar': dict(title='الملف الصحفي', crumb='المعرض', lede='كل ما تحتاجه للكتابة عن لبنة وأعمالها أو الإعلان عنها: الشعار، والأيقونات، واللقطات بدقتها الكاملة، ووصف جاهز لكل تطبيق. استعملها بحرية في المقالات والمراجعات والإعلانات.',
-            about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت.',
+            about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت، وسَكَن شاشة توقف للتلفاز تعرف يومك.',
             logo_h='الشعار', logo_p='الشعار كلمة «لبنة» مبنية بالخط الكوفي المربّع، كل خلية فيها لبنة، ونقاطها بلون القنديل، وحركاتها لبنات مائلة لم تستقرّ بعد في الجدار. والعلامة المختصرة حرف اللام واللبنة الأولى.',
             on_light='على الفاتح', on_dark='على الداكن', icon='الأيقونة', mono='أحادي اللون',
             rules=['استعمل الملفات كما هي، ولا تكتب الاسم بخط آخر بدلها.', 'اترك حول الشعار مسافة خالية بعرض لبنة على الأقل.', 'لا تمدّ الشعار ولا تميّله ولا تغيّر ألوانه أو تضع عليه ظلًا.'],
@@ -745,7 +809,7 @@ PRESS_TXT = {
             dl_icon='الأيقونة PNG', dl_all='حمّل كل المواد', platforms='المنصات', year='السنة', store='المتجر', soon='قريبًا', short='الوصف القصير', long='الوصف',
             contact_h='للتواصل الإعلامي', contact_p='لطلب مقابلة أو نسخة تجريبية أو مواد إضافية، راسلنا ونرد خلال يومي عمل.', subject='طلب إعلامي'),
  'en': dict(title='Press kit', crumb='Gallery', lede='Everything you need to write about Labina and its works, or to feature them: the logo, icons, full-resolution screenshots, and a ready description of each app. Use them freely in articles, reviews and promotions.',
-            about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone and Android. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; and Midmak, for documenting the building of a home.',
+            about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone, Android and the TV. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; Midmak, for documenting the building of a home; and Sakan, a TV screen saver that knows your day.',
             logo_h='Logo', logo_p='The logo is the word لبنة (Labina, "a brick") built in square Kufic: every cell is a brick, the dots glow in lantern amber, and the vowel marks are slanted bricks still being laid. The mark is the letter lām with the first brick.',
             on_light='On light', on_dark='On dark', icon='Icon', mono='One colour',
             rules=['Use the files as they are; do not set the name in another typeface instead.', 'Leave clear space of at least one brick around the logo.', 'Do not stretch, tilt, recolour or add shadows to the logo.'],
@@ -787,12 +851,12 @@ def press(lang):
         if shots:
             caps = e['caps'] if en else [c for _, c in a['shots']]
             for f, (sh, _), c in zip(shots, a['shots'], caps):
-                thumbs += f'<a class="kit-shot" href="{F}{k}/{f}" download title="{c}"><img src="{rel}assets/{sh}.webp" alt="{c}" loading="lazy" width="660" height="1434"></a>'
-            gallery = f'<div class="kit-shots">{thumbs}</div>'
+                thumbs += f'<a class="kit-shot" href="{F}{k}/{f}" download title="{c}">{shot_img(a, sh, c, rel)}</a>'
+            gallery = f'<div class="kit-shots{" tv" if a.get("tv") else ""}">{thumbs}</div>'
         else:
             gallery = f'<p class="kit-soon">{t["soon_shots"]}</p>'
         store = (f'<a href="{a["store"]}">App Store</a>' if a['store']
-                 else t['soon'])
+                 else f'<a href="{SAKAN_REL}">APK</a>' if a.get('apk') else t['soon'])
         apps_html += f"""
 <section class="kit-app" style="--app:var(--{k})" aria-labelledby="k-{k}">
   <div class="kit-app-head"><img src="{rel}assets/{k}-icon.webp" alt="" width="64" height="64">

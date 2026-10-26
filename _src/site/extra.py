@@ -182,3 +182,152 @@ NATURE_EN = {
  'sana': 'Sana is an educational reference for the Beautiful Names of Allah. We have worked to document meanings and evidence carefully; if you find a mistake, tell us so we can correct it.',
  'midmak': 'Midmak is a logbook for documenting and organising the building of your home. Its figures and alerts are based on what you enter, and it does not replace your supervising engineer, a lawyer, or signed contracts.',
 }
+
+# ---------- Sakan: a TV app, shipped as an APK from its releases page (no store) ----------
+SAKAN_VER = '3.2.3'   # bump on each release in raljohani/sakan-tv: the APK link and /sakan/apk/ point at this version
+SAKAN_REL = 'https://github.com/raljohani/sakan-tv/releases/latest'
+SAKAN_APK = f'https://github.com/raljohani/sakan-tv/releases/download/v{SAKAN_VER}/sakan-{SAKAN_VER}.apk'
+
+PRIV['ar']['sakan'] = [('البيانات المجموعة', 'لا شيء'), ('الحساب', 'لا يوجد'), ('الإعلانات والتتبّع', 'لا يوجد'), ('أين تُحفظ', 'على التلفاز أو الحاسوب فقط')]
+PRIV['en']['sakan'] = [('Data collected', 'None'), ('Account', 'None'), ('Ads & tracking', 'None'), ('Stored', 'On your TV or PC only')]
+PRIV_NOTE['ar']['sakan'] = 'يعمل دون إنترنت، ويتصل في ثلاثة مواضع فقط دون أن يرسل شيئًا عنك: Open-Meteo للطقس، وESPN للمباريات، وصفحة إصداراته على GitHub للتحديث.'
+PRIV_NOTE['en']['sakan'] = 'It works offline, and connects in three places only, sending nothing about you: Open-Meteo for weather, ESPN for matches, and its GitHub releases page for updates.'
+
+INSTALL = {
+ 'ar': dict(h='التحميل والتثبيت',
+   intro=f'سَكَن لا يُباع في متجر: يُنزَّل ملفًا (APK) من صفحة إصداراته، ثم يحدّث نفسه من داخله. يعمل على أندرويد ٧ فأحدث (Android TV وGoogle TV)، والإصدار الحالي <bdi dir="ltr">{SAKAN_VER}</bdi>.',
+   steps=['حمّل الملف على جوالك أو حاسوبك من <a href="apk/" class="latin">labina.app/sakan/apk</a>، وانسخه إلى فلاش.',
+          'صِل الفلاش بالتلفاز وافتح الملف من مدير الملفات. وإن طلب التلفاز السماح بالتثبيت من مصدر غير معروف، فاسمح لمدير الملفات وحده.',
+          'من إعدادات التلفاز: تفضيلات الجهاز ← شاشة التوقف ← اختر «سَكَن»، واضبط وقت البدء.',
+          'بعض التلفزيونات تخفي صفحة شاشة التوقف أو تمنع البرامج المثبّتة من خارج متجرها؛ خطواتها في <a href="support/">صفحة الدعم</a>.'],
+   win='ونسخة ويندوز ١٠ و١١ (شاشة توقف بالواجهة نفسها) نرسلها لمن يطلبها بالبريد.', win_subj='نسخة سكن لويندوز'),
+ 'en': dict(h='Download and install',
+   intro=f'Sakan is not sold in a store: you download it as a file (APK) from its releases page, and it then updates itself from inside. It runs on Android 7 or later (Android TV and Google TV). The current version is {SAKAN_VER}.',
+   steps=['Download the file on your phone or computer from <a href="../../sakan/apk/">labina.app/sakan/apk</a>, and copy it to a USB stick.',
+          'Plug the stick into the TV and open the file from a file manager. If the TV asks to allow installs from unknown sources, allow the file manager only.',
+          'In the TV settings: Device Preferences → Screen saver → choose "Sakan", and set when it starts.',
+          'Some TVs hide the screen saver page or block apps installed outside their store; see the steps on the <a href="support/">support page</a>.'],
+   win='A Windows 10 and 11 version (a screen saver with the same interface) is sent by email on request.', win_subj='Sakan for Windows'),
+}
+
+SAKAN_SUPPORT = '''<h1>الدعم</h1>
+<p>وجدت خللًا في مشهد، أو وقتًا لا يطابق مدينتك، أو عندك اقتراح؟ راسلنا، واذكر طراز التلفاز ورقم إصدار سَكَن (من «عن سَكَن» في إعداداته).</p>
+{contact}
+<h2>أسئلة شائعة</h2>
+<details><summary>كيف أثبّت سَكَن على التلفاز؟</summary><p>حمّل الملف من <a href="../apk/">labina.app/sakan/apk</a> وانسخه إلى فلاش، ثم افتحه من مدير الملفات في التلفاز، واسمح لمدير الملفات وحده بالتثبيت من مصدر غير معروف إن طُلب منك. ثم اختره من الإعدادات ← تفضيلات الجهاز ← شاشة التوقف.</p></details>
+<details><summary>التلفاز ما فيه صفحة لشاشة التوقف</summary><p>بعض التلفزيونات تخفيها. يحتاج سَكَن حينها إذنًا يُمنح مرة واحدة من حاسوب عليه adb والتلفاز على الشبكة نفسها، بعد تفعيل تصحيح الأخطاء من خيارات المطوّر:</p><p class="latin" dir="ltr">adb connect &lt;TV-IP&gt;:5555<br>adb shell pm grant app.sakan.tv android.permission.WRITE_SECURE_SETTINGS</p><p>ثم من داخل سَكَن: «اجعلها شاشة التوقف». ويُسحب الإذن متى شئت بـ <span class="latin">pm revoke</span>.</p></details>
+<details><summary>تلفاز TCL لا يبدأ شاشة التوقف عند الخمول</summary><p>نظامه يمنع البرامج المثبّتة من خارج متجره من العمل تلقائيًا. من الحاسوب نفسه بعد <span class="latin">adb connect</span>:</p><p class="latin" dir="ltr">adb shell appops set app.sakan.tv APP_AUTO_START allow</p></details>
+<details><summary>كيف أفعّل التنبيه فوق القنوات ومؤقت المشاهدة؟</summary><p>يحتاجان إذن الظهور فوق التطبيقات، يُمنح مرة واحدة:</p><p class="latin" dir="ltr">adb shell appops set app.sakan.tv SYSTEM_ALERT_WINDOW allow</p><p>ثم فعّلهما من إعدادات سَكَن. وكلاهما متوقف حتى تفعّله.</p></details>
+<details><summary>كيف أضيف المواعيد وصور الألبوم والملصقات؟</summary><p>من الإعدادات ← الجوال ← «شغّل رابط الجوال»، ثم امسح الرمز بكاميرا جوالك وهو على شبكة الواي فاي نفسها. تُفتح صفحة سَكَن في المتصفح دون تطبيق ولا حساب، ويُقفل الرابط وحده بعد نصف ساعة دون استخدام.</p></details>
+<details><summary>كيف أحدّث سَكَن؟</summary><p>من الإعدادات ← «تحديث البرنامج». أو ثبّت ملف الإصدار الأحدث فوقه، فتبقى إعداداتك ومواعيدك.</p></details>
+<details><summary>أوقات الصلاة تختلف عن مسجدنا</summary><p>يحسب سَكَن الأوقات بتقويم أم القرى (الفجر عند ١٨٫٥ درجة، والعشاء بعد المغرب بتسعين دقيقة، ومئة وعشرين في رمضان). ويمكنك تعديل كل صلاة بالدقائق من إعدادات الصلاة.</p></details>
+<details><summary>هل توجد نسخة لويندوز؟</summary><p>نعم، شاشة توقف لويندوز ١٠ و١١ بالواجهة نفسها، لا تحتاج صلاحيات مدير. نرسلها لمن يطلبها بالبريد.</p></details>
+<details><summary>كيف أحذف سَكَن وبياناته؟</summary><p>إعدادات التلفاز ← التطبيقات ← سَكَن ← إلغاء التثبيت. إعداداتك ومواعيدك وصورك محفوظة في التلفاز وحده، فتُحذف معه.</p></details>'''
+
+SAKAN_PRIVACY = '''<h1>سياسة الخصوصية</h1>
+<p class="date">آخر تحديث: ٢٦ أكتوبر ٢٠٢٦</p>
+<p>سَكَن شاشات انتظار للتلفاز والحاسوب، صُنع ليعمل على جهازك. لا حسابات فيه ولا إعلانات ولا تتبّع، ولا نملك خادمًا يستقبل بياناتك.</p>
+<h2>ما يُحفظ وأين</h2>
+<p>إعداداتك ومواعيدك وملصقاتك وصور الألبوم تُحفظ على التلفاز (أو الحاسوب) نفسه فقط، ولا تُرفع إلى أي خدمة سحابية، وتُحذف بحذف التطبيق. والنسخة الاحتياطية ملف تحفظه أنت على جوالك.</p>
+<h2>متى يتصل بالإنترنت</h2>
+<p>يعمل سَكَن كاملًا دون إنترنت، ويتصل في ثلاثة مواضع فقط، ولا يرسل فيها شيئًا عنك:</p>
+<ul>
+<li><b>الطقس:</b> يطلب مشهد الطقس توقعات مدينتك من Open-Meteo بإحداثيات المدينة التي اخترتها، مرة كل ساعة افتراضًا، دون مفتاح ولا ملفات تعريف. وآخر قراءة تُحفظ على الجهاز.</li>
+<li><b>الملعب:</b> يجلب جدول المباريات وشعارات الأندية من ESPN حين يُعرض.</li>
+<li><b>التحديث:</b> يسأل صفحة إصدارات سَكَن على GitHub عن إصدار جديد حين تفتح سَكَن (مرة كل ست ساعات على الأكثر) وحين تطلبه.</li>
+</ul>
+<p>هذه الطلبات تصل إلى تلك الجهات كأي تصفح عادي للإنترنت، وتخضع لسياساتها.</p>
+<h2>رابط الجوال</h2>
+<p>حين تشغّله، يفتح سَكَن خادمًا صغيرًا على شبكة البيت وحدها، برمز عشوائي يتغيّر كل تشغيل، ويُقفل بعد نصف ساعة دون استخدام. ما ترسله من جوالك (مواعيد وصور وملاحظات) يذهب إلى التلفاز مباشرة لا عبر الإنترنت، والصور تُصغَّر على جوالك قبل إرسالها.</p>
+<h2>الأذونات على التلفاز</h2>
+<ul>
+<li><b>الظهور فوق التطبيقات:</b> للتنبيه قبل الأذان ومؤقت المشاهدة، وكلاهما متوقف حتى تفعّله.</li>
+<li><b>إعدادات النظام الآمنة</b> (إن منحتها بنفسك): لضبط مدة الخمول والنوم وشاشة التوقف فقط.</li>
+<li><b>التشغيل عند الإقلاع وتثبيت الحزم:</b> لإعادة التنبيهات بعد تشغيل التلفاز، ولتثبيت تحديثات سَكَن نفسه.</li>
+</ul>
+<h2>مؤقت المشاهدة</h2>
+<p>الرقم السري لا يُحفظ نفسه، بل بصمته المملّحة على الجهاز.</p>
+<h2>الأطفال</h2>
+<p>لا نجمع بيانات من أي مستخدم، صغيرًا كان أو كبيرًا.</p>
+<h2>التغييرات</h2>
+<p>إن تغيّرت هذه السياسة، حدّثنا تاريخها أعلاه قبل نشر أي إصدار يتأثر بها.</p>
+<h2>التواصل</h2>'''
+
+SAKAN_PRIVACY_EN = '''<h1>Privacy Policy</h1>
+<p class="date">Last updated: October 26, 2026</p>
+<p>Sakan is a set of ambient screens for the TV and PC, made to work on your device. It has no accounts, no ads and no tracking, and we have no server that receives your data.</p>
+<h2>What is stored, and where</h2>
+<p>Your settings, appointments, notes and album photos are stored on the TV (or PC) itself only, are never uploaded to any cloud service, and are deleted when you remove the app. A backup is a file you keep on your own phone.</p>
+<h2>When it goes online</h2>
+<p>Sakan works fully offline, and connects in three places only, sending nothing about you:</p>
+<ul>
+<li><b>Weather:</b> the weather scene requests your city's forecast from Open-Meteo using the coordinates of the city you chose, once an hour by default, with no key and no cookies. The last reading is kept on the device.</li>
+<li><b>Matches:</b> the stadium scene fetches fixtures and club crests from ESPN when it is shown.</li>
+<li><b>Updates:</b> it asks Sakan's GitHub releases page for a new version when you open Sakan (at most once every six hours) and when you ask it to.</li>
+</ul>
+<p>These requests reach those services like any ordinary web browsing, under their own policies.</p>
+<h2>Phone link</h2>
+<p>When you turn it on, Sakan opens a small server on your home network only, with a random code that changes each time and that closes after thirty minutes without use. What you send from your phone (appointments, photos, notes) goes straight to the TV, not over the internet, and photos are resized on your phone before sending.</p>
+<h2>Permissions on the TV</h2>
+<ul>
+<li><b>Display over other apps:</b> for the prayer alert and the viewing timer, both off until you turn them on.</li>
+<li><b>Secure system settings</b> (only if you grant it yourself): to set the idle, sleep and screen saver timings only.</li>
+<li><b>Start at boot and install packages:</b> to restore alerts after the TV starts, and to install Sakan's own updates.</li>
+</ul>
+<h2>Viewing timer</h2><p>The PIN itself is never stored, only its salted hash on the device.</p>
+<h2>Children</h2><p>We collect no data from any user, young or old.</p>
+<h2>Changes</h2><p>If this policy changes, we update its date above before releasing any version affected by it.</p>'''
+
+SAKAN_TERMS = '''<h1>شروط الاستخدام</h1>
+<p class="date">تاريخ السريان: ٢٦ أكتوبر ٢٠٢٦</p>
+<p>باستخدامك «سَكَن» توافق على هذه الشروط.</p>
+<h2>الترخيص</h2>
+<p>سَكَن مجاني للاستخدام الشخصي في البيت، ويُقدَّم كما هو دون ضمان. لا تبعه، ولا تُعِد توزيعه معدّلًا.</p>
+<h2>التحميل</h2>
+<p>نزّله من labina.app أو من صفحة إصداراته الرسمية فقط. النسخ من مصادر أخرى قد تكون معدّلة، والتلفاز لا يقبل تحديثًا لا يحمل توقيع سَكَن.</p>
+<h2>طبيعة التطبيق</h2>
+<p>أوقات الصلاة تُحسب بتقويم أم القرى وقد تختلف عن أذان مسجدك، والتاريخ الهجري قد يختلف بيوم عن الرؤية، والطقس والمباريات تأتي من مصادرها ولا نضمن دقتها.</p>
+<h2>الأذونات وإعدادات التلفاز</h2>
+<p>ما تمنحه لسَكَن من أذونات عبر adb تمنحه باختيارك، ويمكنك سحبه متى شئت. ونصائح التثبيت في صفحة الدعم إرشادية؛ اتبعها على مسؤوليتك.</p>
+<h2>بياناتك</h2>
+<p>بياناتك ملكك وتبقى على جهازك. التفاصيل في <a href="../privacy/">سياسة الخصوصية</a>.</p>
+<h2>الاستخدام المقبول</h2>
+<p>لا تستخدم التطبيق في ما يخالف الأنظمة، ولا تحاول تعطيله.</p>
+<h2>التغييرات</h2>
+<p>قد نحدّث هذه الشروط، ونغيّر تاريخ السريان أعلاه عند ذلك.</p>
+<h2>التواصل</h2>'''
+
+SAKAN_TERMS_EN = '''<h1>Terms of Use</h1>
+<p class="date">Effective: October 26, 2026</p>
+<p>By using Sakan you agree to these terms.</p>
+<h2>License</h2><p>Sakan is free for personal use at home and is provided as is, without warranty. Do not sell it or redistribute modified copies.</p>
+<h2>Downloads</h2><p>Download it only from labina.app or its official releases page. Copies from elsewhere may be modified, and the TV will not accept an update that does not carry Sakan's signature.</p>
+<h2>What the app is</h2><p>{nature}</p>
+<h2>Permissions and TV settings</h2><p>Any permission you grant Sakan through adb is your choice, and you can revoke it at any time. The installation tips on the support page are guidance; follow them at your own risk.</p>
+<h2>Your data</h2><p>Your data is yours and stays on your device. See the <a href="../privacy/">Privacy Policy</a>.</p>
+<h2>Acceptable use</h2><p>Do not use the app against the law, or try to disrupt it.</p>
+<h2>Changes</h2><p>We may update these terms, and will change the effective date above when we do.</p>
+<h2>Contact</h2>'''
+
+APPS_EN['sakan'] = dict(no='4', name='Sakan', tag='The home screen for when nobody is watching.',
+   meta='For Android TV and Windows',
+   about=['A screen saver for Android TVs that knows your day: its scenes change with the prayer times in your city, show the Hijri and Gregorian calendar, the weather, the matches and family photos, and a calm alert appears over any channel when the adhan is near. It also comes as a screen saver for Windows.'],
+   features=['Scenes for your day: the city panel and prayer times, the day dial, the Hijri and Gregorian calendar, the weather, the verse of the day, Ramadan, and the quiet night.',
+             'A 24-hour ring: each part of the day has its scenes, and the parts move with the prayer times without you setting them.',
+             'The stadium: your team\'s matches and the league table, and "On air" when matches overlap.',
+             'A home album, notes and appointments you write from your phone over a link on your home network, with no app and no account.',
+             'A calm alert over any channel before the adhan, and a viewing timer with a PIN; both are off until you turn them on.',
+             'Prayer times by the Umm al-Qura calendar, calculated on the device itself. No ads, no accounts, no tracking.'],
+   caps=['The city panel', 'The day dial', 'The calendar', 'The weather', 'Ramadan', 'The verse of the day'])
+DOCNAMES_EN_SUB = {'sakan': {'terms': 'License and downloads'}}
+SUPPORT_EN['sakan'] = ('Found a glitch in a scene, a time that does not match your city, or have a suggestion? Write to us, and mention your TV model and Sakan\'s version (from "About Sakan" in its settings).', [
+   ('How do I install Sakan on the TV?', 'Download the file from <a href="../../../sakan/apk/">labina.app/sakan/apk</a> and copy it to a USB stick, then open it from a file manager on the TV, allowing that file manager alone to install from unknown sources if asked. Then choose it in Settings → Device Preferences → Screen saver.'),
+   ('My TV has no screen saver page', 'Some TVs hide it. Sakan then needs a permission granted once from a computer with adb on the same network, after turning on debugging in Developer options:<br><span class="latin">adb connect &lt;TV-IP&gt;:5555<br>adb shell pm grant app.sakan.tv android.permission.WRITE_SECURE_SETTINGS</span><br>Then, inside Sakan, choose to make it the screen saver. You can revoke the permission any time with <span class="latin">pm revoke</span>.'),
+   ('A TCL TV does not start the screen saver when idle', 'Its system blocks apps installed outside its store from starting on their own. From the same computer, after <span class="latin">adb connect</span>:<br><span class="latin">adb shell appops set app.sakan.tv APP_AUTO_START allow</span>'),
+   ('How do I turn on the alert over channels and the viewing timer?', 'They need the display-over-other-apps permission, granted once:<br><span class="latin">adb shell appops set app.sakan.tv SYSTEM_ALERT_WINDOW allow</span><br>Then turn them on in Sakan\'s settings. Both are off until you do.'),
+   ('How do I add appointments, album photos and notes?', 'Settings → Phone → "Start the phone link", then scan the code with your phone camera while on the same Wi-Fi. Sakan\'s page opens in the browser with no app and no account, and the link closes itself after thirty minutes without use.'),
+   ('How do I update Sakan?', 'Settings → "Update the app". Or install the newer file over it; your settings and appointments stay.'),
+   ('Prayer times differ from our mosque', 'Sakan uses the Umm al-Qura calendar (Fajr at 18.5°, Isha ninety minutes after Maghrib, and one hundred and twenty in Ramadan). You can adjust each prayer by minutes in the prayer settings.'),
+   ('Is there a Windows version?', 'Yes: a screen saver for Windows 10 and 11 with the same interface, needing no administrator rights. We send it by email on request.'),
+   ('How do I remove Sakan and its data?', 'TV Settings → Apps → Sakan → Uninstall. Your settings, appointments and photos live on the TV only, so they go with it.')])
+NATURE_EN['sakan'] = 'Prayer times are calculated by the Umm al-Qura calendar and may differ from your mosque\'s adhan; the Hijri date may differ by a day from the sighting; and weather and match data come from their sources, whose accuracy we cannot guarantee.'
