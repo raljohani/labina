@@ -22,6 +22,7 @@ sys.path.insert(0, HERE)
 from extra import *
 VER = hashlib.md5(open(os.path.join(HERE,'style.css'),'rb').read()).hexdigest()[:8]
 COUNTER = 'https://count.labina.app'
+GMAIL = r'[\w.+-]+@gmail\.com'  # the original app pages carry an old personal address; the site shows support@ instead
 EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -98,6 +99,21 @@ APPS = {
    shots=[('sakan-01-city','لوحة المدينة'),('sakan-02-dial','قرص اليوم'),('sakan-03-calendar','التقويم'),
           ('sakan-04-weather','الطقس'),('sakan-05-ramadan','رمضان'),('sakan-06-ayah','آية اليوم')],
    tv=True, phone=False, docs=['support','privacy','terms'], subs=False),
+ 'mihrab': dict(
+   no='٥', name='مِحراب', latin='Mihrab', year='٢٠٢٦',
+   tag='مواقيت الصلاة والإقامة على شاشة المسجد، تُقرأ من آخر الصف.',
+   meta='قريبًا لتلفزيونات أندرويد وفاير تي في وويندوز', play=False,
+   store=None, soon=('قريبًا للتلفاز', 'Coming soon to TV'),
+   about=['تطبيق تلفاز يعرض مواقيت الصلاة والأذان والإقامة في المساجد والمنازل والجهات. يُقرأ من آخر المسجد في ثانية، ويعمل دون إنترنت بعد إعداده، ويُدار من الجوال.'],
+   features=['مواقيت أم القرى، ولكل صلاة قاعدة إقامتها: بعد الأذان بدقائق، أو في وقت ثابت.',
+             'حالات اليوم كلها على الشاشة: اقتراب الأذان، والأذان، والعدّ للإقامة، والصلاة، والجمعة بأذانيها وخطبتها.',
+             'المواسم: رمضان بالإفطار والإمساك والتراويح، والعيدان، ويوم عرفة، وعاشوراء.',
+             'إعلانات المسجد، والجنائز باسم المتوفى، وصلاة الكسوف والاستسقاء بموعدها.',
+             'ثيمات بطابع المساجد: مدني، ونجدي، وأندلسي، وعثماني، وحديث، أو ثيم من لون جهتك.',
+             'يُعدّ من الجوال، أو بالريموت من التلفاز نفسه، أو بفلاش USB لمسجد بلا شبكة.'],
+   shots=[('mihrab-01-preadhan','اقترب الأذان'),('mihrab-02-adhan','الأذان'),('mihrab-03-iqama','العدّ للإقامة'),
+          ('mihrab-04-announce','إعلانات المسجد'),('mihrab-05-ramadan','رمضان'),('mihrab-06-eid','العيد')],
+   tv=True, phone=False, docs=[], subs=False),
 }
 DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائعة'),
             'privacy': ('سياسة الخصوصية', 'ما يجمعه التطبيق، ولا يجمعه'),
@@ -123,7 +139,8 @@ def get_btn(k, a, en, line=True):
     cls = 'btn line' if line else 'btn'
     if a.get('apk'): return f'<a class="{cls}" href="{k}/#install">{"Download for TV" if en else "التحميل للتلفاز"}</a>'
     if a['store']: return f'<a class="{cls}" href="{a["store"]}">App Store</a>'
-    return f'<span class="btn" aria-disabled="true">{"Coming soon" if en else "قريبًا على App Store"}</span>'
+    soon = a.get('soon', ('قريبًا على App Store', 'Coming soon'))[1 if en else 0]
+    return f'<span class="btn" aria-disabled="true">{soon}</span>'
 
 def install_block(lang):
     t = INSTALL[lang]
@@ -266,6 +283,7 @@ WHERE = {
  'sana':   [('iphone', True), ('ipad', True), ('watch', True), ('android', False)],
  'midmak': [('iphone', True), ('ipad', True)],
  'sakan':  [('tv', True), ('windows', True)],
+ 'mihrab': [('tv', False), ('windows', False)],
 }
 
 def where(k, lang='ar'):
@@ -364,7 +382,7 @@ def home():
 <section class="gallery dark" aria-labelledby="hall-h">
   <div class="wrap">
     <h1 id="hall-h">كل تطبيق قطعة، وهذا معرضها.</h1>
-    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. أربعة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
+    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. خمسة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
     <div class="hall">{works}
     </div>
     <div class="bricks" aria-label="التنقل بين الأعمال">{''.join(f'<button type="button" data-i="{i}" aria-label="العمل {a["no"]}: {a["name"]}"></button>' for i, a in enumerate(APPS.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
@@ -380,7 +398,7 @@ def home():
 
 <section class="section" aria-labelledby="ways-h"><div class="wrap">
   <h2 id="ways-h">ما يجمع هذه الأعمال</h2>
-  <p class="sub">أربعة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
+  <p class="sub">خمسة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
   <ul class="principles">
     <li><b>بياناتك على جهازك</b><span>ما تسجّله يُحفظ ويُعالج على جهازك، وما نملك خادمًا يستقبله.</span></li>
     <li><b>بلا حسابات ولا إعلانات</b><span>تفتح التطبيق وتبدأ، ولا نبيع انتباهك لأحد.</span></li>
@@ -428,10 +446,12 @@ def exhibit(k):
         store = f'<a class="btn" href="{a["apk"]}">حمّل APK للتلفاز</a><a class="btn line" href="#install">طريقة التثبيت</a>'
     else:
         store = (f'<a class="btn" href="{a["store"]}">حمّل من App Store</a>' if a['store']
-                 else '<span class="btn line" aria-disabled="true">قريبًا على App Store</span>')
+                 else f'<span class="btn line" aria-disabled="true">{a.get("soon", ("قريبًا على App Store",))[0]}</span>')
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">احصل عليه من Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">قريبًا على Google Play</span>'
     docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES[d][0]}</b><span>{docsub(k, d)}</span></a>' for d in a['docs'])
+    papers = (privacy_card('ar', k, 'privacy/') + f'<h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2><div class="docs-grid">{docs}</div>'
+              if a['docs'] else f'<p class="docs-later">وثائق {a["name"]} (الدعم والخصوصية والشروط) تُنشر يوم إطلاقه.</p>')
     film = film_block(k, 'ar', '') if k in FILMS else ''
     body = f'''<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h">
@@ -452,9 +472,7 @@ def exhibit(k):
   {''.join(f'<p>{p}</p>' for p in a['about'])}
   <ul>{''.join(f'<li>{f}</li>' for f in a['features'])}</ul>
   {install_block('ar') if a.get('apk') else ''}
-  {privacy_card('ar', k, 'privacy/')}
-  <h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2>
-  <div class="docs-grid">{docs}</div>
+  {papers}
 </div></section>
 {visitors_wall('ar', k)}
 </main>'''
@@ -477,7 +495,7 @@ def docpage(k, d, inner, desc):
   <nav class="tabs" aria-label="صفحات {a["name"]}">{tabs}</nav>
 </div>
 <article class="prose">
-{inner.replace('mr.aljohanii@gmail.com', EMAIL).strip()}
+{re.sub(GMAIL, EMAIL, inner).strip()}
 </article>
 </div></main>'''
     write(f'{k}/{d}/index.html', shell(rel, f'{DOCNAMES[d][0]} | {a["name"]}', desc, body, app=k, path=f'{k}/{d}/'))
@@ -587,7 +605,8 @@ def documents():
     docpage('sakan', 'support', SAKAN_SUPPORT.replace('{contact}', contact_box('دعم سكن')), 'الدعم والأسئلة الشائعة لسَكَن.')
     docpage('sakan', 'privacy', SAKAN_PRIVACY + contact_box('خصوصية سكن', 'لأي سؤال عن الخصوصية'), 'سياسة الخصوصية لسَكَن.')
 
-    for k in APPS: terms(k)
+    for k in APPS:
+        if 'terms' in APPS[k]['docs']: terms(k)
 
 # ---------------- docs centre ----------------
 def docs_centre():
@@ -672,7 +691,7 @@ def en_home():
     body = f"""<main id="main">
 <section class="gallery dark" aria-labelledby="hall-h"><div class="wrap">
   <h1 id="hall-h">Every app is a piece, and this is its gallery.</h1>
-  <p class="lede">Labina is a small studio making Arabic apps for iPhone, Android and the TV. Four works are on show today, and the wall has room for more.</p>
+  <p class="lede">Labina is a small studio making Arabic apps for iPhone, Android and the TV. Five works are on show today, and the wall has room for more.</p>
   <div class="hall">{works}
   </div>
   <div class="bricks" aria-label="Move between works">{''.join(f'<button type="button" data-i="{i}" aria-label="Work {e["no"]}: {e["name"]}"></button>' for i, e in enumerate(APPS_EN.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
@@ -685,7 +704,7 @@ def en_home():
 </div></section>
 <section class="section" aria-labelledby="ways-h"><div class="wrap">
   <h2 id="ways-h">What these works share</h2>
-  <p class="sub">Four different apps, one way of making them.</p>
+  <p class="sub">Five different apps, one way of making them.</p>
   <ul class="principles">
     <li><b>Your data stays on your device</b><span>What you record is stored and processed on your device. We have no server to receive it.</span></li>
     <li><b>No accounts, no ads</b><span>Open the app and start. We do not sell your attention to anyone.</span></li>
@@ -725,10 +744,12 @@ def en_exhibit(k):
     if a.get('apk'):
         store = f'<a class="btn" href="{a["apk"]}">Download the APK for TV</a><a class="btn line" href="#install">How to install</a>'
     else:
-        store = (f'<a class="btn" href="{a["store"]}">Download on the App Store</a>' if a['store'] else '<span class="btn line" aria-disabled="true">Coming soon to the App Store</span>')
+        store = (f'<a class="btn" href="{a["store"]}">Download on the App Store</a>' if a['store'] else f'<span class="btn line" aria-disabled="true">{a.get("soon", ("", "Coming soon to the App Store"))[1]}</span>')
     if a.get('play'): store += f'<a class="btn line" href="{a["play"]}">Get it on Google Play</a>'
     elif a.get('play') is None: store += '<span class="btn line" aria-disabled="true">Coming soon to Google Play</span>'
     docs = ''.join(f'<a class="doc" href="{d}/"><b>{DOCNAMES_EN[d][0]}</b><span>{docsub(k, d, True)}</span></a>' for d in a['docs'])
+    papers = (privacy_card('en', k, 'privacy/') + f'<h2 class="h2" style="margin-top:44px">{e["name"]} documents</h2><div class="docs-grid">{docs}</div>'
+              if a['docs'] else f'<p class="docs-later">The documents for {e["name"]} (support, privacy and terms) are published on launch day.</p>')
     film = film_block(k, 'en', f'../../{k}/') if k in FILMS else ''
     show = f'<div class="strip{" tv" if a.get("tv") else ""}" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['shots'] else soon_block('en', k)
     body = f"""<main id="main">
@@ -746,9 +767,7 @@ def en_exhibit(k):
   {''.join(f'<p>{x}</p>' for x in e['about'])}
   <ul>{''.join(f'<li>{x}</li>' for x in e['features'])}</ul>
   {install_block('en') if a.get('apk') else ''}
-  {privacy_card('en', k, 'privacy/')}
-  <h2 class="h2" style="margin-top:44px">{e['name']} documents</h2>
-  <div class="docs-grid">{docs}</div>
+  {papers}
 </div></section>
 {visitors_wall('en', k)}
 </main>"""
@@ -798,13 +817,14 @@ def en_terms(k):
 
 def en_documents():
     for k in APPS:
+        if not APPS[k]['docs']: continue
         intro, faq = SUPPORT_EN[k]
         en_docpage(k, 'support', f'<h1>Support</h1><p>{intro}</p>{en_contact(APPS_EN[k]["name"] + " support")}<h2>FAQ</h2>'
                    + ''.join(f'<details><summary>{q}</summary><p>{ans}</p></details>' for q, ans in faq), f'Support and FAQs for {APPS_EN[k]["name"]}.')
         en_terms(k)
     # mizan privacy: its English section
     m = re.search(r'<section[^>]*>\s*<h2>Privacy Policy[^<]*</h2>(.*?)</section>', read('mizan-privacy/index.html'), re.S).group(1)
-    m = re.sub(r'<p class="meta">', '<p class="date">', m, count=1).replace('mr.aljohanii@gmail.com', EMAIL)
+    m = re.sub(GMAIL, EMAIL, re.sub(r'<p class="meta">', '<p class="date">', m, count=1))
     en_docpage('mizan', 'privacy', '<h1>Privacy Policy</h1>' + m, 'Privacy policy for Mizan.')
     sp = re.search(r'<section class="en"[^>]*>\s*<h2>[^<]*</h2>(.*?)</section>', read('sana-support/privacy.html'), re.S).group(1)
     en_docpage('sana', 'privacy', '<h1>Privacy Policy</h1><p class="date">Last updated: September 25, 2026</p>' + sp

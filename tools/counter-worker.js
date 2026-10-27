@@ -8,7 +8,7 @@
 // المسارات:
 //   GET  /             → {"visits": 1234}                     قراءة عدد زيارات الموقع
 //   POST /hit          → {"visits": 1235}                     لبنة في جدار الزوار (الصفحة الرئيسية)
-//   GET  /room/<app>   → {"visits": 42, "room": "<app>"}                     قراءة عدد زوار قاعة تطبيق: mizan | sana | midmak | sakan
+//   GET  /room/<app>   → {"visits": 42, "room": "<app>"}                     قراءة عدد زوار قاعة تطبيق: mizan | sana | midmak | sakan | mihrab
 //   POST /hit/<app>    → {"visits": 43, "room": "<app>"}                     لبنة في جدار قاعة التطبيق
 //   GET  /stats        → {"visits": …, "pages": {…}, "since": "…"}   كل الأرقام
 //
@@ -18,7 +18,7 @@
 // وتُحفظ البصمة في الذاكرة المؤقتة لـ Cloudflare (Cache API) حتى نهاية اليوم فقط، لا في KV.
 
 const ALLOWED = ['https://labina.app', 'https://www.labina.app'];
-const PAGES = ['mizan', 'sana', 'midmak', 'sakan'];
+const PAGES = ['mizan', 'sana', 'midmak', 'sakan', 'mihrab'];
 
 const json = (body, headers, status = 200) => new Response(JSON.stringify(body), { status, headers });
 const today = () => new Date().toISOString().slice(0, 10);

@@ -322,6 +322,16 @@ APPS_EN['sakan'] = dict(no='4', name='Sakan', tag='The home screen for when nobo
              'A calm alert over any channel before the adhan, and a viewing timer with a PIN; both are off until you turn them on.',
              'Prayer times by the Umm al-Qura calendar, calculated on the device itself. No ads, no accounts, no tracking.'],
    caps=['The city panel', 'The day dial', 'The calendar', 'The weather', 'Ramadan', 'The verse of the day'])
+APPS_EN['mihrab'] = dict(no='5', name='Mihrab', tag='Prayer times and iqama on the mosque screen, read from the back row.',
+   meta='Coming soon to Android TV, Fire TV and Windows',
+   about=['A TV app that shows the prayer times, the adhan and the iqama in mosques, homes and organisations. It reads from the back of the mosque in a second, works offline once set up, and is managed from a phone.'],
+   features=['Umm al-Qura prayer times, and an iqama rule for each prayer: minutes after the adhan, or a fixed time.',
+             'Every moment of the day on screen: the adhan approaching, the adhan, the countdown to the iqama, the prayer, and Friday with both adhans and the sermon.',
+             'The seasons: Ramadan with iftar, imsak and taraweeh, both Eids, the day of Arafah, and Ashura.',
+             'Mosque announcements, funerals by name, and the eclipse and rain prayers at their time.',
+             'Themes in the spirit of mosques: Madani, Najdi, Andalusi, Ottoman and Modern, or one built from your organisation\'s colour.',
+             'Set it up from a phone, with the remote on the TV itself, or from a USB stick for a mosque with no network.'],
+   caps=['The adhan approaching', 'The adhan', 'Countdown to the iqama', 'Mosque announcements', 'Ramadan', 'Eid'])
 DOCNAMES_EN_SUB = {'sakan': {'terms': 'License and downloads'}}
 SUPPORT_EN['sakan'] = ('Found a glitch in a scene, a time that does not match your city, or have a suggestion? Write to us, and mention your TV model and Sakan\'s version (from "About Sakan" in its settings).', [
    ('How do I install Sakan on the TV?', 'Install the Downloader app from Google Play on the TV, open it, type <a href="../../../sakan/apk/">labina.app/sakan/apk</a>, then press Install. If the TV asks to allow installs from unknown sources, allow Downloader only. Then choose Sakan in Settings → Device Preferences → Screen saver.'),
