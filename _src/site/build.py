@@ -259,49 +259,6 @@ def frame(k, rel, alt=True):
     return f'<div class="frame"><img src="{rel}assets/{k}-icon.webp" width="512" height="512" alt="{"أيقونة " + a["name"] if alt else ""}"></div>'
 
 
-# ================= where each work lives: one brick per platform =================
-# glyphs on a 24 grid, stroked in the room's lamp; a platform still on its way is a ghost brick
-GLYPH = {
- 'iphone':  '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5.5h3"/>',
- 'ipad':    '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 18h2"/>',
- 'watch':   '<rect x="6.5" y="6" width="11" height="12" rx="3"/><path d="M9 6l.6-3.5h4.8L15 6M9 18l.6 3.5h4.8L15 18"/>',
- 'android': '<path d="M5.5 16a6.5 6.5 0 0 1 13 0z"/><path d="M8.6 10.6 7 8M15.4 10.6 17 8"/><path d="M9.6 13.2h.01M14.4 13.2h.01" stroke-width="2.4"/>',
- 'tv':      '<rect x="2.5" y="7" width="19" height="12" rx="1.5"/><path d="M9.5 7 7 3.5M14.5 7 17 3.5M8.5 21.5h7"/>',
- 'windows': '<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M12 4v16M3 12h18"/>',
-}
-PLAT_NAME = {
- 'iphone':  ('آيفون', 'iPhone'),
- 'ipad':    ('آيباد', 'iPad'),
- 'watch':   ('ساعة Apple', 'Apple Watch'),
- 'android': ('أندرويد', 'Android'),
- 'tv':      ('أندرويد تي في', 'Android TV'),
- 'windows': ('ويندوز', 'Windows'),
-}
-# (platform, live?) — False is a ghost brick: announced, not yet laid
-WHERE = {
- 'mizan':  [('iphone', True), ('ipad', True), ('android', False)],
- 'sana':   [('iphone', True), ('ipad', True), ('watch', True), ('android', False)],
- 'midmak': [('iphone', True), ('ipad', True)],
- 'sakan':  [('tv', True), ('windows', True)],
- 'mihrab': [('tv', False), ('windows', False)],
-}
-
-def where(k, lang='ar'):
-    """the platform bricks under a work's icon: laid one by one when its lamp comes on"""
-    en = lang == 'en'
-    live = [PLAT_NAME[p][en] for p, ok in WHERE[k] if ok]
-    soon = [PLAT_NAME[p][en] for p, ok in WHERE[k] if not ok]
-    if en:
-        said = 'On ' + ', '.join(live) + ('. Coming soon: ' + ', '.join(soon) if soon else '') + '.'
-    else:
-        said = 'على ' + '، '.join(live) + ('. وقريبًا: ' + '، '.join(soon) if soon else '') + '.'
-    soon_word, sep = ('soon', ', ') if en else ('قريبًا', '، ')
-    bricks = ''.join(
-        f'<i class="pb{"" if ok else " ghost"}" style="--i:{i}" data-l="{PLAT_NAME[p][en]}{"" if ok else sep + soon_word}">'
-        f'<svg viewBox="0 0 24 24" aria-hidden="true">{GLYPH[p]}</svg></i>'
-        for i, (p, ok) in enumerate(WHERE[k]))
-    return f'<span class="where">{bricks}<span class="sr">{said}</span></span>'
-
 
 # ================= visitors' wall =================
 ROOM_VW = {
@@ -358,11 +315,11 @@ fetch('{COUNTER}/'+(fresh?'{hit}':'{get}'),{{method:fresh?'POST':'GET',cache:'no
 # ---------------- home ----------------
 def home():
     works = ''.join(f'''
-    <a class="work" href="{k}/" style="--app-lit:var(--{k}-lit);--w:{w}">
+    <a class="work" href="{k}/" style="--app-lit:var(--{k}-lit)">
       <i class="cone" aria-hidden="true"><i class="beam"></i></i><i class="lamp" aria-hidden="true"></i>
-      <span class="mount">{frame(k, '', alt=False)}{where(k)}</span>
+      {frame(k, '', alt=False)}
       <span class="plaque"><span class="no">العمل {a["no"]}، {a["year"]}{notice(a)}</span><b>{a["name"]}</b><span>{a["tag"]}</span></span>
-    </a>''' for w, (k, a) in enumerate(APPS.items()))
+    </a>''' for k, a in APPS.items())
     entries = ''
     for k, a in APPS.items():
         imgs = ''.join(shot_img(a, s, '', '') for s, _ in a['shots'][:3])
@@ -667,11 +624,11 @@ def en_contact(subject, line='Email us. We usually reply within two working days
 def en_home():
     rel = '../'
     works = ''.join(f"""
-    <a class="work" href="{k}/" style="--app-lit:var(--{k}-lit);--w:{w}">
+    <a class="work" href="{k}/" style="--app-lit:var(--{k}-lit)">
       <i class="cone" aria-hidden="true"><i class="beam"></i></i><i class="lamp" aria-hidden="true"></i>
-      <span class="mount"><div class="frame"><img src="{rel}assets/{k}-icon.webp" width="512" height="512" alt=""></div>{where(k, 'en')}</span>
+      <div class="frame"><img src="{rel}assets/{k}-icon.webp" width="512" height="512" alt=""></div>
       <span class="plaque"><span class="no">Work {e['no']}, 2026{notice(APPS[k], en=True)}</span><b>{e['name']}</b><span>{e['tag']}</span></span>
-    </a>""" for w, (k, e) in enumerate(APPS_EN.items()))
+    </a>""" for k, e in APPS_EN.items())
     entries = ''
     for k, e in APPS_EN.items():
         a = APPS[k]
