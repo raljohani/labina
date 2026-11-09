@@ -93,7 +93,7 @@ APPS_EN = {
              'Your financial data never leaves your device; optional iCloud sync goes to your own account.'],
    caps=['What you can spend today', 'From bank message to expense', 'Budget caps', 'Zakat by nisab and hawl', 'Widgets']),
  'sana': dict(no='2', name='Sana', tag='The Beautiful Names of Allah: their meaning, evidence and your share.',
-   meta='For iPhone, iPad and Apple Watch, coming soon to Google Play',
+   meta='For iPhone, iPad, Apple Watch and Android',
    about=['An app about the 99 Names of Allah that helps you know your Lord through His names: the meaning of each name, its evidence, and what it asks of you today.'],
    features=['A sky of names to explore, which turns into an ordered list whenever you need it.',
              'A tasbih counter in the Dynamic Island, on the Lock Screen and in Control Center, plus a Watch app.',

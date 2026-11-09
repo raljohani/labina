@@ -60,7 +60,7 @@ APPS = {
  'sana': dict(
    no='٢', name='سنا', latin='Sana', year='٢٠٢٦',
    tag='أسماء الله الحسنى: معناها وشواهدها ونصيبك منها.',
-   meta='تطبيق لآيفون وآيباد وساعة Apple، وقريبًا على Google Play', play=None,
+   meta='تطبيق لآيفون وآيباد وساعة Apple وأندرويد', play='https://play.google.com/store/apps/details?id=com.rayanaljohani.sana',
    store='https://apps.apple.com/app/id6812705355',
    about=['تطبيق لأسماء الله الحسنى يعرّفك بربك من خلال أسمائه: معنى كل اسم، وشواهده، ونصيبك منه عملًا في يومك.'],
    features=['سماء من الأسماء تتنقل فيها، وتتحول إلى قائمة مرتبة متى احتجت.',
@@ -390,7 +390,7 @@ works.forEach(function(w){{io.observe(w)}});
 dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scrollIntoView({{behavior:rm?'auto':'smooth',inline:'center',block:'nearest'}})}})}});
 }})();
 </script>'''
-    write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
+    write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن ومِحراب، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
 
 # ---------------- exhibit ----------------
 def exhibit(k):
@@ -692,7 +692,7 @@ works.forEach(function(w){{io.observe(w)}});
 dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scrollIntoView({{behavior:rm?'auto':'smooth',inline:'center',block:'nearest'}})}})}});
 }})();
 </script>"""
-    write('en/index.html', shell(rel, 'Labina | A gallery of Arabic apps', 'The works of Labina: Mizan, Sana, Midmak and Sakan, Arabic apps for iPhone, Android and the TV, with support, privacy and terms pages.', body, here='', dark_top=True, path='en/', lang='en'))
+    write('en/index.html', shell(rel, 'Labina | A gallery of Arabic apps', 'The works of Labina: Mizan, Sana, Midmak, Sakan and Mihrab, Arabic apps for iPhone, Android and the TV, with support, privacy and terms pages.', body, here='', dark_top=True, path='en/', lang='en'))
 
 def en_exhibit(k):
     a, e = APPS[k], APPS_EN[k]; rel = '../../'
@@ -821,7 +821,7 @@ if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{
 # ================= press kit =================
 PRESS_TXT = {
  'ar': dict(title='الملف الصحفي', crumb='المعرض', lede='كل ما تحتاجه للكتابة عن لبنة وأعمالها أو الإعلان عنها: الشعار، والأيقونات، واللقطات بدقتها الكاملة، ووصف جاهز لكل تطبيق. استعملها بحرية في المقالات والمراجعات والإعلانات.',
-            about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت، وسَكَن شاشة توقف للتلفاز تعرف يومك.',
+            about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت، وسَكَن شاشة توقف للتلفاز تعرف يومك، ومِحراب لمواقيت الصلاة على شاشة المسجد (قريبًا).',
             logo_h='الشعار', logo_p='الشعار كلمة «لبنة» مبنية بالخط الكوفي المربّع، كل خلية فيها لبنة، ونقاطها بلون القنديل، وحركاتها لبنات مائلة لم تستقرّ بعد في الجدار. والعلامة المختصرة حرف اللام واللبنة الأولى.',
             on_light='على الفاتح', on_dark='على الداكن', icon='الأيقونة', mono='أحادي اللون',
             rules=['استعمل الملفات كما هي، ولا تكتب الاسم بخط آخر بدلها.', 'اترك حول الشعار مسافة خالية بعرض لبنة على الأقل.', 'لا تمدّ الشعار ولا تميّله ولا تغيّر ألوانه أو تضع عليه ظلًا.'],
@@ -830,7 +830,7 @@ PRESS_TXT = {
             dl_icon='الأيقونة PNG', dl_all='حمّل كل المواد', platforms='المنصات', year='السنة', store='المتجر', soon='قريبًا', short='الوصف القصير', long='الوصف',
             contact_h='للتواصل الإعلامي', contact_p='لطلب مقابلة أو نسخة تجريبية أو مواد إضافية، راسلنا ونرد خلال يومي عمل.', subject='طلب إعلامي'),
  'en': dict(title='Press kit', crumb='Gallery', lede='Everything you need to write about Labina and its works, or to feature them: the logo, icons, full-resolution screenshots, and a ready description of each app. Use them freely in articles, reviews and promotions.',
-            about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone, Android and the TV. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; Midmak, for documenting the building of a home; and Sakan, a TV screen saver that knows your day.',
+            about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone, Android and the TV. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; Midmak, for documenting the building of a home; Sakan, a TV screen saver that knows your day; and Mihrab, for prayer times on the mosque screen (coming soon).',
             logo_h='Logo', logo_p='The logo is the word لبنة (Labina, "a brick") built in square Kufic: every cell is a brick, the dots glow in lantern amber, and the vowel marks are slanted bricks still being laid. The mark is the letter lām with the first brick.',
             on_light='On light', on_dark='On dark', icon='Icon', mono='One colour',
             rules=['Use the files as they are; do not set the name in another typeface instead.', 'Leave clear space of at least one brick around the logo.', 'Do not stretch, tilt, recolour or add shadows to the logo.'],
