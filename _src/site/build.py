@@ -114,8 +114,37 @@ APPS = {
    shots=[('mihrab-01-preadhan','اقترب الأذان'),('mihrab-02-adhan','الأذان'),('mihrab-03-iqama','العدّ للإقامة'),
           ('mihrab-04-announce','إعلانات المسجد'),('mihrab-05-ramadan','رمضان'),('mihrab-06-eid','العيد')],
    tv=True, phone=False, docs=[], subs=False),
+ 'hamish': dict(
+   no='٦', name='هامِش', latin='Hamish', year='٢٠٢٦',
+   tag='اقرأ كتبك ومستنداتك، وظلّل وعلّق واستمع وابحث فيها، على جهازك.',
+   meta='قريبًا لآيفون وأندرويد', play=False,
+   store=None, soon=('قريبًا', 'Coming soon'),
+   about=['قارئ للكتب والمستندات، صُمّم للعربية أولًا وللإنجليزية معها. يقرأ كل صيغة تقريبًا، ويدعك تعلّق في الهامش كما على الورق، ويعمل كله على جهازك: لا حساب ولا إعلانات ولا تتبّع.'],
+   features=['يقرأ EPUB وPDF وTXT وMarkdown وHTML وWord وFB2 والقصص المصوّرة والصور.',
+             'ظلّل بستة ألوان، واكتب ملاحظة أو وسمًا، واكتب بالقلم على صفحات PDF، وسجّل ملاحظة صوتية تتحول إلى نص.',
+             'صوّر صفحات الكتاب فيستخرج نصها بالعربية والإنجليزية، فتبحث فيه وتنسخه.',
+             'بحث يفهم العربية، فلا يضرّه التشكيل ولا الهمزات، في الكتاب الواحد وفي مكتبتك كلها.',
+             'يقرأ لك الكتاب بصوت الجهاز ويظلّل الجملة المقروءة، ويستمر والشاشة مطفأة.',
+             'أدوات للمستندات: دمج ملفات PDF وتقسيمها وتدوير صفحاتها، وتعبئة النماذج والتوقيع.'],
+   shots=[('hamish-01-listen','الاستماع إلى الكتاب'),('hamish-02-search','بحث يفهم العربية'),('hamish-03-echoes','ملاحظاتك في كتب أخرى'),
+          ('hamish-04-thread','خيط القراءة'),('hamish-05-quote','بطاقة اقتباس'),('hamish-06-bookcard','بطاقة الكتاب')],
+   tv=False, phone=True, docs=[], subs=False),
+ 'satr': dict(
+   no='٧', name='سطر', latin='Satr', year='٢٠٢٦',
+   tag='دفتر حقيقي في جهازك: اطوِه فترى غلافه، وافتحه فتكتب على ورقه.',
+   meta='قريبًا لأندرويد والأجهزة القابلة للطي، والآيفون قيد البناء', play=False,
+   store=None, soon=('قريبًا', 'Coming soon'),
+   about=['دفتر كتابة بخط اليد صُنع للأجهزة القابلة للطي. حين يكون الجهاز مطويًّا ترى على الشاشة الخارجية غلاف دفترك بجلده وشريطه المطاطي، وحين تفتحه ينفتح الدفتر معه. كل ما تكتبه يبقى على جهازك، بلا حساب ولا إعلانات.'],
+   features=['أقلام حقيقية الطابع: رصاص بحبيبات تتبع ألياف الورق، وقلم حبر رفيع، وريشة خطّ عربي، وقلم تظليل.',
+             'يتغير عرض الخط مع ضغط القلم، والحبر الطازج يلمع ثم يجف، وممحاة تقصّ ما تمرّ عليه فقط.',
+             'ورق مسطّر ومربعات ونقاط، وورق كورنيل، وورق للخط العربي.',
+             'الورقة تلتف حول نفسها وتتبع إصبعك، وشريط العلامة يرفرف بالأوراق إلى صفحتك.',
+             'صمّم الغلاف من جلد وقماش وكرتون، وألصق الصور وختم التاريخ بالميلادي والهجري.',
+             'فهرس يبحث فيما كتبت، وتصدير الصفحة أو الدفتر كله PDF، وقفل بالبصمة.'],
+   shots=[('satr-01-cover','الغلاف على المكتب'),('satr-02-open','الدفتر مفتوح'),('satr-03-flip','تقليب الصفحة'),('satr-04-contents','الفهرس')],
+   tv=True, shape=(1280, 960), phone=False, docs=[], subs=False),
 }
-DOCNAMES = {'support': ('الدعم', 'تواصل معنا وأسئلة شائعة'),
+DOCNAMES ={'support': ('الدعم', 'تواصل معنا وأسئلة شائعة'),
             'privacy': ('سياسة الخصوصية', 'ما يجمعه التطبيق، ولا يجمعه'),
             'terms': ('شروط الاستخدام', 'اتفاقية الاستخدام والاشتراكات'),
             'accessibility': ('إمكانية الوصول', 'ما يدعمه التطبيق اليوم')}
@@ -131,7 +160,7 @@ def notice(a, en=False):
 
 def shot_img(a, s, alt, rel):
     """a screen: phones are 660×1434, TV scenes 1280×720"""
-    w, h = (1280, 720) if a.get('tv') else (660, 1434)
+    w, h = a.get('shape') or ((1280, 720) if a.get('tv') else (660, 1434))
     return f'<img src="{rel}assets/{s}.webp" alt="{alt}" loading="lazy" width="{w}" height="{h}">'
 
 def get_btn(k, a, en, line=True):
@@ -248,10 +277,11 @@ def shell(rel, title, desc, body, here=None, app=None, dark_top=False, path='', 
 
 def soon_block(lang, k, wall_cls='wall'):
     s = SOON[lang]
-    subj = 'أخبرني عند إطلاق مدماك' if lang == 'ar' else 'Tell me when Midmak launches'
+    nm = APPS[k]['name'] if lang == 'ar' else APPS_EN[k]['name']
+    subj = f'أخبرني عند إطلاق {nm}' if lang == 'ar' else f'Tell me when {nm} launches'
     return (f'<div class="soon"><div class="soon-wall">{wall_svg(wall_cls)}</div>'
             f'<div class="soon-text"><span class="soon-badge">{s["badge"]}</span><p class="soon-kicker">{s["kicker"]}</p>'
-            f'<p class="soon-title">{s["title"]}</p><p class="soon-body">{s["body"]}</p>'
+            f'<p class="soon-title">{s["title"]}</p><p class="soon-body">{s["body"].format(n=nm)}</p>'
             f'<a class="btn line" href="{mailto(subj)}">{s["notify"]}</a></div></div>')
 
 def frame(k, rel, alt=True):
@@ -339,7 +369,7 @@ def home():
 <section class="gallery dark" aria-labelledby="hall-h">
   <div class="wrap">
     <h1 id="hall-h">كل تطبيق قطعة، وهذا معرضها.</h1>
-    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. خمسة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
+    <p class="lede">لبنة استوديو صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. سبعة أعمال معروضة اليوم، والجدار يتّسع لما بعدها.</p>
     <div class="hall">{works}
     </div>
     <div class="bricks" aria-label="التنقل بين الأعمال">{''.join(f'<button type="button" data-i="{i}" aria-label="العمل {a["no"]}: {a["name"]}"></button>' for i, a in enumerate(APPS.values()))}<span class="ghost-brick" aria-hidden="true"></span></div>
@@ -355,7 +385,7 @@ def home():
 
 <section class="section" aria-labelledby="ways-h"><div class="wrap">
   <h2 id="ways-h">ما يجمع هذه الأعمال</h2>
-  <p class="sub">خمسة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
+  <p class="sub">سبعة تطبيقات مختلفة، وطريقة صنع واحدة.</p>
   <ul class="principles">
     <li><b>بياناتك على جهازك</b><span>ما تسجّله يُحفظ ويُعالج على جهازك، وما نملك خادمًا يستقبله.</span></li>
     <li><b>بلا حسابات ولا إعلانات</b><span>تفتح التطبيق وتبدأ، ولا نبيع انتباهك لأحد.</span></li>
@@ -390,7 +420,7 @@ works.forEach(function(w){{io.observe(w)}});
 dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scrollIntoView({{behavior:rm?'auto':'smooth',inline:'center',block:'nearest'}})}})}});
 }})();
 </script>'''
-    write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن ومِحراب، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
+    write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن ومِحراب وهامِش وسطر، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
 
 # ---------------- exhibit ----------------
 def exhibit(k):
@@ -692,7 +722,7 @@ works.forEach(function(w){{io.observe(w)}});
 dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scrollIntoView({{behavior:rm?'auto':'smooth',inline:'center',block:'nearest'}})}})}});
 }})();
 </script>"""
-    write('en/index.html', shell(rel, 'Labina | A gallery of Arabic apps', 'The works of Labina: Mizan, Sana, Midmak, Sakan and Mihrab, Arabic apps for iPhone, Android and the TV, with support, privacy and terms pages.', body, here='', dark_top=True, path='en/', lang='en'))
+    write('en/index.html', shell(rel, 'Labina | A gallery of Arabic apps', 'The works of Labina: Mizan, Sana, Midmak, Sakan, Mihrab, Hamish and Satr, Arabic apps for iPhone, Android and the TV, with support, privacy and terms pages.', body, here='', dark_top=True, path='en/', lang='en'))
 
 def en_exhibit(k):
     a, e = APPS[k], APPS_EN[k]; rel = '../../'
@@ -821,7 +851,7 @@ if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{
 # ================= press kit =================
 PRESS_TXT = {
  'ar': dict(title='الملف الصحفي', crumb='المعرض', lede='كل ما تحتاجه للكتابة عن لبنة وأعمالها أو الإعلان عنها: الشعار، والأيقونات، واللقطات بدقتها الكاملة، ووصف جاهز لكل تطبيق. استعملها بحرية في المقالات والمراجعات والإعلانات.',
-            about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت، وسَكَن شاشة توقف للتلفاز تعرف يومك، ومِحراب لمواقيت الصلاة على شاشة المسجد (قريبًا).',
+            about_h='عن لبنة', about='لبنة استوديو سعودي صغير يصنع تطبيقات عربية لآيفون وأندرويد والتلفاز. تعمل تطبيقاته على جهاز المستخدم، بلا حسابات ولا إعلانات ولا تتبّع، وأعماله اليوم: ميزان لإدارة المصاريف من رسائل البنك، وسنا لأسماء الله الحسنى، ومدماك لتوثيق بناء البيت، وسَكَن شاشة توقف للتلفاز تعرف يومك، ومِحراب لمواقيت الصلاة على شاشة المسجد، وهامِش لقراءة الكتب والتعليق عليها، وسطر دفتر كتابة للأجهزة القابلة للطي (الثلاثة الأخيرة قريبًا).',
             logo_h='الشعار', logo_p='الشعار كلمة «لبنة» مبنية بالخط الكوفي المربّع، كل خلية فيها لبنة، ونقاطها بلون القنديل، وحركاتها لبنات مائلة لم تستقرّ بعد في الجدار. والعلامة المختصرة حرف اللام واللبنة الأولى.',
             on_light='على الفاتح', on_dark='على الداكن', icon='الأيقونة', mono='أحادي اللون',
             rules=['استعمل الملفات كما هي، ولا تكتب الاسم بخط آخر بدلها.', 'اترك حول الشعار مسافة خالية بعرض لبنة على الأقل.', 'لا تمدّ الشعار ولا تميّله ولا تغيّر ألوانه أو تضع عليه ظلًا.'],
@@ -830,7 +860,7 @@ PRESS_TXT = {
             dl_icon='الأيقونة PNG', dl_all='حمّل كل المواد', platforms='المنصات', year='السنة', store='المتجر', soon='قريبًا', short='الوصف القصير', long='الوصف',
             contact_h='للتواصل الإعلامي', contact_p='لطلب مقابلة أو نسخة تجريبية أو مواد إضافية، راسلنا ونرد خلال يومي عمل.', subject='طلب إعلامي'),
  'en': dict(title='Press kit', crumb='Gallery', lede='Everything you need to write about Labina and its works, or to feature them: the logo, icons, full-resolution screenshots, and a ready description of each app. Use them freely in articles, reviews and promotions.',
-            about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone, Android and the TV. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; Midmak, for documenting the building of a home; Sakan, a TV screen saver that knows your day; and Mihrab, for prayer times on the mosque screen (coming soon).',
+            about_h='About Labina', about='Labina is a small Saudi studio making Arabic apps for iPhone, Android and the TV. Its apps run on the user\'s device, with no accounts, ads or tracking. Its works today: Mizan, for managing spending from bank messages; Sana, on the Beautiful Names of Allah; Midmak, for documenting the building of a home; Sakan, a TV screen saver that knows your day; Mihrab, for prayer times on the mosque screen; Hamish, for reading and annotating books; and Satr, a handwriting notebook for foldables (the last three coming soon).',
             logo_h='Logo', logo_p='The logo is the word لبنة (Labina, "a brick") built in square Kufic: every cell is a brick, the dots glow in lantern amber, and the vowel marks are slanted bricks still being laid. The mark is the letter lām with the first brick.',
             on_light='On light', on_dark='On dark', icon='Icon', mono='One colour',
             rules=['Use the files as they are; do not set the name in another typeface instead.', 'Leave clear space of at least one brick around the logo.', 'Do not stretch, tilt, recolour or add shadows to the logo.'],

@@ -47,10 +47,10 @@ FILMS = {
 
 SOON = {
  'ar': dict(kicker='تحت البناء', title='الجدار يرتفع مدماكًا مدماكًا.',
-            body='نضع الآن آخر المداميك في مدماك. اللقطات تُعلَّق هنا يوم الافتتاح.',
+            body='نضع الآن آخر المداميك في {n}. اللقطات تُعلَّق هنا يوم الافتتاح.',
             badge='قريبًا', notify='أخبرني عند الإطلاق'),
  'en': dict(kicker='Under construction', title='The wall is rising, course by course.',
-            body='We are laying the last courses of Midmak. Its screens will hang here on opening day.',
+            body='We are laying the last courses of {n}. Its screens will hang here on opening day.',
             badge='Coming soon', notify='Tell me when it launches'),
 }
 
@@ -332,6 +332,26 @@ APPS_EN['mihrab'] = dict(no='5', name='Mihrab', tag='Prayer times and iqama on t
              'Themes in the spirit of mosques: Madani, Najdi, Andalusi, Ottoman and Modern, or one built from your organisation\'s colour.',
              'Set it up from a phone, with the remote on the TV itself, or from a USB stick for a mosque with no network.'],
    caps=['The adhan approaching', 'The adhan', 'Countdown to the iqama', 'Mosque announcements', 'Ramadan', 'Eid'])
+APPS_EN['hamish'] = dict(no='6', name='Hamish', tag='Read your books and documents; highlight, annotate, listen and search, on your device.',
+   meta='Coming soon to iPhone and Android',
+   about=['A reader for books and documents, made Arabic-first with English alongside. It opens almost every format, lets you write in the margin as you would on paper, and works entirely on your device: no account, no ads, no tracking.'],
+   features=['Reads EPUB, PDF, TXT, Markdown, HTML, Word, FB2, comics and images.',
+             'Highlight in six colours, add a note or a tag, write with a pen on PDF pages, and record a voice note that becomes text.',
+             'Photograph book pages and it extracts their text in Arabic and English, so you can search and copy it.',
+             'Search that understands Arabic, unbothered by diacritics and hamza forms, in one book or your whole library.',
+             'Reads the book aloud in the device voice, highlights the sentence being read, and keeps going with the screen off.',
+             'Document tools: merge, split and rotate PDFs, fill in forms and sign.'],
+   caps=['Listening to the book', 'Search that understands Arabic', 'Your notes from other books', 'The reading thread', 'A quote card', 'The book card'])
+APPS_EN['satr'] = dict(no='7', name='Satr', tag='A real notebook on your foldable: fold it to see the cover, open it to write.',
+   meta='Coming soon to Android and foldables, with iPhone in the works',
+   about=['A handwriting notebook made for foldable phones. Folded, the outer screen shows your notebook\'s cover with its leather and elastic band; unfold the phone and the notebook opens with it. Everything you write stays on your device, with no account and no ads.'],
+   features=['Pens that feel real: a pencil whose grain follows the paper, a fineliner, an Arabic calligraphy nib and a highlighter.',
+             'Lines thicken with stylus pressure, fresh ink shines before it dries, and the eraser removes only what it touches.',
+             'Lined, grid, dotted, Cornell and calligraphy paper.',
+             'The page curls under your finger, and the ribbon flutters the pages to your bookmark.',
+             'Design the cover in leather, cloth or kraft, and add photos and a date stamp in Gregorian and Hijri.',
+             'Contents that search your writing, export a page or the whole notebook as PDF, and a fingerprint lock.'],
+   caps=['The cover on the desk', 'The open notebook', 'Turning the page', 'Contents'])
 DOCNAMES_EN_SUB = {'sakan': {'terms': 'License and downloads'}}
 SUPPORT_EN['sakan'] = ('Found a glitch in a scene, a time that does not match your city, or have a suggestion? Write to us, and mention your TV model and Sakan\'s version (from "About Sakan" in its settings).', [
    ('How do I install Sakan on the TV?', 'Install the Downloader app from Google Play on the TV, open it, type <a href="../../../sakan/apk/">labina.app/sakan/apk</a>, then press Install. If the TV asks to allow installs from unknown sources, allow Downloader only. Then choose Sakan in Settings → Device Preferences → Screen saver.'),

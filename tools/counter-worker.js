@@ -18,7 +18,7 @@
 // وتُحفظ البصمة في الذاكرة المؤقتة لـ Cloudflare (Cache API) حتى نهاية اليوم فقط، لا في KV.
 
 const ALLOWED = ['https://labina.app', 'https://www.labina.app'];
-const PAGES = ['mizan', 'sana', 'midmak', 'sakan', 'mihrab'];
+const PAGES = ['mizan', 'sana', 'midmak', 'sakan', 'mihrab', 'hamish', 'satr'];
 
 const json = (body, headers, status = 200) => new Response(JSON.stringify(body), { status, headers });
 const today = () => new Date().toISOString().slice(0, 10);
