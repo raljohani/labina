@@ -365,3 +365,161 @@ SUPPORT_EN['sakan'] = ('Found a glitch in a scene, a time that does not match yo
    ('Is there a Windows version?', 'Yes: a screen saver for Windows 10 and 11 with the same interface, needing no administrator rights. We send it by email on request.'),
    ('How do I remove Sakan and its data?', 'TV Settings → Apps → Sakan → Uninstall. Your settings, appointments and photos live on the TV only, so they go with it.')])
 NATURE_EN['sakan'] = 'Prayer times are calculated by the Umm al-Qura calendar and may differ from your mosque\'s adhan; the Hijri date may differ by a day from the sighting; and weather and match data come from their sources, whose accuracy we cannot guarantee.'
+
+# ---------- Hamish, Satr, Mihrab: documents ----------
+# Hamish's and Satr's privacy policies are their own (copied verbatim into _src/content/*.md); Mihrab had none,
+# so its policy is written from its code (supabase/migrations, packages/remote, the Android manifest).
+NEW_DOCS_DATE = ('٢٥ نوفمبر ٢٠٢٦', '25 November 2026')
+
+SUPPORT_AR = {
+ 'hamish': ('وجدت كتابًا لا يُفتح، أو تظليلًا في غير مكانه، أو عندك اقتراح؟ راسلنا، واذكر جهازك ونوع الملف.', [
+   ('ما الصيغ التي يقرؤها هامِش؟', 'EPUB وPDF، والنصوص (TXT وMarkdown وHTML)، وWord ‏(DOCX)، وFB2، والقصص المصوّرة (CBZ)، والصور.'),
+   ('هل يعدّل هامِش ملفي الأصلي؟', 'لا. يحفظ نسخة من الملف في مجلده، وتبقى تعليقاتك عليها، ويبقى ملفك الأصلي كما هو.'),
+   ('كيف أستخرج النص من كتاب مصوّر؟', 'صوّر الصفحات بالكاميرا أو أضف صورها، فيستخرج هامِش نصها بالعربية والإنجليزية على جهازك، فتبحث فيه وتنسخه.'),
+   ('هل تصل تعليقاتي إلى جهازي الآخر؟', 'إن فعّلت المزامنة: في آيفون عبر حسابك في iCloud، وفي أندرويد عبر حسابك في Google Drive. ولا تُرفع فيها ملفات الكتب.'),
+   ('كيف أرسل كتابًا مع تعليقاتي إلى غيري؟', 'أرسل الكتاب وتعليقاتك في حزمة واحدة، يفتحها هامِش آخر بكتابها وتعليقاتها.'),
+   ('حذفت البرنامج، فهل تعود كتبي؟', 'لا. حذف البرنامج يحذف كل ما فيه من الجهاز، فصدّر نسخة احتياطية قبل ذلك.'),
+ ]),
+ 'satr': ('وجدت خللًا في الكتابة أو تقليب الورق، أو عندك اقتراح؟ راسلنا، واذكر طراز جهازك ورقم إصدار سطر.', [
+   ('على أي الأجهزة يعمل سطر؟', 'صُنع للأجهزة القابلة للطي بنظام أندرويد: الشاشة الخارجية تعرض الغلاف، والداخلية تفتح الدفتر. وعلى الجوال العادي يعمل صفحةً واحدة. ونسخة الآيفون قيد البناء.'),
+   ('كيف أجعل خط يدي قابلًا للبحث؟', 'فعّل «اجعل خط يدي قابلًا للبحث» من الإعدادات، فينزّل سطر ملف التعرّف لكل لغة مرة واحدة، ثم يقرأ خطك على جهازك ويضيفه إلى الفهرس.'),
+   ('كيف أحفظ نسخة من دفاتري؟', 'من الإعدادات احفظ نسخة من دفاترك في ملف واحد مشفّر بكلمة تختارها، واحتفظ به حيث تشاء.'),
+   ('ما الفرق بين القفل بالبصمة وختم الشمع؟', 'البصمة تقفل الدفتر داخل التطبيق. والختم يبقيه مغلقًا ويخرجه من نسخ النظام الاحتياطية ومن النقل إلى جهاز جديد، لكنه لا يشفّر ملفاته على الجهاز.'),
+   ('كيف أصدّر صفحاتي؟', 'صدّر الصفحة أو الدفتر كله ملفَّ PDF، وشاركه مع التطبيق الذي تختاره.'),
+   ('حذفت التطبيق، فهل تعود دفاتري؟', 'لا. حذفه يحذف كل ما حفظه، فاحفظ نسخة بملف قبل ذلك.'),
+ ]),
+ 'mihrab': ('تركّب مِحراب في مسجد أو بيت أو جهة، وواجهت مشكلة في التثبيت أو الأوقات أو الربط؟ راسلنا، واذكر الجهاز ورقم إصدار مِحراب.', [
+   ('متى يُطلق مِحراب؟', 'مِحراب قيد التطوير، ورابط تحميله يُضاف إلى قاعته يوم إطلاقه.'),
+   ('على أي الأجهزة يعمل؟', 'أجهزة Android TV وGoogle TV وFire TV بنظام Android 7 فما بعده، وحواسيب ويندوز 10 و11 الموصولة بالشاشة.'),
+   ('هل يحتاج إنترنت؟', 'لا. بعد إعداده يعمل وحده على الشاشة بلا إنترنت، والإعداد نفسه ممكن بلا إنترنت أيضًا.'),
+   ('كيف أعدّه؟', 'تظهر ثلاث طرق في أول تشغيل: من الجوال برمز QR، أو من التلفاز نفسه بالريموت، أو بملف إعداد على فلاش USB لمسجد بلا شبكة.'),
+   ('المسجد بلا شبكة، فكيف أربط الجوال؟', 'شغّل نقطة الاتصال في جوالك، ولو بلا باقة إنترنت، وصِل التلفاز بها، ثم امسح الرمز. وبعد الحفظ أطفئ نقطة الاتصال، فالشاشة تعمل وحدها.'),
+   ('أوقات الصلاة تختلف عن مسجدنا', 'يحسب مِحراب الأوقات بطريقة أم القرى افتراضيًا. ومن إعداد المسجد تعدّل كل صلاة بالدقائق، وتحدد قاعدة الإقامة لكل صلاة.'),
+ ]),
+}
+SUPPORT_EN['hamish'] = ('Found a book that will not open, a highlight in the wrong place, or have a suggestion? Write to us, and mention your device and the file type.', [
+   ('Which formats does Hamish read?', 'EPUB and PDF, text (TXT, Markdown and HTML), Word (DOCX), FB2, comics (CBZ), and images.'),
+   ('Does Hamish change my original file?', 'No. It keeps its own copy of the file in its folder, your notes stay on that copy, and your original file is left as it is.'),
+   ('How do I get the text out of a scanned book?', 'Photograph the pages or add their images, and Hamish extracts their text in Arabic and English on your device, so you can search and copy it.'),
+   ('Do my notes reach my other device?', 'If you turn sync on: on iPhone through your own iCloud account, and on Android through your own Google Drive account. Book files are never uploaded.'),
+   ('How do I send a book with my notes to someone?', 'Send the book and your notes as one package, which another copy of Hamish opens with its book and notes.'),
+   ('I deleted the app. Will my books come back?', 'No. Deleting the app removes everything in it from the device, so export a backup first.'),
+])
+SUPPORT_EN['satr'] = ('Found a glitch in writing or turning pages, or have a suggestion? Write to us, and mention your device model and Satr\'s version.', [
+   ('Which devices does Satr run on?', 'It is made for Android foldables: the outer screen shows the cover and the inner screen opens the notebook. On a regular phone it works as a single page. The iPhone version is being built.'),
+   ('How do I make my handwriting searchable?', 'Turn on "Make my handwriting searchable" in Settings. Satr downloads the recognition file for each language once, then reads your writing on your device and adds it to the contents.'),
+   ('How do I back up my notebooks?', 'From Settings, save your notebooks into a single file encrypted with a password you choose, and keep it wherever you like.'),
+   ('What is the difference between a fingerprint lock and a wax seal?', 'The fingerprint locks the notebook inside the app. The seal keeps it closed and out of system backups and device transfers, but does not encrypt its files on the device.'),
+   ('How do I export my pages?', 'Export a page, or the whole notebook, as a PDF and share it with the app you choose.'),
+   ('I deleted the app. Will my notebooks come back?', 'No. Deleting it removes everything it stored, so save a backup file first.'),
+])
+SUPPORT_EN['mihrab'] = ('Setting up Mihrab in a mosque, a home or an organisation, and hit a problem with installing, times or pairing? Write to us, and mention the device and Mihrab\'s version.', [
+   ('When is Mihrab released?', 'Mihrab is in development, and its download link will be added to its room on launch day.'),
+   ('Which devices does it run on?', 'Android TV, Google TV and Fire TV devices on Android 7 or later, and Windows 10 and 11 PCs connected to the screen.'),
+   ('Does it need the internet?', 'No. Once set up it runs on the screen by itself, offline, and setting it up can be done offline too.'),
+   ('How do I set it up?', 'Three ways appear on first launch: from a phone with a QR code, on the TV itself with the remote, or with a setup file on a USB stick for a mosque with no network.'),
+   ('The mosque has no network. How do I pair my phone?', 'Turn on your phone\'s hotspot, even with no data plan, connect the TV to it, then scan the code. After saving, turn the hotspot off; the screen runs by itself.'),
+   ('Prayer times differ from our mosque', 'Mihrab uses the Umm al-Qura method by default. In the mosque settings you can adjust each prayer by minutes and set the iqama rule for each prayer.'),
+])
+
+# what each work is, and is not, in its terms of use
+NATURE_AR = {
+ 'hamish': 'هامِش قارئ لما تضيفه أنت من كتب ومستندات. أنت المسؤول عن أن يكون لك حق استعمال ما تضيفه وتشاركه، ولا نطّلع على شيء منه. والنص المستخرج من الصور والقراءة الصوتية آلية، فقد يقع فيها خطأ.',
+ 'satr': 'سطر دفتر على جهازك. ما تكتبه فيه ملكك ومسؤوليتك، ولا نطّلع على شيء منه، ولا نستطيع استرجاعه إن ضاع، فاحفظ نسخة من دفاترك. والتعرّف على خط اليد آلي، فقد يقع فيه خطأ.',
+ 'mihrab': 'مِحراب يحسب مواقيت الصلاة من الموقع وطريقة الحساب المختارة في إعداده، ومنها أم القرى افتراضيًا، والتاريخ الهجري قد يختلف بيوم عن الرؤية. المشرف على الشاشة مسؤول عن مطابقة الأوقات والإقامة لما يعتمده مسجده، وإن وجدت خطأ في وقت أو نص فأبلغنا لنصحّحه.',
+}
+NATURE_EN['hamish'] = 'Hamish reads the books and documents you add. You are responsible for having the right to use what you add and share, and we see none of it. Text extracted from images and read-aloud are automatic and may contain mistakes.'
+NATURE_EN['satr'] = 'Satr is a notebook on your device. What you write is yours and your responsibility; we see none of it and cannot recover it if it is lost, so keep a backup of your notebooks. Handwriting recognition is automatic and may contain mistakes.'
+NATURE_EN['mihrab'] = 'Mihrab calculates prayer times from the location and calculation method chosen in its setup, Umm al-Qura by default, and the Hijri date may differ by a day from the sighting. Whoever manages the screen is responsible for matching the times and iqama to what their mosque follows; if you find a mistake in a time or a text, tell us so we can correct it.'
+
+PRIV['ar']['hamish'] = [('البيانات المجموعة', 'لا شيء'), ('الحساب', 'لا يوجد'), ('الإعلانات والتتبّع', 'لا يوجد'), ('أين تُحفظ', 'على جهازك، ومزامنة اختيارية لحسابك')]
+PRIV['en']['hamish'] = [('Data collected', 'None'), ('Account', 'None'), ('Ads & tracking', 'None'), ('Stored', 'On your device; optional sync to your account')]
+PRIV_NOTE['ar']['hamish'] = 'لا يتصل بالشبكة إلا بطلبك: لاستيراد ملف من رابط، أو للمزامنة إن فعّلتها، أو لخدمات النظام التي تختارها في الصوت والترجمة. وماسح المستندات في أندرويد من Google، يعالج الصور على جهازك ولا يرفعها، وتجمع Google عنه بيانات استخدام وأداء عامة.'
+PRIV_NOTE['en']['hamish'] = 'It uses the network only at your request: to import a file from a link, to sync if you turn it on, or for system services you choose for speech and translation. The Android document scanner is Google\'s: it processes images on your device without uploading them, and Google collects general usage and performance data about it.'
+PRIV['ar']['satr'] = [('البيانات المجموعة', 'لا شيء'), ('الحساب', 'لا يوجد'), ('الإعلانات والتتبّع', 'لا يوجد'), ('أين تُحفظ', 'على جهازك فقط')]
+PRIV['en']['satr'] = [('Data collected', 'None'), ('Account', 'None'), ('Ads & tracking', 'None'), ('Stored', 'On your device only')]
+PRIV_NOTE['ar']['satr'] = 'يعمل بلا إنترنت. يتصل في حالة واحدة تختارها: تنزيل ملفات التعرّف على خط اليد من Google، والتعرّف نفسه يجري على جهازك.'
+PRIV_NOTE['en']['satr'] = 'It works offline, and connects in one case you choose: downloading handwriting-recognition files from Google. Recognition itself runs on your device.'
+PRIV['ar']['mihrab'] = [('بيانات المصلين', 'لا شيء'), ('الحساب', 'لا يوجد'), ('الإعلانات والتتبّع', 'لا يوجد'), ('أين يُحفظ الإعداد', 'على الشاشة نفسها')]
+PRIV['en']['mihrab'] = [('Worshippers\' data', 'None'), ('Account', 'None'), ('Ads & tracking', 'None'), ('Setup stored', 'On the screen itself')]
+PRIV_NOTE['ar']['mihrab'] = 'يعمل بلا إنترنت بعد إعداده. وحين يُربط الجوال عبر الإنترنت يحفظ خادم الربط رمزًا مؤقتًا لعشر دقائق، وعنوان IP لمن يخطئ في الرمز مدة ساعة، لمنع التخمين.'
+PRIV_NOTE['en']['mihrab'] = 'It works offline once set up. When a phone pairs over the internet, the pairing server keeps a temporary code for ten minutes, and the IP address of a wrong code entry for an hour, to stop guessing.'
+
+MIHRAB_PRIVACY = '''<h1>سياسة الخصوصية</h1>
+<p class="date">آخر تحديث: ٢٥ نوفمبر ٢٠٢٦</p>
+<p>«مِحراب» تطبيق يعرض مواقيت الصلاة على شاشة المسجد أو البيت أو الجهة. يعمل على الشاشة نفسها بلا إنترنت بعد إعداده، ويُدار من الجوال. لا حساب فيه، ولا إعلانات، ولا تتبّع، ولا أدوات تحليل، ولا يجمع شيئًا عن المصلين.</p>
+<h2>ما يحفظه التطبيق، وأين</h2>
+<ul>
+<li><strong>إعداد الشاشة:</strong> اسم المسجد أو الجهة، وموقعه (المدينة أو الإحداثيات)، وطريقة الحساب، وأوقات الإقامة، والإعلانات، والثيم. يُحفظ على الشاشة نفسها.</li>
+<li><strong>رمز المشرف:</strong> لا يُحفظ بنصه، بل قيمة مشتقة منه لا يُستخرج منها الرمز.</li>
+<li><strong>ملف الإعداد على الفلاش:</strong> إن اخترت الإعداد بفلاش USB، تصنع صفحة الجوال ملف صورة فيه الإعداد، وتقرؤه الشاشة من الفلاش. ويبقى الملف حيث تحفظه أنت.</li>
+</ul>
+<h2>الإعداد من الجوال</h2>
+<p>صفحة الإعداد تُفتح في متصفح الجوال، بلا تطبيق ولا حساب، وتصل إلى الشاشة بإحدى طريقتين:</p>
+<ul>
+<li><strong>على شبكة المسجد:</strong> يتصل الجوال بالشاشة مباشرة عبر الشبكة المحلية، ولا يمر الإعداد بأي خادم.</li>
+<li><strong>عبر الإنترنت:</strong> يُفتح العنوان mihrab.labina.app ويُدخل رمز من ستة أرقام يظهر على الشاشة. حينها تمر رسائل الإعداد عبر خدمة Supabase مشفّرةً أثناء النقل، ولا تُحفظ فيها. وفي نسخة أندرويد تعمل هذه الطريقة احتياطًا بجانب الاتصال المباشر.</li>
+</ul>
+<h2>ما يحفظه خادم الربط</h2>
+<p>الخادم لا يحفظ إعداد المسجد. يحفظ ما يلزم للربط فقط:</p>
+<ul>
+<li><strong>رمز الربط:</strong> الرمز ذو الأرقام الستة، ومعرّف عشوائي للجلسة، وموعد انتهائه. لا يعمل الرمز بعد عشر دقائق، وتُحذف الرموز المنتهية تلقائيًا.</li>
+<li><strong>عنوان IP عند خطأ الرمز:</strong> إن أُدخل رمز خاطئ يُحفظ عنوان IP للجهاز مع وقت المحاولة، ليُمنع التخمين بعد عشر محاولات في عشر دقائق. وتُحذف السجلات التي مضت عليها ساعة تلقائيًا.</li>
+</ul>
+<h2>الموقع الجغرافي</h2>
+<p>في صفحة الإعداد زر لتحديد موقع المسجد. حين تضغطه يطلب المتصفح إذنك، ثم توضع الإحداثيات في الإعداد لحساب الأوقات. لا يُطلب الموقع إلا بضغطك، ويمكنك اختيار المدينة بدلًا منه.</p>
+<h2>صفحة الجوال</h2>
+<p>صفحة mihrab.labina.app تستضيفها Cloudflare، ولا نضع فيها أدوات تحليل ولا تتبّع.</p>
+<h2>الأذونات على التلفاز</h2>
+<table>
+<tr><th>الإذن</th><th>لماذا</th></tr>
+<tr><td>الإنترنت، وحالة الشبكة</td><td>الربط بالجوال، والاتصال بخادم الربط احتياطًا</td></tr>
+<tr><td>التشغيل بعد الإقلاع، والظهور فوق التطبيقات</td><td>أن تبدأ الشاشة وحدها بعد تشغيل الجهاز أو بعد تعطّل</td></tr>
+<tr><td>الصور والتخزين</td><td>قراءة ملف الإعداد من فلاش USB</td></tr>
+</table>
+<h2>ما لا يفعله التطبيق</h2>
+<ul>
+<li>لا إعلانات، ولا أدوات تحليل، ولا تتبّع.</li>
+<li>لا حساب، ولا يبيع أي بيانات ولا يشاركها مع أحد.</li>
+</ul>
+<h2>حذف البيانات</h2>
+<p>حذف التطبيق من الشاشة يحذف إعداده منها. ولا يبقى على خادم الربط شيء يخص مسجدك.</p>
+<h2>الأطفال</h2>
+<p>لا يجمع التطبيق بيانات من أحد، صغيرًا كان أو كبيرًا.</p>
+<h2>التواصل</h2>'''
+
+MIHRAB_PRIVACY_EN = '''<h1>Privacy Policy</h1>
+<p class="date">Last updated: 25 November 2026</p>
+<p>Mihrab shows prayer times on the screen of a mosque, a home or an organisation. It runs on the screen itself, offline, once set up, and is managed from a phone. It has no account, no ads, no tracking and no analytics, and collects nothing about worshippers.</p>
+<h2>What the app stores, and where</h2>
+<ul>
+<li><strong>The screen's setup:</strong> the name of the mosque or organisation, its location (city or coordinates), the calculation method, iqama times, announcements and theme. It is stored on the screen itself.</li>
+<li><strong>The admin PIN:</strong> never stored as is, only a value derived from it from which the PIN cannot be recovered.</li>
+<li><strong>Setup file on a USB stick:</strong> if you choose to set up from a USB stick, the phone page makes an image file holding the setup, and the screen reads it from the stick. The file stays wherever you keep it.</li>
+</ul>
+<h2>Setting up from a phone</h2>
+<p>The setup page opens in the phone's browser, with no app and no account, and reaches the screen in one of two ways:</p>
+<ul>
+<li><strong>On the mosque network:</strong> the phone connects to the screen directly over the local network, and the setup passes through no server.</li>
+<li><strong>Over the internet:</strong> you open mihrab.labina.app and enter a six-digit code shown on the screen. The setup messages then pass through the Supabase service, encrypted in transit, and are not stored there. On Android this route also runs as a fallback alongside the direct connection.</li>
+</ul>
+<h2>What the pairing server keeps</h2>
+<p>The server does not keep the mosque's setup. It keeps only what pairing needs:</p>
+<ul>
+<li><strong>The pairing code:</strong> the six-digit code, a random session identifier, and its expiry time. The code stops working after ten minutes, and expired codes are deleted automatically.</li>
+<li><strong>IP address on a wrong code:</strong> when a wrong code is entered, the device's IP address and the time of the attempt are kept, to block guessing after ten attempts in ten minutes. Records older than an hour are deleted automatically.</li>
+</ul>
+<h2>Location</h2>
+<p>The setup page has a button to locate the mosque. When you press it, the browser asks your permission, and the coordinates go into the setup to calculate the times. Location is requested only when you press it, and you can pick the city instead.</p>
+<h2>The phone page</h2>
+<p>mihrab.labina.app is hosted by Cloudflare, and we put no analytics or tracking in it.</p>
+<h2>Permissions on the TV</h2>
+<p>Internet and network state: pairing with the phone, and reaching the pairing server as a fallback. Run at startup and display over other apps: so the screen starts by itself after the device is switched on or after a crash. Images and storage: reading the setup file from a USB stick.</p>
+<h2>What the app does not do</h2>
+<p>No ads, no analytics, no tracking. No account, and it sells or shares no data with anyone.</p>
+<h2>Deleting data</h2>
+<p>Uninstalling the app from the screen deletes its setup. Nothing about your mosque stays on the pairing server.</p>
+<h2>Children</h2>
+<p>The app collects no data from anyone, of any age.</p>
+<h2>Contact</h2>'''
+DOCNAMES_EN_SUB.update({'hamish': {'terms': 'License and use'}, 'satr': {'terms': 'License and use'}, 'mihrab': {'terms': 'License and downloads'}})

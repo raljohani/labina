@@ -113,7 +113,7 @@ APPS = {
              'يُعدّ من الجوال، أو بالريموت من التلفاز نفسه، أو بفلاش USB لمسجد بلا شبكة.'],
    shots=[('mihrab-01-preadhan','اقترب الأذان'),('mihrab-02-adhan','الأذان'),('mihrab-03-iqama','العدّ للإقامة'),
           ('mihrab-04-announce','إعلانات المسجد'),('mihrab-05-ramadan','رمضان'),('mihrab-06-eid','العيد')],
-   tv=True, phone=False, docs=[], subs=False),
+   tv=True, phone=False, docs=['support','privacy','terms'], subs=False),
  'hamish': dict(
    no='٦', name='هامِش', latin='Hamish', year='٢٠٢٦',
    tag='اقرأ كتبك ومستنداتك، وظلّل وعلّق واستمع وابحث فيها، على جهازك.',
@@ -128,7 +128,7 @@ APPS = {
              'أدوات للمستندات: دمج ملفات PDF وتقسيمها وتدوير صفحاتها، وتعبئة النماذج والتوقيع.'],
    shots=[('hamish-01-listen','الاستماع إلى الكتاب'),('hamish-02-search','بحث يفهم العربية'),('hamish-03-echoes','ملاحظاتك في كتب أخرى'),
           ('hamish-04-thread','خيط القراءة'),('hamish-05-quote','بطاقة اقتباس'),('hamish-06-bookcard','بطاقة الكتاب')],
-   tv=False, phone=True, docs=[], subs=False),
+   tv=False, phone=True, docs=['support','privacy','terms'], subs=False),
  'satr': dict(
    no='٧', name='سطر', latin='Satr', year='٢٠٢٦',
    tag='دفتر حقيقي في جهازك: اطوِه فترى غلافه، وافتحه فتكتب على ورقه.',
@@ -142,13 +142,14 @@ APPS = {
              'صمّم الغلاف من جلد وقماش وكرتون، وألصق الصور وختم التاريخ بالميلادي والهجري.',
              'فهرس يبحث فيما كتبت، وتصدير الصفحة أو الدفتر كله PDF، وقفل بالبصمة.'],
    shots=[('satr-01-cover','الغلاف على المكتب'),('satr-02-open','الدفتر مفتوح'),('satr-03-flip','تقليب الصفحة'),('satr-04-contents','الفهرس')],
-   tv=True, shape=(1280, 960), phone=False, docs=[], subs=False),
+   tv=True, shape=(1280, 960), phone=False, docs=['support','privacy','terms'], subs=False),
 }
 DOCNAMES ={'support': ('الدعم', 'تواصل معنا وأسئلة شائعة'),
             'privacy': ('سياسة الخصوصية', 'ما يجمعه التطبيق، ولا يجمعه'),
             'terms': ('شروط الاستخدام', 'اتفاقية الاستخدام والاشتراكات'),
             'accessibility': ('إمكانية الوصول', 'ما يدعمه التطبيق اليوم')}
-DOCNAMES_SUB = {'sakan': {'terms': 'الترخيص والتحميل'}}
+DOCNAMES_SUB = {'sakan': {'terms': 'الترخيص والتحميل'}, 'hamish': {'terms': 'الترخيص والاستخدام'},
+                'satr': {'terms': 'الترخيص والاستخدام'}, 'mihrab': {'terms': 'الترخيص والتحميل'}}
 def docsub(k, d, en=False):
     return (DOCNAMES_EN_SUB if en else DOCNAMES_SUB).get(k, {}).get(d) or (DOCNAMES_EN if en else DOCNAMES)[d][1]
 
@@ -537,6 +538,94 @@ def terms(k):
 </section>'''
     docpage(k, 'terms', inner, f'شروط استخدام تطبيق {a["name"]}.')
 
+# ---------------- markdown → html (for policies kept verbatim as .md) ----------------
+_PLACEHOLDER = re.compile(r'\[[^\]]*(?:بريد|email)[^\]]*\]')
+def _inline(t):
+    t = t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    t = _PLACEHOLDER.sub(f'<a href="mailto:{EMAIL}">{EMAIL}</a>', t)
+    t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
+    t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
+    return re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'<a href="\2">\1</a>', t)
+
+def md(text, title):
+    """the subset the policies use: # / ## / ###, nested - and 1. lists, | tables |, **bold**, paragraphs."""
+    out, stack, table = [], [], []          # stack: list tags currently open, by indent level
+    def close_lists(level=0):
+        while len(stack) > level:
+            out.append('</li></%s>' % stack.pop())
+    def flush_table():
+        if not table: return
+        rows = [[c.strip() for c in r.strip().strip('|').split('|')] for r in table if not re.match(r'^\|[\s:|-]+\|$', r.strip())]
+        out.append('<table><tr>' + ''.join(f'<th>{_inline(c)}</th>' for c in rows[0]) + '</tr>'
+                   + ''.join('<tr>' + ''.join(f'<td>{_inline(c)}</td>' for c in r) + '</tr>' for r in rows[1:]) + '</table>')
+        table.clear()
+    for line in text.strip().splitlines():
+        if line.strip().startswith('|'):
+            close_lists(); table.append(line); continue
+        flush_table()
+        m = re.match(r'^( *)(-|\d+\.) (.*)$', line)
+        if m:
+            level = len(m.group(1)) // 2 + 1; tag = 'ul' if m.group(2) == '-' else 'ol'
+            if len(stack) < level: out.append(f'<{tag}><li>'); stack.append(tag)
+            else:
+                close_lists(level)
+                if stack[-1] != tag: out.append(f'</li></{stack.pop()}><{tag}><li>'); stack.append(tag)
+                else: out.append('</li><li>')
+            out.append(_inline(m.group(3))); continue
+        if not line.strip():
+            continue
+        close_lists()
+        h = re.match(r'^(#{1,3}) (.*)$', line)
+        if h:
+            n = len(h.group(1))
+            out.append(f'<h1>{title}</h1>' if n == 1 else f'<h{n}>{_inline(h.group(2))}</h{n}>')
+        elif re.match(r'^(آخر تحديث|Last updated):', line):
+            out.append(f'<p class="date">{_inline(line)}</p>')
+        else:
+            out.append(f'<p>{_inline(line)}</p>')
+    flush_table(); close_lists()
+    return '\n'.join(out)
+
+def md_policy(k, lang):
+    ar, en = re.split(r'\n---\n', read(f'{k}-privacy.md'), maxsplit=1)
+    return md(ar, 'سياسة الخصوصية') if lang == 'ar' else md(en, 'Privacy Policy')
+
+def new_terms(k, lang):
+    """terms for hamish, satr and mihrab: none has a store EULA of its own yet, so each gets these."""
+    a = APPS[k]; ar = lang == 'ar'
+    name = a['name'] if ar else APPS_EN[k]['name']
+    if k == 'mihrab':
+        lic = ('<p>مِحراب يُرخَّص لك لتشغيله على شاشات مسجدك أو بيتك أو جهتك، ويُقدَّم كما هو دون ضمان. لا تبعه، ولا تُعِد توزيعه معدّلًا. ونزّله من labina.app أو من رابطه الرسمي في قاعته فقط.</p>'
+               if ar else '<p>Mihrab is licensed to you to run on the screens of your mosque, home or organisation, and is provided as is, without warranty. Do not sell it or redistribute modified copies. Download it only from labina.app or the official link in its room.</p>')
+    else:
+        lic = ('<p>إن نزّلت التطبيق من App Store فاستخدامه يخضع أيضًا لـ<a href="' + EULA + '">اتفاقية ترخيص المستخدم النهائي القياسية من Apple</a>، وإن نزّلته من Google Play فيخضع أيضًا لشروط Google Play. وهذه الصفحة تُكمّلهما، وعند التعارض تُقدَّم اتفاقية المتجر.</p>'
+               if ar else '<p>If you downloaded the app from the App Store, its use is also governed by Apple\'s <a href="' + EULA + '">Standard End User License Agreement</a>; if from Google Play, by the Google Play Terms of Service. This page supplements them, and the store\'s agreement prevails if they conflict.</p>')
+    if ar:
+        return f"""<h1>شروط الاستخدام</h1>
+<p class="date">تاريخ السريان: {NEW_DOCS_DATE[0]}</p>
+<p>باستخدامك «{name}» توافق على هذه الشروط.</p>
+<h2>الترخيص</h2>
+{lic}
+<h2>طبيعة التطبيق</h2>
+<p>{NATURE_AR[k]}</p>
+<h2>بياناتك</h2>
+<p>بياناتك ملكك. التفاصيل في <a href="../privacy/">سياسة الخصوصية</a>.</p>
+<h2>الاستخدام المقبول</h2>
+<p>لا تستخدم التطبيق في ما يخالف الأنظمة، ولا تحاول تعطيله.</p>
+<h2>التغييرات</h2>
+<p>قد نحدّث هذه الشروط، ونغيّر تاريخ السريان أعلاه عند ذلك.</p>
+<h2>التواصل</h2>
+{contact_box('شروط ' + name, 'لأي سؤال عن هذه الشروط')}"""
+    return f"""<h1>Terms of Use</h1>
+<p class="date">Effective: {NEW_DOCS_DATE[1]}</p>
+<p>By using {name} you agree to these terms.</p>
+<h2>License</h2>{lic}
+<h2>What the app is</h2><p>{NATURE_EN[k]}</p>
+<h2>Your data</h2><p>Your data is yours. See the <a href="../privacy/">Privacy Policy</a>.</p>
+<h2>Acceptable use</h2><p>Do not use the app against the law, or try to disrupt it.</p>
+<h2>Changes</h2><p>We may update these terms, and will change the effective date above when we do.</p>
+<h2>Contact</h2>{en_contact(name + ' terms', 'Questions about these terms')}"""
+
 def documents():
     # mizan
     docpage('mizan', 'support', f'''<h1>الدعم</h1>
@@ -592,8 +681,19 @@ def documents():
     docpage('sakan', 'support', SAKAN_SUPPORT.replace('{contact}', contact_box('دعم سكن')), 'الدعم والأسئلة الشائعة لسَكَن.')
     docpage('sakan', 'privacy', SAKAN_PRIVACY + contact_box('خصوصية سكن', 'لأي سؤال عن الخصوصية'), 'سياسة الخصوصية لسَكَن.')
 
+    # hamish, satr: their own policies, verbatim; mihrab: written from its code. Support and terms written here.
+    for k in ('hamish', 'satr', 'mihrab'):
+        intro, faq = SUPPORT_AR[k]
+        docpage(k, 'support', f'<h1>الدعم</h1><p>{intro}</p>{contact_box("دعم " + APPS[k]["name"])}<h2>أسئلة شائعة</h2>'
+                + ''.join(f'<details><summary>{q}</summary><p>{ans}</p></details>' for q, ans in faq), f'الدعم والأسئلة الشائعة لـ{APPS[k]["name"]}.')
+        pri = (md_policy(k, 'ar') if k != 'mihrab'
+               else MIHRAB_PRIVACY + contact_box('خصوصية مِحراب', 'لأي سؤال عن الخصوصية'))
+        docpage(k, 'privacy', pri, f'سياسة الخصوصية لـ{APPS[k]["name"]}.')
+
     for k in APPS:
-        if 'terms' in APPS[k]['docs']: terms(k)
+        if 'terms' not in APPS[k]['docs']: continue
+        if k in ('hamish', 'satr', 'mihrab'): docpage(k, 'terms', new_terms(k, 'ar'), f'شروط استخدام {APPS[k]["name"]}.')
+        else: terms(k)
 
 # ---------------- docs centre ----------------
 def docs_centre():
@@ -808,7 +908,11 @@ def en_documents():
         intro, faq = SUPPORT_EN[k]
         en_docpage(k, 'support', f'<h1>Support</h1><p>{intro}</p>{en_contact(APPS_EN[k]["name"] + " support")}<h2>FAQ</h2>'
                    + ''.join(f'<details><summary>{q}</summary><p>{ans}</p></details>' for q, ans in faq), f'Support and FAQs for {APPS_EN[k]["name"]}.')
-        en_terms(k)
+        if k in ('hamish', 'satr', 'mihrab'):
+            en_docpage(k, 'terms', new_terms(k, 'en'), f'Terms of use for {APPS_EN[k]["name"]}.')
+            en_docpage(k, 'privacy', md_policy(k, 'en') if k != 'mihrab'
+                       else MIHRAB_PRIVACY_EN + en_contact('Mihrab privacy', 'Questions about privacy'), f'Privacy policy for {APPS_EN[k]["name"]}.')
+        else: en_terms(k)
     # mizan privacy: its English section
     m = re.search(r'<section[^>]*>\s*<h2>Privacy Policy[^<]*</h2>(.*?)</section>', read('mizan-privacy/index.html'), re.S).group(1)
     m = re.sub(GMAIL, EMAIL, re.sub(r'<p class="meta">', '<p class="date">', m, count=1))
