@@ -1,5 +1,305 @@
 {
  "platforms": {
+  "iphone": {
+   "ar": [
+    [
+     "g/hamish/iphone/ar/01-library.webp",
+     506,
+     1100,
+     "المكتبة بأغلفة الكتب"
+    ],
+    [
+     "g/hamish/iphone/ar/02-library-list.webp",
+     506,
+     1100,
+     "المكتبة قائمةً مع تابع القراءة"
+    ],
+    [
+     "g/hamish/iphone/ar/03-reader.webp",
+     506,
+     1100,
+     "القارئ مع التظليل الملوّن"
+    ],
+    [
+     "g/hamish/iphone/ar/05-search-in-book.webp",
+     506,
+     1100,
+     "البحث داخل الكتاب"
+    ],
+    [
+     "g/hamish/iphone/ar/06-notebook.webp",
+     506,
+     1100,
+     "دفتر الكتاب: التظليل والملاحظات"
+    ],
+    [
+     "g/hamish/iphone/ar/07-quote-card.webp",
+     506,
+     1100,
+     "بطاقة اقتباس للمشاركة"
+    ],
+    [
+     "g/hamish/iphone/ar/08-book-card.webp",
+     506,
+     1100,
+     "بطاقة الكتاب وخلاصة القراءة"
+    ],
+    [
+     "g/hamish/iphone/ar/09-dark-mode.webp",
+     506,
+     1100,
+     "القراءة في الوضع الداكن"
+    ],
+    [
+     "g/hamish/iphone/ar/10-library-search.webp",
+     506,
+     1100,
+     "البحث في نصوص المكتبة كلها"
+    ],
+    [
+     "g/hamish/iphone/ar/11-reading-plan.webp",
+     506,
+     1100,
+     "خطة قراءة يومية"
+    ],
+    [
+     "g/hamish/iphone/ar/12-library-spines.webp",
+     506,
+     1100,
+     "المكتبة رفًّا من الكعوب"
+    ],
+    [
+     "g/hamish/iphone/ar/13-export.webp",
+     506,
+     1100,
+     "تصدير التعليقات بقوالب جاهزة"
+    ]
+   ],
+   "en": [
+    [
+     "g/hamish/iphone/en/01-library.webp",
+     506,
+     1100,
+     "Your library with covers"
+    ],
+    [
+     "g/hamish/iphone/en/02-library-list.webp",
+     506,
+     1100,
+     "Library list and continue reading"
+    ],
+    [
+     "g/hamish/iphone/en/03-reader.webp",
+     506,
+     1100,
+     "Reader with colour highlights"
+    ],
+    [
+     "g/hamish/iphone/en/05-search-in-book.webp",
+     506,
+     1100,
+     "Search inside the book"
+    ],
+    [
+     "g/hamish/iphone/en/06-notebook.webp",
+     506,
+     1100,
+     "Book notebook: highlights and notes"
+    ],
+    [
+     "g/hamish/iphone/en/07-quote-card.webp",
+     506,
+     1100,
+     "Shareable quote card"
+    ],
+    [
+     "g/hamish/iphone/en/08-book-card.webp",
+     506,
+     1100,
+     "Book card and reading summary"
+    ],
+    [
+     "g/hamish/iphone/en/09-dark-mode.webp",
+     506,
+     1100,
+     "Reading in dark mode"
+    ],
+    [
+     "g/hamish/iphone/en/10-library-search.webp",
+     506,
+     1100,
+     "Full-text search across the library"
+    ],
+    [
+     "g/hamish/iphone/en/11-reading-plan.webp",
+     506,
+     1100,
+     "A daily reading plan"
+    ],
+    [
+     "g/hamish/iphone/en/12-library-spines.webp",
+     506,
+     1100,
+     "Library as a shelf of spines"
+    ],
+    [
+     "g/hamish/iphone/en/13-export.webp",
+     506,
+     1100,
+     "Export notes with templates"
+    ]
+   ]
+  },
+  "ipad": {
+   "ar": [
+    [
+     "g/hamish/ipad/ar/01-library.webp",
+     750,
+     1000,
+     "المكتبة بأغلفة الكتب"
+    ],
+    [
+     "g/hamish/ipad/ar/02-library-list.webp",
+     750,
+     1000,
+     "المكتبة قائمةً مع تابع القراءة"
+    ],
+    [
+     "g/hamish/ipad/ar/03-reader.webp",
+     750,
+     1000,
+     "القارئ مع التظليل الملوّن"
+    ],
+    [
+     "g/hamish/ipad/ar/05-search-in-book.webp",
+     750,
+     1000,
+     "البحث داخل الكتاب"
+    ],
+    [
+     "g/hamish/ipad/ar/06-notebook.webp",
+     750,
+     1000,
+     "دفتر الكتاب: التظليل والملاحظات"
+    ],
+    [
+     "g/hamish/ipad/ar/07-quote-card.webp",
+     750,
+     1000,
+     "بطاقة اقتباس للمشاركة"
+    ],
+    [
+     "g/hamish/ipad/ar/08-book-card.webp",
+     750,
+     1000,
+     "بطاقة الكتاب وخلاصة القراءة"
+    ],
+    [
+     "g/hamish/ipad/ar/09-dark-mode.webp",
+     750,
+     1000,
+     "القراءة في الوضع الداكن"
+    ],
+    [
+     "g/hamish/ipad/ar/10-library-search.webp",
+     750,
+     1000,
+     "البحث في نصوص المكتبة كلها"
+    ],
+    [
+     "g/hamish/ipad/ar/11-reading-plan.webp",
+     750,
+     1000,
+     "خطة قراءة يومية"
+    ],
+    [
+     "g/hamish/ipad/ar/12-library-spines.webp",
+     750,
+     1000,
+     "المكتبة رفًّا من الكعوب"
+    ],
+    [
+     "g/hamish/ipad/ar/13-export.webp",
+     750,
+     1000,
+     "تصدير التعليقات بقوالب جاهزة"
+    ]
+   ],
+   "en": [
+    [
+     "g/hamish/ipad/en/01-library.webp",
+     750,
+     1000,
+     "Your library with covers"
+    ],
+    [
+     "g/hamish/ipad/en/02-library-list.webp",
+     750,
+     1000,
+     "Library list and continue reading"
+    ],
+    [
+     "g/hamish/ipad/en/03-reader.webp",
+     750,
+     1000,
+     "Reader with colour highlights"
+    ],
+    [
+     "g/hamish/ipad/en/05-search-in-book.webp",
+     750,
+     1000,
+     "Search inside the book"
+    ],
+    [
+     "g/hamish/ipad/en/06-notebook.webp",
+     750,
+     1000,
+     "Book notebook: highlights and notes"
+    ],
+    [
+     "g/hamish/ipad/en/07-quote-card.webp",
+     750,
+     1000,
+     "Shareable quote card"
+    ],
+    [
+     "g/hamish/ipad/en/08-book-card.webp",
+     750,
+     1000,
+     "Book card and reading summary"
+    ],
+    [
+     "g/hamish/ipad/en/09-dark-mode.webp",
+     750,
+     1000,
+     "Reading in dark mode"
+    ],
+    [
+     "g/hamish/ipad/en/10-library-search.webp",
+     750,
+     1000,
+     "Full-text search across the library"
+    ],
+    [
+     "g/hamish/ipad/en/11-reading-plan.webp",
+     750,
+     1000,
+     "A daily reading plan"
+    ],
+    [
+     "g/hamish/ipad/en/12-library-spines.webp",
+     750,
+     1000,
+     "Library as a shelf of spines"
+    ],
+    [
+     "g/hamish/ipad/en/13-export.webp",
+     750,
+     1000,
+     "Export notes with templates"
+    ]
+   ]
+  },
   "iphone-duo-inner": {
    "ar": [
     [
@@ -19,12 +319,6 @@
      1422,
      1000,
      "القارئ مع التظليل الملوّن"
-    ],
-    [
-     "g/hamish/iphone-duo-inner/ar/04-reading-settings.webp",
-     1422,
-     1000,
-     "لوحة الخط والسمة والألوان"
     ],
     [
      "g/hamish/iphone-duo-inner/ar/05-search-in-book.webp",
@@ -69,12 +363,6 @@
      "خطة قراءة يومية"
     ],
     [
-     "g/hamish/iphone-duo-inner/ar/12-settings.webp",
-     1422,
-     1000,
-     "الإعدادات في أقسام واضحة"
-    ],
-    [
      "g/hamish/iphone-duo-inner/ar/13-export.webp",
      1422,
      1000,
@@ -99,12 +387,6 @@
      1422,
      1000,
      "Reader with colour highlights"
-    ],
-    [
-     "g/hamish/iphone-duo-inner/en/04-reading-settings.webp",
-     1422,
-     1000,
-     "Font, theme and colour panel"
     ],
     [
      "g/hamish/iphone-duo-inner/en/05-search-in-book.webp",
@@ -149,12 +431,6 @@
      "A daily reading plan"
     ],
     [
-     "g/hamish/iphone-duo-inner/en/12-settings.webp",
-     1422,
-     1000,
-     "Settings in clear sections"
-    ],
-    [
      "g/hamish/iphone-duo-inner/en/13-export.webp",
      1422,
      1000,
@@ -181,12 +457,6 @@
      700,
      1018,
      "القارئ مع التظليل الملوّن"
-    ],
-    [
-     "g/hamish/iphone-duo-outer/ar/04-reading-settings.webp",
-     700,
-     1018,
-     "لوحة الخط والسمة والألوان"
     ],
     [
      "g/hamish/iphone-duo-outer/ar/05-search-in-book.webp",
@@ -231,12 +501,6 @@
      "خطة قراءة يومية"
     ],
     [
-     "g/hamish/iphone-duo-outer/ar/12-settings.webp",
-     700,
-     1018,
-     "الإعدادات في أقسام واضحة"
-    ],
-    [
      "g/hamish/iphone-duo-outer/ar/13-export.webp",
      700,
      1018,
@@ -261,12 +525,6 @@
      700,
      1018,
      "Reader with colour highlights"
-    ],
-    [
-     "g/hamish/iphone-duo-outer/en/04-reading-settings.webp",
-     700,
-     1018,
-     "Font, theme and colour panel"
     ],
     [
      "g/hamish/iphone-duo-outer/en/05-search-in-book.webp",
@@ -309,12 +567,6 @@
      700,
      1018,
      "A daily reading plan"
-    ],
-    [
-     "g/hamish/iphone-duo-outer/en/12-settings.webp",
-     700,
-     1018,
-     "Settings in clear sections"
     ],
     [
      "g/hamish/iphone-duo-outer/en/13-export.webp",
