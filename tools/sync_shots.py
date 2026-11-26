@@ -21,12 +21,12 @@ def size(p):
     return int(w), int(h)
 
 
-def main(app, src):
+def main(app, src, skip=()):
     caps = {}
     tsv = os.path.join(src, 'captions.tsv')
     with open(tsv, encoding='utf-8') as f:
         for row in csv.reader(f, delimiter='\t'):
-            if len(row) < 4 or row[0].strip().startswith(('#', 'platform', 'النظام')): continue
+            if len(row) < 4 or row[0].strip().startswith(('#', 'platform', 'system', 'النظام')): continue
             plat, name = row[0].strip(), os.path.splitext(row[1].strip())[0]
             caps[(plat, name)] = (row[2].strip(), row[3].strip())
     out_assets = os.path.join(ROOT, '_src', 'assets', 'g', app)
@@ -34,7 +34,7 @@ def main(app, src):
     data = {'platforms': {}}
     for plat in ORDER + sorted(set(os.listdir(src)) - set(ORDER)):
         pdir = os.path.join(src, plat)
-        if not os.path.isdir(pdir): continue
+        if not os.path.isdir(pdir) or plat in skip: continue
         entry = {}
         for lang in ('ar', 'en'):
             ldir = os.path.join(pdir, lang)
@@ -52,14 +52,22 @@ def main(app, src):
                 cap = caps.get((plat, name), ('', ''))[0 if lang == 'ar' else 1]
                 shots.append([dest_rel, w, h, cap])
             if shots: entry[lang] = shots
+        if 'ar' in entry and 'en' not in entry:   # no English UI: the Arabic screens, with English captions
+            entry['en'] = [[src, w, h, caps.get((plat, os.path.splitext(os.path.basename(src))[0]), ('', ''))[1]]
+                           for src, w, h, _ in entry['ar']]
+            entry['ar_ui'] = True
         if entry:
             data['platforms'][plat] = entry
-            print(plat, {l: len(v) for l, v in entry.items()})
+            print(plat, {l: len(v) for l, v in entry.items() if isinstance(v, list)})
     os.makedirs(os.path.join(ROOT, '_src', 'gallery'), exist_ok=True)
     with open(os.path.join(ROOT, '_src', 'gallery', f'{app}.json'), 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3: sys.exit(__doc__)
-    main(sys.argv[1], os.path.expanduser(sys.argv[2]))
+    # optional: --skip platform,platform  (a platform the app does not really support)
+    args = sys.argv[1:]; skip = ()
+    if '--skip' in args:
+        i = args.index('--skip'); skip = tuple(args[i + 1].split(',')); del args[i:i + 2]
+    if len(args) != 2: sys.exit(__doc__)
+    main(args[0], os.path.expanduser(args[1]), skip)

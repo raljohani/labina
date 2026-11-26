@@ -458,3 +458,4 @@ html:not(.no-js) .gallery:not(.single) .gal-panel:not(.on){display:none}
 .dev-none{background:none;padding:0;box-shadow:none}.dev-none img{height:clamp(240px,36vw,430px);border-radius:14px}
 .gal-strip figcaption{max-width:30ch}
 .fold-jump{margin-top:22px;padding-bottom:56px}
+.gal-note{font-size:13px;color:var(--nightink2);margin:14px 0 -22px}.gal-note+.gal-sub{margin-top:30px}

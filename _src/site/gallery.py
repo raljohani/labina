@@ -41,8 +41,7 @@ def _num(n, ar):
 def load(k, a, en_caps, fold):
     """{platform: {'ar': [[src, w, h, cap]], 'en': [...]}, plus 'framed' for store art}"""
     p = os.path.join(GAL_DIR, f'{k}.json')
-    if os.path.exists(p):
-        return json.load(open(p, encoding='utf-8'))['platforms']
+    synced = json.load(open(p, encoding='utf-8'))['platforms'] if os.path.exists(p) else {}
     # stand-ins: the room's current shots, and its fold set
     seed = {'mizan': 'iphone', 'sana': 'iphone', 'midmak': 'iphone', 'sakan': 'android-tv',
             'mihrab': 'android-tv', 'hamish': 'iphone', 'satr': 'android-fold'}[k]
@@ -56,6 +55,7 @@ def load(k, a, en_caps, fold):
         plats[fp] = {lang: [[f'{s}.webp', sw, sh, c] for s, c, (sw, sh) in zip(fold['shots'], fold[lang]['caps'], fold['size'])]
                      for lang in ('ar', 'en')}
         if k in ('mizan', 'sana'): plats[fp]['framed'] = True     # store art, already in a device frame
+    plats.update(synced)          # a session's delivery replaces the stand-in for its platform; the rest stay
     return plats
 
 def groups_of(plats):
@@ -78,6 +78,7 @@ def render(k, lang, rel, plats, name):
                 f'<figure><div class="dev dev-{dev}"><img src="{rel}assets/{src}" alt="{cap}" loading="lazy" width="{w}" height="{h}"></div>'
                 f'<figcaption>{cap}</figcaption></figure>' for src, w, h, cap in shots)
             sub = f'<p class="gal-sub">{SUB[p][0 if ar else 1]}</p>' if p in SUB and sum(m in plats for m in members) > 1 else ''
+            if not ar and d.get('ar_ui') and not any('gal-note' in r for r in rows): rows.append('<p class="gal-note">The app\'s interface is in Arabic.</p>')
             rows.append(f'{sub}<div class="strip gal-strip" tabindex="0" aria-label="{(n_ar if ar else n_en)}: {name}">{figs}</div>')
         label = n_ar if ar else n_en
         unit = (('لقطتان' if count == 2 else _num(count, ar) + (' لقطات' if 3 <= count <= 10 else ' لقطة'))) if ar else f'{count} screens'
