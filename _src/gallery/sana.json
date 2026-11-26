@@ -3,114 +3,150 @@
   "iphone": {
    "ar": [
     [
-     "g/sana/iphone/ar/01-sky.webp",
+     "g/sana/iphone/ar/01-welcome.webp",
+     506,
+     1100,
+     "الترحيب بسنا"
+    ],
+    [
+     "g/sana/iphone/ar/02-sky.webp",
      506,
      1100,
      "سماءُ الأسماء الحسنى"
     ],
     [
-     "g/sana/iphone/ar/02-names.webp",
+     "g/sana/iphone/ar/03-names-list.webp",
      506,
      1100,
-     "اسم اليوم تحت القبّة"
+     "الأسماء الحسنى قائمةً"
     ],
     [
-     "g/sana/iphone/ar/03-name.webp",
+     "g/sana/iphone/ar/04-name.webp",
      506,
      1100,
      "الاسم بلوحة الخطّاط"
     ],
     [
-     "g/sana/iphone/ar/04-evidence.webp",
+     "g/sana/iphone/ar/05-root.webp",
      506,
      1100,
-     "الشواهد من القرآن"
+     "الجذر اللغوي والصيغ"
     ],
     [
-     "g/sana/iphone/ar/05-amal.webp",
+     "g/sana/iphone/ar/06-evidence.webp",
+     506,
+     1100,
+     "الشواهد والأثر الإيماني"
+    ],
+    [
+     "g/sana/iphone/ar/07-amal.webp",
      506,
      1100,
      "نصيبك من الاسم عملًا"
     ],
     [
-     "g/sana/iphone/ar/06-mihrab.webp",
+     "g/sana/iphone/ar/08-name-ihsa.webp",
+     506,
+     1100,
+     "إحصاؤك لهذا الاسم"
+    ],
+    [
+     "g/sana/iphone/ar/09-mihrab.webp",
      506,
      1100,
      "بطاقة المحراب للمشاركة"
     ],
     [
-     "g/sana/iphone/ar/07-tasbih.webp",
+     "g/sana/iphone/ar/10-tasbih.webp",
      506,
      1100,
      "السبحة الإلكترونية"
     ],
     [
-     "g/sana/iphone/ar/08-island.webp",
+     "g/sana/iphone/ar/11-ihsa.webp",
      506,
      1100,
-     "السبحة على شاشة القفل"
+     "مراتب الإحصاء"
     ],
     [
-     "g/sana/iphone/ar/09-manhaj.webp",
+     "g/sana/iphone/ar/12-settings.webp",
      506,
      1100,
-     "المنهج والمصادر"
+     "الإعدادات"
     ]
    ],
    "en": [
     [
-     "g/sana/iphone/ar/01-sky.webp",
+     "g/sana/iphone/ar/01-welcome.webp",
+     506,
+     1100,
+     "Welcome to Sana"
+    ],
+    [
+     "g/sana/iphone/ar/02-sky.webp",
      506,
      1100,
      "The sky of divine names"
     ],
     [
-     "g/sana/iphone/ar/02-names.webp",
+     "g/sana/iphone/ar/03-names-list.webp",
      506,
      1100,
-     "Name of the day in the sky"
+     "The names as a list"
     ],
     [
-     "g/sana/iphone/ar/03-name.webp",
+     "g/sana/iphone/ar/04-name.webp",
      506,
      1100,
      "A name in calligraphy"
     ],
     [
-     "g/sana/iphone/ar/04-evidence.webp",
+     "g/sana/iphone/ar/05-root.webp",
      506,
      1100,
-     "Quranic evidence for the name"
+     "Root and related forms"
     ],
     [
-     "g/sana/iphone/ar/05-amal.webp",
+     "g/sana/iphone/ar/06-evidence.webp",
+     506,
+     1100,
+     "Evidence and faith impact"
+    ],
+    [
+     "g/sana/iphone/ar/07-amal.webp",
      506,
      1100,
      "Living by the name"
     ],
     [
-     "g/sana/iphone/ar/06-mihrab.webp",
+     "g/sana/iphone/ar/08-name-ihsa.webp",
+     506,
+     1100,
+     "Your progress with this name"
+    ],
+    [
+     "g/sana/iphone/ar/09-mihrab.webp",
      506,
      1100,
      "Mihrab card for sharing"
     ],
     [
-     "g/sana/iphone/ar/07-tasbih.webp",
+     "g/sana/iphone/ar/10-tasbih.webp",
      506,
      1100,
      "The digital tasbih"
     ],
     [
-     "g/sana/iphone/ar/08-island.webp",
+     "g/sana/iphone/ar/11-ihsa.webp",
      506,
      1100,
-     "Tasbih on the Lock Screen"
+     "The levels of learning"
     ],
     [
-     "g/sana/iphone/ar/09-manhaj.webp",
+     "g/sana/iphone/ar/12-settings.webp",
      506,
      1100,
-     "Method and sources"
+     "Settings"
     ]
    ],
    "ar_ui": true
@@ -118,54 +154,126 @@
   "ipad": {
    "ar": [
     [
-     "g/sana/ipad/ar/01-sky.webp",
+     "g/sana/ipad/ar/01-welcome.webp",
      750,
      1000,
-     "السماء على الآيباد"
+     "الترحيب بسنا"
     ],
     [
-     "g/sana/ipad/ar/02-names.webp",
+     "g/sana/ipad/ar/02-sky.webp",
      750,
      1000,
-     "اسم اليوم تحت القبّة"
+     "سماءُ الأسماء الحسنى"
     ],
     [
-     "g/sana/ipad/ar/03-name.webp",
+     "g/sana/ipad/ar/03-names-list.webp",
      750,
      1000,
-     "صفحة الاسم"
+     "الأسماء الحسنى قائمةً"
     ],
     [
-     "g/sana/ipad/ar/04-mihrab.webp",
+     "g/sana/ipad/ar/04-name.webp",
      750,
      1000,
-     "بطاقة المحراب"
+     "صفحة الاسم ومعناه"
+    ],
+    [
+     "g/sana/ipad/ar/05-evidence.webp",
+     750,
+     1000,
+     "الشواهد والأثر الإيماني"
+    ],
+    [
+     "g/sana/ipad/ar/06-amal.webp",
+     750,
+     1000,
+     "نصيبك من الاسم وإحصاؤه"
+    ],
+    [
+     "g/sana/ipad/ar/07-mihrab.webp",
+     750,
+     1000,
+     "بطاقة المحراب للمشاركة"
+    ],
+    [
+     "g/sana/ipad/ar/08-tasbih.webp",
+     750,
+     1000,
+     "السبحة الإلكترونية"
+    ],
+    [
+     "g/sana/ipad/ar/09-ihsa.webp",
+     750,
+     1000,
+     "مراتب الإحصاء"
+    ],
+    [
+     "g/sana/ipad/ar/10-settings.webp",
+     750,
+     1000,
+     "الإعدادات"
     ]
    ],
    "en": [
     [
-     "g/sana/ipad/ar/01-sky.webp",
+     "g/sana/ipad/ar/01-welcome.webp",
      750,
      1000,
-     "The sky on iPad"
+     "Welcome to Sana"
     ],
     [
-     "g/sana/ipad/ar/02-names.webp",
+     "g/sana/ipad/ar/02-sky.webp",
      750,
      1000,
-     "Name of the day in the sky"
+     "The sky of divine names"
     ],
     [
-     "g/sana/ipad/ar/03-name.webp",
+     "g/sana/ipad/ar/03-names-list.webp",
      750,
      1000,
-     "A name's page"
+     "The names as a list"
     ],
     [
-     "g/sana/ipad/ar/04-mihrab.webp",
+     "g/sana/ipad/ar/04-name.webp",
      750,
      1000,
-     "The mihrab share card"
+     "A name and its meaning"
+    ],
+    [
+     "g/sana/ipad/ar/05-evidence.webp",
+     750,
+     1000,
+     "Evidence and faith impact"
+    ],
+    [
+     "g/sana/ipad/ar/06-amal.webp",
+     750,
+     1000,
+     "Living by the name"
+    ],
+    [
+     "g/sana/ipad/ar/07-mihrab.webp",
+     750,
+     1000,
+     "Mihrab card for sharing"
+    ],
+    [
+     "g/sana/ipad/ar/08-tasbih.webp",
+     750,
+     1000,
+     "The digital tasbih"
+    ],
+    [
+     "g/sana/ipad/ar/09-ihsa.webp",
+     750,
+     1000,
+     "The levels of learning"
+    ],
+    [
+     "g/sana/ipad/ar/10-settings.webp",
+     750,
+     1000,
+     "Settings"
     ]
    ],
    "ar_ui": true
