@@ -1,0 +1,306 @@
+{
+ "platforms": {
+  "iphone-duo-inner": {
+   "ar": [
+    [
+     "g/midmak/iphone-duo-inner/ar/01-home.webp",
+     1422,
+     1000,
+     "الرئيسية ونبض البيت اليوم"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/02-prepay.webp",
+     1422,
+     1000,
+     "فحص الدفعة قبل الدفع"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/03-contractor-account.webp",
+     1422,
+     1000,
+     "حساب المقاول المدفوع والباقي"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/04-stages-wall.webp",
+     1422,
+     1000,
+     "جدار البيت ومراحل البناء"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/05-invoice-scan.webp",
+     1422,
+     1000,
+     "مسح فاتورة وقراءتها آليًا"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/06-ask-midmak.webp",
+     1422,
+     1000,
+     "اسأل مدماك عن مصروفك"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/07-materials.webp",
+     1422,
+     1000,
+     "المواد والكميات المشتراة"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/08-agreements.webp",
+     1422,
+     1000,
+     "الاتفاقات والقرارات الموثقة"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/09-home-memory.webp",
+     1422,
+     1000,
+     "ذاكرة البيت والضمانات"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/10-analytics.webp",
+     1422,
+     1000,
+     "التحليلات والميزانية لكل مرحلة"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/11-expenses.webp",
+     1422,
+     1000,
+     "سجل المصروفات"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/12-diary.webp",
+     1422,
+     1000,
+     "اليوميات وملخص الأسبوع"
+    ]
+   ],
+   "en": [
+    [
+     "g/midmak/iphone-duo-inner/ar/01-home.webp",
+     1422,
+     1000,
+     "Home dashboard and daily pulse"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/02-prepay.webp",
+     1422,
+     1000,
+     "Check a payment before paying"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/03-contractor-account.webp",
+     1422,
+     1000,
+     "Contractor account paid and remaining"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/04-stages-wall.webp",
+     1422,
+     1000,
+     "House wall of build stages"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/05-invoice-scan.webp",
+     1422,
+     1000,
+     "Scan and read an invoice"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/06-ask-midmak.webp",
+     1422,
+     1000,
+     "Ask Midmak about your spending"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/07-materials.webp",
+     1422,
+     1000,
+     "Materials and purchased quantities"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/08-agreements.webp",
+     1422,
+     1000,
+     "Recorded agreements and decisions"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/09-home-memory.webp",
+     1422,
+     1000,
+     "Home memory and warranties"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/10-analytics.webp",
+     1422,
+     1000,
+     "Analytics and budget per stage"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/11-expenses.webp",
+     1422,
+     1000,
+     "Expense log"
+    ],
+    [
+     "g/midmak/iphone-duo-inner/ar/12-diary.webp",
+     1422,
+     1000,
+     "Diary and weekly summary"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "iphone-duo-outer": {
+   "ar": [
+    [
+     "g/midmak/iphone-duo-outer/ar/01-home.webp",
+     700,
+     1018,
+     "الرئيسية ونبض البيت اليوم"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/02-prepay.webp",
+     700,
+     1018,
+     "فحص الدفعة قبل الدفع"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/03-contractor-account.webp",
+     700,
+     1018,
+     "حساب المقاول المدفوع والباقي"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/04-stages-wall.webp",
+     700,
+     1018,
+     "جدار البيت ومراحل البناء"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/05-invoice-scan.webp",
+     700,
+     1018,
+     "مسح فاتورة وقراءتها آليًا"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/06-ask-midmak.webp",
+     700,
+     1018,
+     "اسأل مدماك عن مصروفك"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/07-materials.webp",
+     700,
+     1018,
+     "المواد والكميات المشتراة"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/08-agreements.webp",
+     700,
+     1018,
+     "الاتفاقات والقرارات الموثقة"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/09-home-memory.webp",
+     700,
+     1018,
+     "ذاكرة البيت والضمانات"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/10-analytics.webp",
+     700,
+     1018,
+     "التحليلات والميزانية لكل مرحلة"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/11-expenses.webp",
+     700,
+     1018,
+     "سجل المصروفات"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/12-diary.webp",
+     700,
+     1018,
+     "اليوميات وملخص الأسبوع"
+    ]
+   ],
+   "en": [
+    [
+     "g/midmak/iphone-duo-outer/ar/01-home.webp",
+     700,
+     1018,
+     "Home dashboard and daily pulse"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/02-prepay.webp",
+     700,
+     1018,
+     "Check a payment before paying"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/03-contractor-account.webp",
+     700,
+     1018,
+     "Contractor account paid and remaining"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/04-stages-wall.webp",
+     700,
+     1018,
+     "House wall of build stages"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/05-invoice-scan.webp",
+     700,
+     1018,
+     "Scan and read an invoice"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/06-ask-midmak.webp",
+     700,
+     1018,
+     "Ask Midmak about your spending"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/07-materials.webp",
+     700,
+     1018,
+     "Materials and purchased quantities"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/08-agreements.webp",
+     700,
+     1018,
+     "Recorded agreements and decisions"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/09-home-memory.webp",
+     700,
+     1018,
+     "Home memory and warranties"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/10-analytics.webp",
+     700,
+     1018,
+     "Analytics and budget per stage"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/11-expenses.webp",
+     700,
+     1018,
+     "Expense log"
+    ],
+    [
+     "g/midmak/iphone-duo-outer/ar/12-diary.webp",
+     700,
+     1018,
+     "Diary and weekly summary"
+    ]
+   ],
+   "ar_ui": true
+  }
+ }
+}
