@@ -1,0 +1,454 @@
+{
+ "platforms": {
+  "android": {
+   "ar": [
+    [
+     "g/satr/android/ar/01-cover.webp",
+     495,
+     1100,
+     "غلاف الدفتر على الجوال"
+    ],
+    [
+     "g/satr/android/ar/02-notebook-open.webp",
+     495,
+     1100,
+     "الدفتر مفتوحًا صفحةً واحدة"
+    ],
+    [
+     "g/satr/android/ar/03-guide-page.webp",
+     495,
+     1100,
+     "صفحة من ملاحظات الدليل"
+    ],
+    [
+     "g/satr/android/ar/04-ink-sketch.webp",
+     495,
+     1100,
+     "رسم بقلم الريشة"
+    ],
+    [
+     "g/satr/android/ar/05-pen-tray.webp",
+     495,
+     1100,
+     "درج الأقلام والألوان"
+    ],
+    [
+     "g/satr/android/ar/06-dot-paper-chart.webp",
+     495,
+     1100,
+     "مخطط على ورق منقّط"
+    ],
+    [
+     "g/satr/android/ar/07-page-turn.webp",
+     495,
+     1100,
+     "قلّب الصفحة بإصبعك"
+    ],
+    [
+     "g/satr/android/ar/08-paper-types.webp",
+     495,
+     1100,
+     "عشرة أنواع من الورق"
+    ],
+    [
+     "g/satr/android/ar/09-index.webp",
+     495,
+     1100,
+     "فهرس صفحات الدفتر"
+    ],
+    [
+     "g/satr/android/ar/10-export-menu.webp",
+     495,
+     1100,
+     "صدّر صفحاتك صورة أو PDF"
+    ],
+    [
+     "g/satr/android/ar/11-notebook-settings.webp",
+     495,
+     1100,
+     "إعدادات كل دفتر"
+    ]
+   ],
+   "en": [
+    [
+     "g/satr/android/en/01-cover.webp",
+     495,
+     1100,
+     "The notebook cover on a phone"
+    ],
+    [
+     "g/satr/android/en/02-notebook-open.webp",
+     495,
+     1100,
+     "The notebook open, one page"
+    ],
+    [
+     "g/satr/android/en/03-guide-page.webp",
+     495,
+     1100,
+     "A page of guide notes"
+    ],
+    [
+     "g/satr/android/en/04-ink-sketch.webp",
+     495,
+     1100,
+     "A sketch in fountain-pen ink"
+    ],
+    [
+     "g/satr/android/en/05-pen-tray.webp",
+     495,
+     1100,
+     "The pen and colour tray"
+    ],
+    [
+     "g/satr/android/en/06-dot-paper-chart.webp",
+     495,
+     1100,
+     "A chart on dotted paper"
+    ],
+    [
+     "g/satr/android/en/07-page-turn.webp",
+     495,
+     1100,
+     "Turn the page with your finger"
+    ],
+    [
+     "g/satr/android/en/08-paper-types.webp",
+     495,
+     1100,
+     "Ten kinds of paper"
+    ],
+    [
+     "g/satr/android/en/09-index.webp",
+     495,
+     1100,
+     "The notebook's contents page"
+    ],
+    [
+     "g/satr/android/en/10-export-menu.webp",
+     495,
+     1100,
+     "Export pages as image or PDF"
+    ],
+    [
+     "g/satr/android/en/11-notebook-settings.webp",
+     495,
+     1100,
+     "Settings for each notebook"
+    ]
+   ]
+  },
+  "android-fold": {
+   "ar": [
+    [
+     "g/satr/android-fold/ar/01-notebook-open.webp",
+     1325,
+     1000,
+     "الدفتر مفتوحًا على صفحتين"
+    ],
+    [
+     "g/satr/android-fold/ar/02-ink-sketch.webp",
+     1325,
+     1000,
+     "رسم بقلم الريشة"
+    ],
+    [
+     "g/satr/android-fold/ar/03-page-turn.webp",
+     1325,
+     1000,
+     "قلّب الصفحة بإصبعك"
+    ],
+    [
+     "g/satr/android-fold/ar/04-tear-page.webp",
+     1325,
+     1000,
+     "انزع الورقة من عند المفصل"
+    ],
+    [
+     "g/satr/android-fold/ar/05-ink-show-through.webp",
+     1325,
+     1000,
+     "الحبر يشفّ من خلف الورقة"
+    ],
+    [
+     "g/satr/android-fold/ar/06-dot-paper-chart.webp",
+     1325,
+     1000,
+     "مخطط على ورق منقّط"
+    ],
+    [
+     "g/satr/android-fold/ar/07-pen-tray.webp",
+     1325,
+     1000,
+     "درج الأقلام والألوان"
+    ],
+    [
+     "g/satr/android-fold/ar/08-paper-types.webp",
+     1325,
+     1000,
+     "عشرة أنواع من الورق"
+    ],
+    [
+     "g/satr/android-fold/ar/09-index.webp",
+     1325,
+     1000,
+     "فهرس صفحات الدفتر"
+    ],
+    [
+     "g/satr/android-fold/ar/10-desk.webp",
+     1325,
+     1000,
+     "دفاترك على المكتب"
+    ],
+    [
+     "g/satr/android-fold/ar/11-cover-designer.webp",
+     1325,
+     1000,
+     "صمّم غلاف دفترك"
+    ],
+    [
+     "g/satr/android-fold/ar/12-notebook-settings.webp",
+     1325,
+     1000,
+     "إعدادات كل دفتر"
+    ],
+    [
+     "g/satr/android-fold/ar/13-export-menu.webp",
+     1325,
+     1000,
+     "صدّر صفحاتك صورة أو PDF"
+    ],
+    [
+     "g/satr/android-fold/ar/14-guide-notes.webp",
+     1325,
+     1000,
+     "ملاحظات الدليل بخط سابق"
+    ]
+   ],
+   "en": [
+    [
+     "g/satr/android-fold/en/01-notebook-open.webp",
+     1325,
+     1000,
+     "The notebook open across two pages"
+    ],
+    [
+     "g/satr/android-fold/en/02-ink-sketch.webp",
+     1325,
+     1000,
+     "A sketch in fountain-pen ink"
+    ],
+    [
+     "g/satr/android-fold/en/03-page-turn.webp",
+     1325,
+     1000,
+     "Turn the page with your finger"
+    ],
+    [
+     "g/satr/android-fold/en/04-tear-page.webp",
+     1325,
+     1000,
+     "Tear a page from the spine"
+    ],
+    [
+     "g/satr/android-fold/en/05-ink-show-through.webp",
+     1325,
+     1000,
+     "Ink shows through the paper"
+    ],
+    [
+     "g/satr/android-fold/en/06-dot-paper-chart.webp",
+     1325,
+     1000,
+     "A chart on dotted paper"
+    ],
+    [
+     "g/satr/android-fold/en/07-pen-tray.webp",
+     1325,
+     1000,
+     "The pen and colour tray"
+    ],
+    [
+     "g/satr/android-fold/en/08-paper-types.webp",
+     1325,
+     1000,
+     "Ten kinds of paper"
+    ],
+    [
+     "g/satr/android-fold/en/09-index.webp",
+     1325,
+     1000,
+     "The notebook's contents page"
+    ],
+    [
+     "g/satr/android-fold/en/10-desk.webp",
+     1325,
+     1000,
+     "Your notebooks on the desk"
+    ],
+    [
+     "g/satr/android-fold/en/11-cover-designer.webp",
+     1325,
+     1000,
+     "Design your notebook's cover"
+    ],
+    [
+     "g/satr/android-fold/en/12-notebook-settings.webp",
+     1325,
+     1000,
+     "Settings for each notebook"
+    ],
+    [
+     "g/satr/android-fold/en/13-export-menu.webp",
+     1325,
+     1000,
+     "Export pages as image or PDF"
+    ],
+    [
+     "g/satr/android-fold/en/14-guide-notes.webp",
+     1325,
+     1000,
+     "Guide notes from a previous owner"
+    ]
+   ]
+  },
+  "android-fold-outer": {
+   "ar": [
+    [
+     "g/satr/android-fold-outer/ar/01-cover.webp",
+     696,
+     1100,
+     "الغلاف على الشاشة الخارجية"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/02-ink-sketch.webp",
+     696,
+     1100,
+     "ارسم والجهاز مطوي"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/03-page-turn.webp",
+     696,
+     1100,
+     "تقليب الصفحة الواحدة"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/04-dot-paper-chart.webp",
+     696,
+     1100,
+     "مخطط على ورق منقّط"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/05-pen-tray.webp",
+     696,
+     1100,
+     "درج الأقلام في الشاشة الصغيرة"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/06-paper-types.webp",
+     696,
+     1100,
+     "اختر نوع الورق"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/07-index.webp",
+     696,
+     1100,
+     "فهرس الصفحات والجهاز مطوي"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/08-export-menu.webp",
+     696,
+     1100,
+     "صدّر صفحاتك صورة أو PDF"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/09-notebook-settings.webp",
+     696,
+     1100,
+     "إعدادات الدفتر على الشاشة الخارجية"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/10-guide-page.webp",
+     696,
+     1100,
+     "صفحة من ملاحظات الدليل"
+    ],
+    [
+     "g/satr/android-fold-outer/ar/11-classic-cover.webp",
+     696,
+     1100,
+     "الغلاف الكلاسيكي مطويًا"
+    ]
+   ],
+   "en": [
+    [
+     "g/satr/android-fold-outer/en/01-cover.webp",
+     696,
+     1100,
+     "The cover on the outer screen"
+    ],
+    [
+     "g/satr/android-fold-outer/en/02-ink-sketch.webp",
+     696,
+     1100,
+     "Sketch with the phone folded"
+    ],
+    [
+     "g/satr/android-fold-outer/en/03-page-turn.webp",
+     696,
+     1100,
+     "Turning a single page"
+    ],
+    [
+     "g/satr/android-fold-outer/en/04-dot-paper-chart.webp",
+     696,
+     1100,
+     "A chart on dotted paper"
+    ],
+    [
+     "g/satr/android-fold-outer/en/05-pen-tray.webp",
+     696,
+     1100,
+     "The pen tray, phone folded"
+    ],
+    [
+     "g/satr/android-fold-outer/en/06-paper-types.webp",
+     696,
+     1100,
+     "Pick a paper type"
+    ],
+    [
+     "g/satr/android-fold-outer/en/07-index.webp",
+     696,
+     1100,
+     "The contents page, folded"
+    ],
+    [
+     "g/satr/android-fold-outer/en/08-export-menu.webp",
+     696,
+     1100,
+     "Export pages as image or PDF"
+    ],
+    [
+     "g/satr/android-fold-outer/en/09-notebook-settings.webp",
+     696,
+     1100,
+     "Notebook settings on the outer screen"
+    ],
+    [
+     "g/satr/android-fold-outer/en/10-guide-page.webp",
+     696,
+     1100,
+     "A page of guide notes"
+    ],
+    [
+     "g/satr/android-fold-outer/en/11-classic-cover.webp",
+     696,
+     1100,
+     "The classic cover, folded"
+    ]
+   ]
+  }
+ }
+}
