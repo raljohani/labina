@@ -20,6 +20,7 @@ YEAR = '٢٠٢٦'
 import hashlib
 sys.path.insert(0, HERE)
 from extra import *
+import gallery as G
 VER = hashlib.md5(open(os.path.join(HERE,'style.css'),'rb').read()).hexdigest()[:8]
 COUNTER = 'https://count.labina.app'
 GMAIL = r'[\w.+-]+@gmail\.com'  # the original app pages carry an old personal address; the site shows support@ instead
@@ -423,7 +424,7 @@ dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scro
 </script>'''
     write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن ومِحراب وهامِش وسطر، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
 
-def fold_block(k, lang, rel):
+def fold_block(k, lang, rel, plats=None):
     """a room's foldables section: what the work does on a folding phone, and its screens there"""
     if k not in FOLD: return ''
     f = FOLD[k]; t = f[lang]; ar = lang == 'ar'
@@ -431,13 +432,17 @@ def fold_block(k, lang, rel):
     figs = ''.join(f'<figure><img src="{rel}assets/{s}.webp" alt="{c}" loading="lazy" width="{w}" height="{h}"><figcaption>{c}</figcaption></figure>'
                    for s, c, (w, h) in zip(f['shots'], t['caps'], f['size']))
     head = 'على الأجهزة القابلة للطي' if ar else 'On foldables'
+    fg = [g for g in G.groups_of(plats or {}) if g[0] in ('android-fold', 'iphone-duo')]
+    jump = ''.join(f'<button type="button" class="btn line" data-show-os="{g[0]}">' + (f'شاهده على {g[2]}' if ar else f'See it on {g[3]}') + '</button>'
+                   for g in fg) if len(G.groups_of(plats or {})) > 1 else ''
+    jump = f'<div class="actions fold-jump">{jump}</div>' if jump else '<div class="fold-jump"></div>'
     kicker = ('يدعم ' if ar else 'Supports ') + t['devices']
     return f'''<section class="fold dark" aria-labelledby="fold-h"><div class="wrap">
   <p class="fold-kicker">{kicker}</p>
   <h2 class="h2" id="fold-h">{head}</h2>
   <p class="fold-lead">{t["lead"]}</p>
   <ul class="fold-list">{''.join(f'<li>{x}</li>' for x in t["features"])}</ul>
-  <div class="strip fold-strip" tabindex="0" aria-label="{(name + ' على الأجهزة القابلة للطي') if ar else (name + ' on foldables')}">{figs}</div>
+  {jump if fg else f'<div class="strip fold-strip" tabindex="0" aria-label="{(name + " على الأجهزة القابلة للطي") if ar else (name + " on foldables")}">{figs}</div>'}
 </div></section>'''
 
 # ---------------- exhibit ----------------
@@ -458,6 +463,7 @@ def exhibit(k):
     papers = (privacy_card('ar', k, 'privacy/') + f'<h2 class="h2" style="margin-top:44px">وثائق {a["name"]}</h2><div class="docs-grid">{docs}</div>'
               if a['docs'] else f'<p class="docs-later">وثائق {a["name"]} (الدعم والخصوصية والشروط) تُنشر يوم إطلاقه.</p>')
     film = film_block(k, 'ar', '') if k in FILMS else ''
+    plats = G.load(k, a, APPS_EN[k].get('caps', []), FOLD.get(k))
     body = f'''<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h">
   <div class="wrap">
@@ -468,10 +474,10 @@ def exhibit(k):
         <p class="tag">{a["tag"]}</p><p class="meta">{a["meta"]}</p>
         <div class="actions">{store}</div></div>
     </div>
-    {f'<div class="strip{" tv" if a.get("tv") else ""}" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['shots'] else soon_block('ar', k)}
+    {G.render(k, 'ar', rel, plats, a['name']) if plats else soon_block('ar', k)}
   </div>
 </section>
-{fold_block(k, 'ar', rel)}
+{fold_block(k, 'ar', rel, plats)}
 {film}
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">عن العمل</h2>
@@ -481,6 +487,7 @@ def exhibit(k):
   {papers}
 </div></section>
 {visitors_wall('ar', k)}
+{G.SCRIPT}
 </main>'''
     write(f'{k}/index.html', shell(rel, f'{a["name"]} | معرض لبنة', a['tag'], body, app=k, dark_top=True, path=f'{k}/'))
     if a.get('apk'):  # a short address to type on a phone or computer: labina.app/<k>/apk → the current APK
@@ -856,7 +863,8 @@ def en_exhibit(k):
     papers = (privacy_card('en', k, 'privacy/') + f'<h2 class="h2" style="margin-top:44px">{e["name"]} documents</h2><div class="docs-grid">{docs}</div>'
               if a['docs'] else f'<p class="docs-later">The documents for {e["name"]} (support, privacy and terms) are published on launch day.</p>')
     film = film_block(k, 'en', f'../../{k}/') if k in FILMS else ''
-    show = f'<div class="strip{" tv" if a.get("tv") else ""}" tabindex="0" aria-label="Screens from {e["name"]}">{figs}</div>' if a['shots'] else soon_block('en', k)
+    plats = G.load(k, a, e.get('caps', []), FOLD.get(k))
+    show = G.render(k, 'en', rel, plats, e['name']) if plats else soon_block('en', k)
     body = f"""<main id="main">
 <section class="exhibit dark" aria-labelledby="ex-h"><div class="wrap">
   <p class="crumbs"><a href="../">Gallery</a> / {e['name']} room</p>
@@ -866,7 +874,7 @@ def en_exhibit(k):
   </div>
   {show}
 </div></section>
-{fold_block(k, 'en', rel)}
+{fold_block(k, 'en', rel, plats)}
 {film}
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">About the work</h2>
@@ -876,6 +884,7 @@ def en_exhibit(k):
   {papers}
 </div></section>
 {visitors_wall('en', k)}
+{G.SCRIPT}
 </main>"""
     write(f'en/{k}/index.html', shell(rel, f'{e["name"]} | Labina gallery', e['tag'], body, app=k, dark_top=True, path=f'en/{k}/', lang='en'))
 
