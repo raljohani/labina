@@ -184,7 +184,7 @@ NATURE_EN = {
 }
 
 # ---------- Sakan: a TV app, shipped as an APK from its releases page (no store) ----------
-SAKAN_VER = '3.2.3'   # bump on each release in raljohani/sakan-tv: the APK link and /sakan/apk/ point at this version
+SAKAN_VER = '3.6.0'   # bump on each release in raljohani/sakan-tv: the APK link and /sakan/apk/ point at this version
 SAKAN_REL = 'https://github.com/raljohani/sakan-tv/releases/latest'
 SAKAN_APK = f'https://github.com/raljohani/sakan-tv/releases/download/v{SAKAN_VER}/sakan-{SAKAN_VER}.apk'
 
@@ -577,3 +577,21 @@ FOLD = {
      caps=['The cover on the outer screen']),
    shots=['satr-fold-1'], size=[(532, 840)]),
 }
+FOLD['hamish'] = dict(
+   ar=dict(devices='iPhone Duo وأندرويد القابل للطي',
+     lead='على الأجهزة المطوية يصير هامِش كتابًا مفتوحًا بين يديك.',
+     features=['صفحتان متقابلتان حين تفتح الجهاز، والأولى يمينًا في الكتب العربية.',
+               'على الطاولة: الكتاب في الأعلى، وفي الأسفل الملاحظات والحواشي والتنقل والاستماع والكتابة بالقلم ومعنى الكلمة، والتقليب بلا يدين.',
+               'الدفتر بجانب الكتاب، وصورة الصفحة بجانب نصها المستخرج.',
+               'المقابلة بين نسختين من الكتاب، والكتاب وترجمته فقرةً بفقرة، والمتن وشرحه.',
+               'التسميع بين اثنين: نصف الشاشة مقلوب لمن يسمّع لك.'],
+     caps=[]),
+   en=dict(devices='iPhone Duo and Android foldables',
+     lead='On foldables, Hamish becomes an open book in your hands.',
+     features=['Two facing pages when you open the device, the first on the right in Arabic books.',
+               'Tabletop: the book above, and below it notes, footnotes, navigation, listening, pen writing and word meanings, with hands-free page turning.',
+               'Your notebook beside the book, and a page image beside its extracted text.',
+               'Collating two editions of a book, a book beside its translation paragraph by paragraph, and a text beside its commentary.',
+               'Recitation for two: half the screen turned around for the person listening to you.'],
+     caps=[]),
+   shots=[], size=[])

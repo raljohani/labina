@@ -50,7 +50,7 @@ def load(k, a, en_caps, fold):
     if a['shots']:
         plats[seed] = {'ar': [[f'{s}.webp', w, h, c] for s, c in a['shots']],
                        'en': [[f'{s}.webp', w, h, c] for (s, _), c in zip(a['shots'], en_caps)]}
-    if fold:
+    if fold and fold['shots']:
         fp = {'mizan': 'iphone-duo-inner', 'sana': 'android-fold', 'satr': 'android-fold-outer'}[k]
         plats[fp] = {lang: [[f'{s}.webp', sw, sh, c] for s, c, (sw, sh) in zip(fold['shots'], fold[lang]['caps'], fold['size'])]
                      for lang in ('ar', 'en')}

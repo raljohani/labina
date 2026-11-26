@@ -1,0 +1,529 @@
+{
+ "platforms": {
+  "android-tv": {
+   "ar": [
+    [
+     "g/mihrab/android-tv/ar/01-today.webp",
+     1600,
+     900,
+     "مواقيت اليوم والصلاة القادمة"
+    ],
+    [
+     "g/mihrab/android-tv/ar/02-before-adhan.webp",
+     1600,
+     900,
+     "عدٌّ تنازلي قبل الأذان"
+    ],
+    [
+     "g/mihrab/android-tv/ar/03-adhan.webp",
+     1600,
+     900,
+     "شاشة الأذان"
+    ],
+    [
+     "g/mihrab/android-tv/ar/04-iqama-countdown.webp",
+     1600,
+     900,
+     "العد التنازلي للإقامة"
+    ],
+    [
+     "g/mihrab/android-tv/ar/05-iqama.webp",
+     1600,
+     900,
+     "شاشة إقامة الصلاة"
+    ],
+    [
+     "g/mihrab/android-tv/ar/06-night.webp",
+     1600,
+     900,
+     "العرض الليلي الهادئ"
+    ],
+    [
+     "g/mihrab/android-tv/ar/07-ramadan.webp",
+     1600,
+     900,
+     "عدّاد الإفطار في رمضان"
+    ],
+    [
+     "g/mihrab/android-tv/ar/08-eid-fitr.webp",
+     1600,
+     900,
+     "موعد صلاة عيد الفطر"
+    ],
+    [
+     "g/mihrab/android-tv/ar/09-announcement.webp",
+     1600,
+     900,
+     "إعلان المسجد بجانب المواقيت"
+    ],
+    [
+     "g/mihrab/android-tv/ar/10-janazah-notice.webp",
+     1600,
+     900,
+     "إعلان صلاة الجنازة"
+    ],
+    [
+     "g/mihrab/android-tv/ar/11-setup-methods.webp",
+     1600,
+     900,
+     "ثلاث طرق للإعداد"
+    ],
+    [
+     "g/mihrab/android-tv/ar/12-phone-pairing.webp",
+     1280,
+     720,
+     "ربط الجوال برمز QR"
+    ],
+    [
+     "g/mihrab/android-tv/ar/13-device-settings.webp",
+     1280,
+     720,
+     "إعدادات الجهاز بالريموت"
+    ],
+    [
+     "g/mihrab/android-tv/ar/14-prayer-timeline.webp",
+     1280,
+     720,
+     "ميزان الصلاة على الشاشة"
+    ],
+    [
+     "g/mihrab/android-tv/ar/15-jumuah-timeline.webp",
+     1280,
+     720,
+     "ضبط مراحل صلاة الجمعة"
+    ]
+   ],
+   "en": [
+    [
+     "g/mihrab/android-tv/ar/01-today.webp",
+     1600,
+     900,
+     "Today's times and next prayer"
+    ],
+    [
+     "g/mihrab/android-tv/ar/02-before-adhan.webp",
+     1600,
+     900,
+     "Countdown before the adhan"
+    ],
+    [
+     "g/mihrab/android-tv/ar/03-adhan.webp",
+     1600,
+     900,
+     "The adhan screen"
+    ],
+    [
+     "g/mihrab/android-tv/ar/04-iqama-countdown.webp",
+     1600,
+     900,
+     "Countdown to the iqama"
+    ],
+    [
+     "g/mihrab/android-tv/ar/05-iqama.webp",
+     1600,
+     900,
+     "Iqama screen"
+    ],
+    [
+     "g/mihrab/android-tv/ar/06-night.webp",
+     1600,
+     900,
+     "Calm night display"
+    ],
+    [
+     "g/mihrab/android-tv/ar/07-ramadan.webp",
+     1600,
+     900,
+     "Ramadan iftar countdown"
+    ],
+    [
+     "g/mihrab/android-tv/ar/08-eid-fitr.webp",
+     1600,
+     900,
+     "Eid al-Fitr prayer time"
+    ],
+    [
+     "g/mihrab/android-tv/ar/09-announcement.webp",
+     1600,
+     900,
+     "Mosque announcement beside times"
+    ],
+    [
+     "g/mihrab/android-tv/ar/10-janazah-notice.webp",
+     1600,
+     900,
+     "Funeral prayer notice"
+    ],
+    [
+     "g/mihrab/android-tv/ar/11-setup-methods.webp",
+     1600,
+     900,
+     "Three ways to set up"
+    ],
+    [
+     "g/mihrab/android-tv/ar/12-phone-pairing.webp",
+     1280,
+     720,
+     "Pair a phone via QR"
+    ],
+    [
+     "g/mihrab/android-tv/ar/13-device-settings.webp",
+     1280,
+     720,
+     "Device settings by remote"
+    ],
+    [
+     "g/mihrab/android-tv/ar/14-prayer-timeline.webp",
+     1280,
+     720,
+     "Prayer timeline on screen"
+    ],
+    [
+     "g/mihrab/android-tv/ar/15-jumuah-timeline.webp",
+     1280,
+     720,
+     "Friday prayer stages"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "windows": {
+   "ar": [
+    [
+     "g/mihrab/windows/ar/01-today.webp",
+     1600,
+     900,
+     "مواقيت اليوم بالثيم الحديث"
+    ],
+    [
+     "g/mihrab/windows/ar/02-ramadan-night.webp",
+     1600,
+     900,
+     "ليلة رمضان والسحور"
+    ],
+    [
+     "g/mihrab/windows/ar/03-eid-adha.webp",
+     1600,
+     900,
+     "موعد صلاة عيد الأضحى"
+    ],
+    [
+     "g/mihrab/windows/ar/04-arafah-eve.webp",
+     1600,
+     900,
+     "تذكير بيوم عرفة"
+    ],
+    [
+     "g/mihrab/windows/ar/05-ashura.webp",
+     1600,
+     900,
+     "تذكير بيوم عاشوراء"
+    ],
+    [
+     "g/mihrab/windows/ar/06-eclipse-prayer.webp",
+     1600,
+     900,
+     "إعلان صلاة الكسوف"
+    ],
+    [
+     "g/mihrab/windows/ar/07-rain-prayer.webp",
+     1600,
+     900,
+     "إعلان صلاة الاستسقاء"
+    ],
+    [
+     "g/mihrab/windows/ar/08-urgent-message.webp",
+     1600,
+     900,
+     "رسالة عاجلة بملء الشاشة"
+    ],
+    [
+     "g/mihrab/windows/ar/09-adhan.webp",
+     1600,
+     900,
+     "شاشة الأذان"
+    ],
+    [
+     "g/mihrab/windows/ar/10-sunnah-prayers.webp",
+     1600,
+     900,
+     "السنن الرواتب مع المواقيت"
+    ],
+    [
+     "g/mihrab/windows/ar/11-organization-colors.webp",
+     1600,
+     900,
+     "ألوان هوية الجهة"
+    ],
+    [
+     "g/mihrab/windows/ar/12-jumuah-first-adhan.webp",
+     1600,
+     900,
+     "الأذان الأول يوم الجمعة"
+    ],
+    [
+     "g/mihrab/windows/ar/13-usb-setup.webp",
+     1600,
+     900,
+     "الإعداد من فلاش USB"
+    ],
+    [
+     "g/mihrab/windows/ar/14-offline-notice.webp",
+     1600,
+     900,
+     "تنبيه انقطاع الشبكة"
+    ],
+    [
+     "g/mihrab/windows/ar/15-device-settings.webp",
+     1333,
+     1000,
+     "إعدادات الجهاز في ويندوز"
+    ]
+   ],
+   "en": [
+    [
+     "g/mihrab/windows/ar/01-today.webp",
+     1600,
+     900,
+     "Today's times, modern theme"
+    ],
+    [
+     "g/mihrab/windows/ar/02-ramadan-night.webp",
+     1600,
+     900,
+     "Ramadan night and suhoor"
+    ],
+    [
+     "g/mihrab/windows/ar/03-eid-adha.webp",
+     1600,
+     900,
+     "Eid al-Adha prayer time"
+    ],
+    [
+     "g/mihrab/windows/ar/04-arafah-eve.webp",
+     1600,
+     900,
+     "Day of Arafah reminder"
+    ],
+    [
+     "g/mihrab/windows/ar/05-ashura.webp",
+     1600,
+     900,
+     "Day of Ashura reminder"
+    ],
+    [
+     "g/mihrab/windows/ar/06-eclipse-prayer.webp",
+     1600,
+     900,
+     "Eclipse prayer announcement"
+    ],
+    [
+     "g/mihrab/windows/ar/07-rain-prayer.webp",
+     1600,
+     900,
+     "Rain prayer announcement"
+    ],
+    [
+     "g/mihrab/windows/ar/08-urgent-message.webp",
+     1600,
+     900,
+     "Full-screen urgent message"
+    ],
+    [
+     "g/mihrab/windows/ar/09-adhan.webp",
+     1600,
+     900,
+     "The adhan screen"
+    ],
+    [
+     "g/mihrab/windows/ar/10-sunnah-prayers.webp",
+     1600,
+     900,
+     "Sunnah prayers beside times"
+    ],
+    [
+     "g/mihrab/windows/ar/11-organization-colors.webp",
+     1600,
+     900,
+     "Your organization's colors"
+    ],
+    [
+     "g/mihrab/windows/ar/12-jumuah-first-adhan.webp",
+     1600,
+     900,
+     "Friday first adhan"
+    ],
+    [
+     "g/mihrab/windows/ar/13-usb-setup.webp",
+     1600,
+     900,
+     "Set up from USB"
+    ],
+    [
+     "g/mihrab/windows/ar/14-offline-notice.webp",
+     1600,
+     900,
+     "No-network notice"
+    ],
+    [
+     "g/mihrab/windows/ar/15-device-settings.webp",
+     1333,
+     1000,
+     "Windows device settings"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "phone-web": {
+   "ar": [
+    [
+     "g/mihrab/phone-web/ar/01-enter-code.webp",
+     508,
+     1100,
+     "ربط الشاشة برمزها"
+    ],
+    [
+     "g/mihrab/phone-web/ar/02-location.webp",
+     508,
+     1100,
+     "اسم المسجد والمدينة"
+    ],
+    [
+     "g/mihrab/phone-web/ar/03-iqama.webp",
+     508,
+     1100,
+     "ضبط أوقات الإقامة"
+    ],
+    [
+     "g/mihrab/phone-web/ar/04-durations.webp",
+     508,
+     1100,
+     "ميزان الصلاة ومدد المراحل"
+    ],
+    [
+     "g/mihrab/phone-web/ar/05-rawatib.webp",
+     508,
+     1100,
+     "ضبط السنن الرواتب"
+    ],
+    [
+     "g/mihrab/phone-web/ar/06-look.webp",
+     508,
+     1100,
+     "اختيار الثيم والاتجاه"
+    ],
+    [
+     "g/mihrab/phone-web/ar/07-pin.webp",
+     508,
+     1100,
+     "رمز المشرف للحماية"
+    ],
+    [
+     "g/mihrab/phone-web/ar/08-done.webp",
+     508,
+     1100,
+     "حُفظ الإعداد"
+    ],
+    [
+     "g/mihrab/phone-web/ar/09-announcements.webp",
+     508,
+     1100,
+     "نشر إعلان على الشاشة"
+    ],
+    [
+     "g/mihrab/phone-web/ar/10-urgent.webp",
+     508,
+     1100,
+     "إرسال رسالة عاجلة"
+    ],
+    [
+     "g/mihrab/phone-web/ar/11-modes.webp",
+     508,
+     1100,
+     "تفعيل وضع خاص"
+    ],
+    [
+     "g/mihrab/phone-web/ar/12-usb-file.webp",
+     508,
+     1100,
+     "ملف إعداد لفلاش USB"
+    ]
+   ],
+   "en": [
+    [
+     "g/mihrab/phone-web/ar/01-enter-code.webp",
+     508,
+     1100,
+     "Link the screen by code"
+    ],
+    [
+     "g/mihrab/phone-web/ar/02-location.webp",
+     508,
+     1100,
+     "Mosque name and city"
+    ],
+    [
+     "g/mihrab/phone-web/ar/03-iqama.webp",
+     508,
+     1100,
+     "Set iqama times"
+    ],
+    [
+     "g/mihrab/phone-web/ar/04-durations.webp",
+     508,
+     1100,
+     "Prayer timeline and durations"
+    ],
+    [
+     "g/mihrab/phone-web/ar/05-rawatib.webp",
+     508,
+     1100,
+     "Configure sunnah prayers"
+    ],
+    [
+     "g/mihrab/phone-web/ar/06-look.webp",
+     508,
+     1100,
+     "Choose theme and orientation"
+    ],
+    [
+     "g/mihrab/phone-web/ar/07-pin.webp",
+     508,
+     1100,
+     "Admin PIN protection"
+    ],
+    [
+     "g/mihrab/phone-web/ar/08-done.webp",
+     508,
+     1100,
+     "Setup saved"
+    ],
+    [
+     "g/mihrab/phone-web/ar/09-announcements.webp",
+     508,
+     1100,
+     "Post a screen announcement"
+    ],
+    [
+     "g/mihrab/phone-web/ar/10-urgent.webp",
+     508,
+     1100,
+     "Send an urgent message"
+    ],
+    [
+     "g/mihrab/phone-web/ar/11-modes.webp",
+     508,
+     1100,
+     "Activate a special mode"
+    ],
+    [
+     "g/mihrab/phone-web/ar/12-usb-file.webp",
+     508,
+     1100,
+     "Setup file for USB"
+    ]
+   ],
+   "ar_ui": true
+  }
+ }
+}

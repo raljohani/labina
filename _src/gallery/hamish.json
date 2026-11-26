@@ -1,0 +1,628 @@
+{
+ "platforms": {
+  "iphone-duo-inner": {
+   "ar": [
+    [
+     "g/hamish/iphone-duo-inner/ar/01-library.webp",
+     1422,
+     1000,
+     "المكتبة بأغلفة الكتب"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/02-library-list.webp",
+     1422,
+     1000,
+     "المكتبة قائمةً مع تابع القراءة"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/03-reader.webp",
+     1422,
+     1000,
+     "القارئ مع التظليل الملوّن"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/04-reading-settings.webp",
+     1422,
+     1000,
+     "لوحة الخط والسمة والألوان"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/05-search-in-book.webp",
+     1422,
+     1000,
+     "البحث داخل الكتاب"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/06-notebook.webp",
+     1422,
+     1000,
+     "دفتر الكتاب: التظليل والملاحظات"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/07-quote-card.webp",
+     1422,
+     1000,
+     "بطاقة اقتباس للمشاركة"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/08-book-card.webp",
+     1422,
+     1000,
+     "بطاقة الكتاب وخلاصة القراءة"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/09-dark-mode.webp",
+     1422,
+     1000,
+     "القراءة في الوضع الداكن"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/10-library-search.webp",
+     1422,
+     1000,
+     "البحث في نصوص المكتبة كلها"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/11-reading-plan.webp",
+     1422,
+     1000,
+     "خطة قراءة يومية"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/12-settings.webp",
+     1422,
+     1000,
+     "الإعدادات في أقسام واضحة"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/ar/13-export.webp",
+     1422,
+     1000,
+     "تصدير التعليقات بقوالب جاهزة"
+    ]
+   ],
+   "en": [
+    [
+     "g/hamish/iphone-duo-inner/en/01-library.webp",
+     1422,
+     1000,
+     "Your library with covers"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/02-library-list.webp",
+     1422,
+     1000,
+     "Library list and continue reading"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/03-reader.webp",
+     1422,
+     1000,
+     "Reader with colour highlights"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/04-reading-settings.webp",
+     1422,
+     1000,
+     "Font, theme and colour panel"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/05-search-in-book.webp",
+     1422,
+     1000,
+     "Search inside the book"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/06-notebook.webp",
+     1422,
+     1000,
+     "Book notebook: highlights and notes"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/07-quote-card.webp",
+     1422,
+     1000,
+     "Shareable quote card"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/08-book-card.webp",
+     1422,
+     1000,
+     "Book card and reading summary"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/09-dark-mode.webp",
+     1422,
+     1000,
+     "Reading in dark mode"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/10-library-search.webp",
+     1422,
+     1000,
+     "Full-text search across the library"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/11-reading-plan.webp",
+     1422,
+     1000,
+     "A daily reading plan"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/12-settings.webp",
+     1422,
+     1000,
+     "Settings in clear sections"
+    ],
+    [
+     "g/hamish/iphone-duo-inner/en/13-export.webp",
+     1422,
+     1000,
+     "Export notes with templates"
+    ]
+   ]
+  },
+  "iphone-duo-outer": {
+   "ar": [
+    [
+     "g/hamish/iphone-duo-outer/ar/01-library.webp",
+     700,
+     1018,
+     "المكتبة بأغلفة الكتب"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/02-library-list.webp",
+     700,
+     1018,
+     "المكتبة قائمةً مع تابع القراءة"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/03-reader.webp",
+     700,
+     1018,
+     "القارئ مع التظليل الملوّن"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/04-reading-settings.webp",
+     700,
+     1018,
+     "لوحة الخط والسمة والألوان"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/05-search-in-book.webp",
+     700,
+     1018,
+     "البحث داخل الكتاب"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/06-notebook.webp",
+     700,
+     1018,
+     "دفتر الكتاب: التظليل والملاحظات"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/07-quote-card.webp",
+     700,
+     1018,
+     "بطاقة اقتباس للمشاركة"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/08-book-card.webp",
+     700,
+     1018,
+     "بطاقة الكتاب وخلاصة القراءة"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/09-dark-mode.webp",
+     700,
+     1018,
+     "القراءة في الوضع الداكن"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/10-library-search.webp",
+     700,
+     1018,
+     "البحث في نصوص المكتبة كلها"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/11-reading-plan.webp",
+     700,
+     1018,
+     "خطة قراءة يومية"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/12-settings.webp",
+     700,
+     1018,
+     "الإعدادات في أقسام واضحة"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/ar/13-export.webp",
+     700,
+     1018,
+     "تصدير التعليقات بقوالب جاهزة"
+    ]
+   ],
+   "en": [
+    [
+     "g/hamish/iphone-duo-outer/en/01-library.webp",
+     700,
+     1018,
+     "Your library with covers"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/02-library-list.webp",
+     700,
+     1018,
+     "Library list and continue reading"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/03-reader.webp",
+     700,
+     1018,
+     "Reader with colour highlights"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/04-reading-settings.webp",
+     700,
+     1018,
+     "Font, theme and colour panel"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/05-search-in-book.webp",
+     700,
+     1018,
+     "Search inside the book"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/06-notebook.webp",
+     700,
+     1018,
+     "Book notebook: highlights and notes"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/07-quote-card.webp",
+     700,
+     1018,
+     "Shareable quote card"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/08-book-card.webp",
+     700,
+     1018,
+     "Book card and reading summary"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/09-dark-mode.webp",
+     700,
+     1018,
+     "Reading in dark mode"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/10-library-search.webp",
+     700,
+     1018,
+     "Full-text search across the library"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/11-reading-plan.webp",
+     700,
+     1018,
+     "A daily reading plan"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/12-settings.webp",
+     700,
+     1018,
+     "Settings in clear sections"
+    ],
+    [
+     "g/hamish/iphone-duo-outer/en/13-export.webp",
+     700,
+     1018,
+     "Export notes with templates"
+    ]
+   ]
+  },
+  "android": {
+   "ar": [
+    [
+     "g/hamish/android/ar/01-library.webp",
+     471,
+     1100,
+     "المكتبة بأغلفة الكتب"
+    ],
+    [
+     "g/hamish/android/ar/02-library-list.webp",
+     471,
+     1100,
+     "المكتبة قائمةً مع تابع القراءة"
+    ],
+    [
+     "g/hamish/android/ar/03-reader.webp",
+     471,
+     1100,
+     "القارئ مع التظليل الملوّن"
+    ],
+    [
+     "g/hamish/android/ar/04-search-in-book.webp",
+     471,
+     1100,
+     "البحث داخل الكتاب"
+    ],
+    [
+     "g/hamish/android/ar/05-notebook.webp",
+     471,
+     1100,
+     "دفتر الكتاب: التظليل والملاحظات"
+    ],
+    [
+     "g/hamish/android/ar/06-quote-card.webp",
+     471,
+     1100,
+     "بطاقة اقتباس للمشاركة"
+    ],
+    [
+     "g/hamish/android/ar/07-book-card.webp",
+     471,
+     1100,
+     "بطاقة الكتاب وخلاصة القراءة"
+    ],
+    [
+     "g/hamish/android/ar/08-dark-mode.webp",
+     471,
+     1100,
+     "القراءة في الوضع الداكن"
+    ],
+    [
+     "g/hamish/android/ar/09-library-search.webp",
+     471,
+     1100,
+     "البحث في نصوص المكتبة كلها"
+    ],
+    [
+     "g/hamish/android/ar/11-export.webp",
+     471,
+     1100,
+     "تصدير التعليقات بقوالب جاهزة"
+    ],
+    [
+     "g/hamish/android/ar/12-book-preview.webp",
+     471,
+     1100,
+     "معاينة الكتاب قبل فتحه"
+    ]
+   ],
+   "en": [
+    [
+     "g/hamish/android/en/01-library.webp",
+     471,
+     1100,
+     "Your library with covers"
+    ],
+    [
+     "g/hamish/android/en/02-library-list.webp",
+     471,
+     1100,
+     "Library list and continue reading"
+    ],
+    [
+     "g/hamish/android/en/03-reader.webp",
+     471,
+     1100,
+     "Reader with colour highlights"
+    ],
+    [
+     "g/hamish/android/en/04-search-in-book.webp",
+     471,
+     1100,
+     "Search inside the book"
+    ],
+    [
+     "g/hamish/android/en/05-notebook.webp",
+     471,
+     1100,
+     "Book notebook: highlights and notes"
+    ],
+    [
+     "g/hamish/android/en/06-quote-card.webp",
+     471,
+     1100,
+     "Shareable quote card"
+    ],
+    [
+     "g/hamish/android/en/07-book-card.webp",
+     471,
+     1100,
+     "Book card and reading summary"
+    ],
+    [
+     "g/hamish/android/en/08-dark-mode.webp",
+     471,
+     1100,
+     "Reading in dark mode"
+    ],
+    [
+     "g/hamish/android/en/09-library-search.webp",
+     471,
+     1100,
+     "Full-text search across the library"
+    ],
+    [
+     "g/hamish/android/en/11-export.webp",
+     471,
+     1100,
+     "Export notes with templates"
+    ],
+    [
+     "g/hamish/android/en/12-book-preview.webp",
+     471,
+     1100,
+     "Book preview before opening"
+    ]
+   ]
+  },
+  "android-fold": {
+   "ar": [
+    [
+     "g/hamish/android-fold/ar/01-library.webp",
+     901,
+     1000,
+     "المكتبة بأغلفة الكتب"
+    ],
+    [
+     "g/hamish/android-fold/ar/02-library-list.webp",
+     901,
+     1000,
+     "المكتبة قائمةً مع تابع القراءة"
+    ],
+    [
+     "g/hamish/android-fold/ar/03-reader.webp",
+     901,
+     1000,
+     "القارئ مع التظليل الملوّن"
+    ],
+    [
+     "g/hamish/android-fold/ar/04-search-in-book.webp",
+     901,
+     1000,
+     "البحث داخل الكتاب"
+    ],
+    [
+     "g/hamish/android-fold/ar/05-notebook.webp",
+     901,
+     1000,
+     "دفتر الكتاب: التظليل والملاحظات"
+    ],
+    [
+     "g/hamish/android-fold/ar/06-quote-card.webp",
+     901,
+     1000,
+     "بطاقة اقتباس للمشاركة"
+    ],
+    [
+     "g/hamish/android-fold/ar/07-book-card.webp",
+     901,
+     1000,
+     "بطاقة الكتاب وخلاصة القراءة"
+    ],
+    [
+     "g/hamish/android-fold/ar/08-dark-mode.webp",
+     901,
+     1000,
+     "القراءة في الوضع الداكن"
+    ],
+    [
+     "g/hamish/android-fold/ar/09-library-search.webp",
+     901,
+     1000,
+     "البحث في نصوص المكتبة كلها"
+    ],
+    [
+     "g/hamish/android-fold/ar/11-export.webp",
+     901,
+     1000,
+     "تصدير التعليقات بقوالب جاهزة"
+    ],
+    [
+     "g/hamish/android-fold/ar/12-book-preview.webp",
+     901,
+     1000,
+     "معاينة الكتاب قبل فتحه"
+    ],
+    [
+     "g/hamish/android-fold/ar/13-tabletop-notes.webp",
+     901,
+     1000,
+     "وضع الطاولة: ملاحظات الصفحة"
+    ],
+    [
+     "g/hamish/android-fold/ar/14-tabletop-listen.webp",
+     901,
+     1000,
+     "وضع الطاولة: الاستماع"
+    ]
+   ],
+   "en": [
+    [
+     "g/hamish/android-fold/en/01-library.webp",
+     901,
+     1000,
+     "Your library with covers"
+    ],
+    [
+     "g/hamish/android-fold/en/02-library-list.webp",
+     901,
+     1000,
+     "Library list and continue reading"
+    ],
+    [
+     "g/hamish/android-fold/en/03-reader.webp",
+     901,
+     1000,
+     "Reader with colour highlights"
+    ],
+    [
+     "g/hamish/android-fold/en/04-search-in-book.webp",
+     901,
+     1000,
+     "Search inside the book"
+    ],
+    [
+     "g/hamish/android-fold/en/05-notebook.webp",
+     901,
+     1000,
+     "Book notebook: highlights and notes"
+    ],
+    [
+     "g/hamish/android-fold/en/06-quote-card.webp",
+     901,
+     1000,
+     "Shareable quote card"
+    ],
+    [
+     "g/hamish/android-fold/en/07-book-card.webp",
+     901,
+     1000,
+     "Book card and reading summary"
+    ],
+    [
+     "g/hamish/android-fold/en/08-dark-mode.webp",
+     901,
+     1000,
+     "Reading in dark mode"
+    ],
+    [
+     "g/hamish/android-fold/en/09-library-search.webp",
+     901,
+     1000,
+     "Full-text search across the library"
+    ],
+    [
+     "g/hamish/android-fold/en/11-export.webp",
+     901,
+     1000,
+     "Export notes with templates"
+    ],
+    [
+     "g/hamish/android-fold/en/12-book-preview.webp",
+     901,
+     1000,
+     "Book preview before opening"
+    ],
+    [
+     "g/hamish/android-fold/en/13-tabletop-notes.webp",
+     901,
+     1000,
+     "Tabletop mode: page notes"
+    ],
+    [
+     "g/hamish/android-fold/en/14-tabletop-listen.webp",
+     901,
+     1000,
+     "Tabletop mode: listening"
+    ]
+   ]
+  }
+ }
+}

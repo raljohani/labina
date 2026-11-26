@@ -1,0 +1,761 @@
+{
+ "platforms": {
+  "iphone": {
+   "ar": [
+    [
+     "g/sana/iphone/ar/01-sky.webp",
+     506,
+     1100,
+     "سماءُ الأسماء الحسنى"
+    ],
+    [
+     "g/sana/iphone/ar/02-names.webp",
+     506,
+     1100,
+     "اسم اليوم تحت القبّة"
+    ],
+    [
+     "g/sana/iphone/ar/03-name.webp",
+     506,
+     1100,
+     "الاسم بلوحة الخطّاط"
+    ],
+    [
+     "g/sana/iphone/ar/04-evidence.webp",
+     506,
+     1100,
+     "الشواهد من القرآن"
+    ],
+    [
+     "g/sana/iphone/ar/05-amal.webp",
+     506,
+     1100,
+     "نصيبك من الاسم عملًا"
+    ],
+    [
+     "g/sana/iphone/ar/06-mihrab.webp",
+     506,
+     1100,
+     "بطاقة المحراب للمشاركة"
+    ],
+    [
+     "g/sana/iphone/ar/07-tasbih.webp",
+     506,
+     1100,
+     "السبحة الإلكترونية"
+    ],
+    [
+     "g/sana/iphone/ar/08-island.webp",
+     506,
+     1100,
+     "السبحة على شاشة القفل"
+    ],
+    [
+     "g/sana/iphone/ar/09-manhaj.webp",
+     506,
+     1100,
+     "المنهج والمصادر"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/iphone/ar/01-sky.webp",
+     506,
+     1100,
+     "The sky of divine names"
+    ],
+    [
+     "g/sana/iphone/ar/02-names.webp",
+     506,
+     1100,
+     "Name of the day in the sky"
+    ],
+    [
+     "g/sana/iphone/ar/03-name.webp",
+     506,
+     1100,
+     "A name in calligraphy"
+    ],
+    [
+     "g/sana/iphone/ar/04-evidence.webp",
+     506,
+     1100,
+     "Quranic evidence for the name"
+    ],
+    [
+     "g/sana/iphone/ar/05-amal.webp",
+     506,
+     1100,
+     "Living by the name"
+    ],
+    [
+     "g/sana/iphone/ar/06-mihrab.webp",
+     506,
+     1100,
+     "Mihrab card for sharing"
+    ],
+    [
+     "g/sana/iphone/ar/07-tasbih.webp",
+     506,
+     1100,
+     "The digital tasbih"
+    ],
+    [
+     "g/sana/iphone/ar/08-island.webp",
+     506,
+     1100,
+     "Tasbih on the Lock Screen"
+    ],
+    [
+     "g/sana/iphone/ar/09-manhaj.webp",
+     506,
+     1100,
+     "Method and sources"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "ipad": {
+   "ar": [
+    [
+     "g/sana/ipad/ar/01-sky.webp",
+     750,
+     1000,
+     "السماء على الآيباد"
+    ],
+    [
+     "g/sana/ipad/ar/02-names.webp",
+     750,
+     1000,
+     "اسم اليوم تحت القبّة"
+    ],
+    [
+     "g/sana/ipad/ar/03-name.webp",
+     750,
+     1000,
+     "صفحة الاسم"
+    ],
+    [
+     "g/sana/ipad/ar/04-mihrab.webp",
+     750,
+     1000,
+     "بطاقة المحراب"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/ipad/ar/01-sky.webp",
+     750,
+     1000,
+     "The sky on iPad"
+    ],
+    [
+     "g/sana/ipad/ar/02-names.webp",
+     750,
+     1000,
+     "Name of the day in the sky"
+    ],
+    [
+     "g/sana/ipad/ar/03-name.webp",
+     750,
+     1000,
+     "A name's page"
+    ],
+    [
+     "g/sana/ipad/ar/04-mihrab.webp",
+     750,
+     1000,
+     "The mihrab share card"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "watch": {
+   "ar": [
+    [
+     "g/sana/watch/ar/01-tasbih.webp",
+     416,
+     496,
+     "السبحة على الساعة"
+    ],
+    [
+     "g/sana/watch/ar/02-tasbih-start.webp",
+     416,
+     496,
+     "سبحة الساعة قبل العدّ"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/watch/ar/01-tasbih.webp",
+     416,
+     496,
+     "Tasbih on Apple Watch"
+    ],
+    [
+     "g/sana/watch/ar/02-tasbih-start.webp",
+     416,
+     496,
+     "Watch tasbih, ready to count"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "iphone-duo-inner": {
+   "ar": [
+    [
+     "g/sana/iphone-duo-inner/ar/01-welcome.webp",
+     1422,
+     1000,
+     "الترحيب بسنا"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/02-sky.webp",
+     1422,
+     1000,
+     "السماء على الشاشة الكبيرة"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/03-name.webp",
+     1422,
+     1000,
+     "صفحة الاسم"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/04-evidence.webp",
+     1422,
+     1000,
+     "الشواهد من القرآن"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/05-amal.webp",
+     1422,
+     1000,
+     "نصيبك من الاسم عملًا"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/06-mihrab.webp",
+     1422,
+     1000,
+     "بطاقة المحراب للمشاركة"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/07-tasbih.webp",
+     1422,
+     1000,
+     "السبحة الإلكترونية"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/08-ihsa.webp",
+     1422,
+     1000,
+     "مراتب الإحصاء"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/09-manhaj.webp",
+     1422,
+     1000,
+     "المنهج والمصادر"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/10-settings.webp",
+     1422,
+     1000,
+     "الإعدادات ومعاينة الخط"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/iphone-duo-inner/ar/01-welcome.webp",
+     1422,
+     1000,
+     "Welcome to Sana"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/02-sky.webp",
+     1422,
+     1000,
+     "The sky on the large screen"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/03-name.webp",
+     1422,
+     1000,
+     "A name's page"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/04-evidence.webp",
+     1422,
+     1000,
+     "Quranic evidence for the name"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/05-amal.webp",
+     1422,
+     1000,
+     "Living by the name"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/06-mihrab.webp",
+     1422,
+     1000,
+     "Mihrab card for sharing"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/07-tasbih.webp",
+     1422,
+     1000,
+     "The digital tasbih"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/08-ihsa.webp",
+     1422,
+     1000,
+     "The levels of learning"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/09-manhaj.webp",
+     1422,
+     1000,
+     "Method and sources"
+    ],
+    [
+     "g/sana/iphone-duo-inner/ar/10-settings.webp",
+     1422,
+     1000,
+     "Settings with font preview"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "iphone-duo-outer": {
+   "ar": [
+    [
+     "g/sana/iphone-duo-outer/ar/01-welcome.webp",
+     700,
+     1018,
+     "الترحيب بسنا"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/02-sky.webp",
+     700,
+     1018,
+     "سماءُ الأسماء الحسنى"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/03-name.webp",
+     700,
+     1018,
+     "صفحة الاسم"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/04-evidence.webp",
+     700,
+     1018,
+     "الشواهد من القرآن"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/05-amal.webp",
+     700,
+     1018,
+     "نصيبك من الاسم عملًا"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/06-mihrab.webp",
+     700,
+     1018,
+     "بطاقة المحراب للمشاركة"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/07-tasbih.webp",
+     700,
+     1018,
+     "السبحة الإلكترونية"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/08-ihsa.webp",
+     700,
+     1018,
+     "مراتب الإحصاء"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/09-manhaj.webp",
+     700,
+     1018,
+     "المنهج والمصادر"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/10-settings.webp",
+     700,
+     1018,
+     "الإعدادات"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/iphone-duo-outer/ar/01-welcome.webp",
+     700,
+     1018,
+     "Welcome to Sana"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/02-sky.webp",
+     700,
+     1018,
+     "The sky of divine names"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/03-name.webp",
+     700,
+     1018,
+     "A name's page"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/04-evidence.webp",
+     700,
+     1018,
+     "Quranic evidence for the name"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/05-amal.webp",
+     700,
+     1018,
+     "Living by the name"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/06-mihrab.webp",
+     700,
+     1018,
+     "Mihrab card for sharing"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/07-tasbih.webp",
+     700,
+     1018,
+     "The digital tasbih"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/08-ihsa.webp",
+     700,
+     1018,
+     "The levels of learning"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/09-manhaj.webp",
+     700,
+     1018,
+     "Method and sources"
+    ],
+    [
+     "g/sana/iphone-duo-outer/ar/10-settings.webp",
+     700,
+     1018,
+     "Settings"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "android": {
+   "ar": [
+    [
+     "g/sana/android/ar/01-welcome.webp",
+     493,
+     1100,
+     "الترحيب بسنا"
+    ],
+    [
+     "g/sana/android/ar/02-layers.webp",
+     493,
+     1100,
+     "الاسم على خمس طبقات"
+    ],
+    [
+     "g/sana/android/ar/03-sky.webp",
+     493,
+     1100,
+     "سماءُ الأسماء الحسنى"
+    ],
+    [
+     "g/sana/android/ar/04-name.webp",
+     493,
+     1100,
+     "الاسم بلوحة الخطّاط"
+    ],
+    [
+     "g/sana/android/ar/05-root.webp",
+     493,
+     1100,
+     "المعنى والجذر اللغوي"
+    ],
+    [
+     "g/sana/android/ar/06-evidence.webp",
+     493,
+     1100,
+     "الشواهد من القرآن"
+    ],
+    [
+     "g/sana/android/ar/07-athar.webp",
+     493,
+     1100,
+     "الأثر الإيماني ونصيبك"
+    ],
+    [
+     "g/sana/android/ar/08-mihrab.webp",
+     493,
+     1100,
+     "بطاقة المحراب للمشاركة"
+    ],
+    [
+     "g/sana/android/ar/09-tasbih.webp",
+     493,
+     1100,
+     "السبحة الإلكترونية"
+    ],
+    [
+     "g/sana/android/ar/10-ihsa.webp",
+     493,
+     1100,
+     "مراتب الإحصاء"
+    ],
+    [
+     "g/sana/android/ar/11-settings.webp",
+     493,
+     1100,
+     "الإعدادات"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/android/ar/01-welcome.webp",
+     493,
+     1100,
+     "Welcome to Sana"
+    ],
+    [
+     "g/sana/android/ar/02-layers.webp",
+     493,
+     1100,
+     "Each name in five layers"
+    ],
+    [
+     "g/sana/android/ar/03-sky.webp",
+     493,
+     1100,
+     "The sky of divine names"
+    ],
+    [
+     "g/sana/android/ar/04-name.webp",
+     493,
+     1100,
+     "A name in calligraphy"
+    ],
+    [
+     "g/sana/android/ar/05-root.webp",
+     493,
+     1100,
+     "Meaning and linguistic root"
+    ],
+    [
+     "g/sana/android/ar/06-evidence.webp",
+     493,
+     1100,
+     "Quranic evidence for the name"
+    ],
+    [
+     "g/sana/android/ar/07-athar.webp",
+     493,
+     1100,
+     "Faith impact and practice"
+    ],
+    [
+     "g/sana/android/ar/08-mihrab.webp",
+     493,
+     1100,
+     "Mihrab card for sharing"
+    ],
+    [
+     "g/sana/android/ar/09-tasbih.webp",
+     493,
+     1100,
+     "The digital tasbih"
+    ],
+    [
+     "g/sana/android/ar/10-ihsa.webp",
+     493,
+     1100,
+     "The levels of learning"
+    ],
+    [
+     "g/sana/android/ar/11-settings.webp",
+     493,
+     1100,
+     "Settings"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "android-fold": {
+   "ar": [
+    [
+     "g/sana/android-fold/ar/01-sky-book.webp",
+     1325,
+     1000,
+     "السماء والاسم في لوحين"
+    ],
+    [
+     "g/sana/android-fold/ar/02-tasbih-book.webp",
+     1325,
+     1000,
+     "السبحة وسجلّها في لوحين"
+    ],
+    [
+     "g/sana/android-fold/ar/03-settings-book.webp",
+     1325,
+     1000,
+     "الإعدادات في لوحين"
+    ],
+    [
+     "g/sana/android-fold/ar/04-name-halfopen.webp",
+     1325,
+     1000,
+     "الاسم مصحفًا مفتوحًا"
+    ],
+    [
+     "g/sana/android-fold/ar/05-tabletop-name.webp",
+     755,
+     1000,
+     "الاسم في وضع الطاولة"
+    ],
+    [
+     "g/sana/android-fold/ar/06-tabletop-mihrab.webp",
+     755,
+     1000,
+     "بطاقة المحراب على الطاولة"
+    ],
+    [
+     "g/sana/android-fold/ar/07-sky-open.webp",
+     1325,
+     1000,
+     "السماء والجهاز مفتوح"
+    ],
+    [
+     "g/sana/android-fold/ar/08-book-mihrab.webp",
+     1325,
+     1000,
+     "بطاقة المحراب في لوحين"
+    ],
+    [
+     "g/sana/android-fold/ar/09-book-namecard.webp",
+     1325,
+     1000,
+     "بطاقة الاسم في لوحين"
+    ],
+    [
+     "g/sana/android-fold/ar/10-tabletop-namecard.webp",
+     755,
+     1000,
+     "بطاقة الاسم على الطاولة"
+    ],
+    [
+     "g/sana/android-fold/ar/11-cover-tasbih.webp",
+     720,
+     748,
+     "السبحة على الغطاء الصغير"
+    ],
+    [
+     "g/sana/android-fold/ar/12-cover-nameofday.webp",
+     720,
+     748,
+     "اسم اليوم على الغطاء"
+    ],
+    [
+     "g/sana/android-fold/ar/13-folded-cover.webp",
+     633,
+     1000,
+     "السماء على الشاشة الخارجية"
+    ]
+   ],
+   "en": [
+    [
+     "g/sana/android-fold/ar/01-sky-book.webp",
+     1325,
+     1000,
+     "Sky and name side by side"
+    ],
+    [
+     "g/sana/android-fold/ar/02-tasbih-book.webp",
+     1325,
+     1000,
+     "Tasbih with its log"
+    ],
+    [
+     "g/sana/android-fold/ar/03-settings-book.webp",
+     1325,
+     1000,
+     "Two-pane settings"
+    ],
+    [
+     "g/sana/android-fold/ar/04-name-halfopen.webp",
+     1325,
+     1000,
+     "A name as an open book"
+    ],
+    [
+     "g/sana/android-fold/ar/05-tabletop-name.webp",
+     755,
+     1000,
+     "A name in tabletop mode"
+    ],
+    [
+     "g/sana/android-fold/ar/06-tabletop-mihrab.webp",
+     755,
+     1000,
+     "Mihrab card in tabletop mode"
+    ],
+    [
+     "g/sana/android-fold/ar/07-sky-open.webp",
+     1325,
+     1000,
+     "The sky, fully unfolded"
+    ],
+    [
+     "g/sana/android-fold/ar/08-book-mihrab.webp",
+     1325,
+     1000,
+     "Mihrab card across two panes"
+    ],
+    [
+     "g/sana/android-fold/ar/09-book-namecard.webp",
+     1325,
+     1000,
+     "Name card across two panes"
+    ],
+    [
+     "g/sana/android-fold/ar/10-tabletop-namecard.webp",
+     755,
+     1000,
+     "Name card in tabletop mode"
+    ],
+    [
+     "g/sana/android-fold/ar/11-cover-tasbih.webp",
+     720,
+     748,
+     "Tasbih on the cover screen"
+    ],
+    [
+     "g/sana/android-fold/ar/12-cover-nameofday.webp",
+     720,
+     748,
+     "Name of the day on cover"
+    ],
+    [
+     "g/sana/android-fold/ar/13-folded-cover.webp",
+     633,
+     1000,
+     "The sky on the outer screen"
+    ]
+   ],
+   "ar_ui": true
+  }
+ }
+}

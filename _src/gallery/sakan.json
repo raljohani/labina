@@ -1,0 +1,450 @@
+{
+ "platforms": {
+  "android-tv": {
+   "ar": [
+    [
+     "g/sakan/android-tv/ar/01-now.webp",
+     1600,
+     900,
+     "الشاشة الرئيسية: ما يحدث الآن"
+    ],
+    [
+     "g/sakan/android-tv/ar/02-day.webp",
+     1600,
+     900,
+     "يومك مقسوم على مشاهد الساعة"
+    ],
+    [
+     "g/sakan/android-tv/ar/03-scenes.webp",
+     1600,
+     900,
+     "قائمة المشاهد مع معاينة حية"
+    ],
+    [
+     "g/sakan/android-tv/ar/04-settings-display.webp",
+     1600,
+     900,
+     "إعدادات الشاشة والسطوع والخط"
+    ],
+    [
+     "g/sakan/android-tv/ar/05-settings-prayer.webp",
+     1600,
+     900,
+     "إعدادات تنبيه الصلاة ورمضان"
+    ],
+    [
+     "g/sakan/android-tv/ar/06-settings-overlay.webp",
+     1600,
+     900,
+     "تنبيهات تظهر فوق القنوات"
+    ],
+    [
+     "g/sakan/android-tv/ar/07-phone-link.webp",
+     1600,
+     900,
+     "ربط الجوال برمز QR"
+    ],
+    [
+     "g/sakan/android-tv/ar/08-update.webp",
+     1600,
+     900,
+     "تحديث البرنامج من داخله"
+    ],
+    [
+     "g/sakan/android-tv/ar/09-city-board.webp",
+     1600,
+     900,
+     "لوحة المدينة ومواقيت الصلاة مساءً"
+    ],
+    [
+     "g/sakan/android-tv/ar/10-prayer-dial.webp",
+     1600,
+     900,
+     "ساعة اليوم ومواقيت الصلاة"
+    ],
+    [
+     "g/sakan/android-tv/ar/11-weather.webp",
+     1600,
+     900,
+     "طقس المدينة ومسار الشمس"
+    ],
+    [
+     "g/sakan/android-tv/ar/12-calendar.webp",
+     1600,
+     900,
+     "التقويم الهجري والمناسبات القادمة"
+    ],
+    [
+     "g/sakan/android-tv/ar/13-stadium-live.webp",
+     1600,
+     900,
+     "المباريات الجارية على الهواء"
+    ],
+    [
+     "g/sakan/android-tv/ar/14-stadium-club.webp",
+     1600,
+     900,
+     "لوحة ناديك وترتيب الدوري"
+    ],
+    [
+     "g/sakan/android-tv/ar/15-ayah.webp",
+     1600,
+     900,
+     "آية اليوم"
+    ],
+    [
+     "g/sakan/android-tv/ar/16-ramadan.webp",
+     1600,
+     900,
+     "العد التنازلي لرمضان"
+    ],
+    [
+     "g/sakan/android-tv/ar/17-family-doors.webp",
+     1600,
+     900,
+     "أبواب العائلة: من يشاهد الآن؟"
+    ],
+    [
+     "g/sakan/android-tv/ar/18-screen-time-lock.webp",
+     1600,
+     900,
+     "انتهى وقت المشاهدة اليومي"
+    ],
+    [
+     "g/sakan/android-tv/ar/19-parent-message.webp",
+     1600,
+     900,
+     "رسالة من الوالدين على التلفاز"
+    ],
+    [
+     "g/sakan/android-tv/ar/20-prayer-break.webp",
+     1600,
+     900,
+     "استراحة الصلاة عند الأذان"
+    ]
+   ],
+   "en": [
+    [
+     "g/sakan/android-tv/ar/01-now.webp",
+     1600,
+     900,
+     "Home screen: what's on now"
+    ],
+    [
+     "g/sakan/android-tv/ar/02-day.webp",
+     1600,
+     900,
+     "Your day mapped to scenes"
+    ],
+    [
+     "g/sakan/android-tv/ar/03-scenes.webp",
+     1600,
+     900,
+     "Scene list with live preview"
+    ],
+    [
+     "g/sakan/android-tv/ar/04-settings-display.webp",
+     1600,
+     900,
+     "Display, brightness and font settings"
+    ],
+    [
+     "g/sakan/android-tv/ar/05-settings-prayer.webp",
+     1600,
+     900,
+     "Prayer alert and Ramadan settings"
+    ],
+    [
+     "g/sakan/android-tv/ar/06-settings-overlay.webp",
+     1600,
+     900,
+     "Alerts shown over live channels"
+    ],
+    [
+     "g/sakan/android-tv/ar/07-phone-link.webp",
+     1600,
+     900,
+     "Pair your phone via QR"
+    ],
+    [
+     "g/sakan/android-tv/ar/08-update.webp",
+     1600,
+     900,
+     "Built-in app updates"
+    ],
+    [
+     "g/sakan/android-tv/ar/09-city-board.webp",
+     1600,
+     900,
+     "Evening city skyline with prayer times"
+    ],
+    [
+     "g/sakan/android-tv/ar/10-prayer-dial.webp",
+     1600,
+     900,
+     "Day dial with prayer times"
+    ],
+    [
+     "g/sakan/android-tv/ar/11-weather.webp",
+     1600,
+     900,
+     "City weather and sun path"
+    ],
+    [
+     "g/sakan/android-tv/ar/12-calendar.webp",
+     1600,
+     900,
+     "Hijri calendar and upcoming events"
+    ],
+    [
+     "g/sakan/android-tv/ar/13-stadium-live.webp",
+     1600,
+     900,
+     "Live matches on air"
+    ],
+    [
+     "g/sakan/android-tv/ar/14-stadium-club.webp",
+     1600,
+     900,
+     "Your club and league table"
+    ],
+    [
+     "g/sakan/android-tv/ar/15-ayah.webp",
+     1600,
+     900,
+     "Verse of the day"
+    ],
+    [
+     "g/sakan/android-tv/ar/16-ramadan.webp",
+     1600,
+     900,
+     "Ramadan countdown"
+    ],
+    [
+     "g/sakan/android-tv/ar/17-family-doors.webp",
+     1600,
+     900,
+     "Family profiles: who's watching?"
+    ],
+    [
+     "g/sakan/android-tv/ar/18-screen-time-lock.webp",
+     1600,
+     900,
+     "Daily screen time is up"
+    ],
+    [
+     "g/sakan/android-tv/ar/19-parent-message.webp",
+     1600,
+     900,
+     "Message from parents on TV"
+    ],
+    [
+     "g/sakan/android-tv/ar/20-prayer-break.webp",
+     1600,
+     900,
+     "Prayer break at the call"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "windows": {
+   "ar": [
+    [
+     "g/sakan/windows/ar/01-now.webp",
+     1600,
+     900,
+     "الشاشة الرئيسية: ما يحدث الآن"
+    ],
+    [
+     "g/sakan/windows/ar/02-day.webp",
+     1600,
+     900,
+     "يومك مقسوم على مشاهد الساعة"
+    ],
+    [
+     "g/sakan/windows/ar/03-scenes.webp",
+     1600,
+     900,
+     "المشاهد مع معاينة حية"
+    ],
+    [
+     "g/sakan/windows/ar/04-settings-display.webp",
+     1600,
+     900,
+     "إعدادات الشاشة والسطوع والخط"
+    ],
+    [
+     "g/sakan/windows/ar/05-settings-screensaver.webp",
+     1600,
+     900,
+     "ضبط شاشة التوقف في ويندوز"
+    ],
+    [
+     "g/sakan/windows/ar/06-settings-overlay.webp",
+     1600,
+     900,
+     "تنبيهات تظهر فوق الشاشة"
+    ],
+    [
+     "g/sakan/windows/ar/07-screen-timer.webp",
+     1600,
+     900,
+     "مؤقت المشاهدة برقم سري"
+    ],
+    [
+     "g/sakan/windows/ar/08-phone-link.webp",
+     1600,
+     900,
+     "ربط الجوال برمز QR"
+    ],
+    [
+     "g/sakan/windows/ar/09-city-board.webp",
+     1600,
+     900,
+     "لوحة المدينة ليلًا"
+    ],
+    [
+     "g/sakan/windows/ar/10-prayer-dial.webp",
+     1600,
+     900,
+     "ساعة اليوم ومواقيت الصلاة"
+    ],
+    [
+     "g/sakan/windows/ar/11-weather.webp",
+     1600,
+     900,
+     "طقس المدينة ومسار الشمس"
+    ],
+    [
+     "g/sakan/windows/ar/12-calendar.webp",
+     1600,
+     900,
+     "التقويم الهجري والمناسبات القادمة"
+    ],
+    [
+     "g/sakan/windows/ar/13-stadium-live.webp",
+     1600,
+     900,
+     "المباريات الجارية على الهواء"
+    ],
+    [
+     "g/sakan/windows/ar/14-ayah.webp",
+     1600,
+     900,
+     "آية اليوم"
+    ],
+    [
+     "g/sakan/windows/ar/15-screen-time-lock.webp",
+     1600,
+     900,
+     "انتهى وقت المشاهدة اليومي"
+    ],
+    [
+     "g/sakan/windows/ar/16-prayer-break.webp",
+     1600,
+     900,
+     "استراحة الصلاة عند الأذان"
+    ]
+   ],
+   "en": [
+    [
+     "g/sakan/windows/ar/01-now.webp",
+     1600,
+     900,
+     "Home screen: what's on now"
+    ],
+    [
+     "g/sakan/windows/ar/02-day.webp",
+     1600,
+     900,
+     "Your day mapped to scenes"
+    ],
+    [
+     "g/sakan/windows/ar/03-scenes.webp",
+     1600,
+     900,
+     "Scenes with live preview"
+    ],
+    [
+     "g/sakan/windows/ar/04-settings-display.webp",
+     1600,
+     900,
+     "Display, brightness and font settings"
+    ],
+    [
+     "g/sakan/windows/ar/05-settings-screensaver.webp",
+     1600,
+     900,
+     "Windows screensaver timing settings"
+    ],
+    [
+     "g/sakan/windows/ar/06-settings-overlay.webp",
+     1600,
+     900,
+     "Alerts shown over any app"
+    ],
+    [
+     "g/sakan/windows/ar/07-screen-timer.webp",
+     1600,
+     900,
+     "PIN-protected screen timer"
+    ],
+    [
+     "g/sakan/windows/ar/08-phone-link.webp",
+     1600,
+     900,
+     "Pair your phone via QR"
+    ],
+    [
+     "g/sakan/windows/ar/09-city-board.webp",
+     1600,
+     900,
+     "City skyline at night"
+    ],
+    [
+     "g/sakan/windows/ar/10-prayer-dial.webp",
+     1600,
+     900,
+     "Day dial with prayer times"
+    ],
+    [
+     "g/sakan/windows/ar/11-weather.webp",
+     1600,
+     900,
+     "City weather and sun path"
+    ],
+    [
+     "g/sakan/windows/ar/12-calendar.webp",
+     1600,
+     900,
+     "Hijri calendar and upcoming events"
+    ],
+    [
+     "g/sakan/windows/ar/13-stadium-live.webp",
+     1600,
+     900,
+     "Live matches on air"
+    ],
+    [
+     "g/sakan/windows/ar/14-ayah.webp",
+     1600,
+     900,
+     "Verse of the day"
+    ],
+    [
+     "g/sakan/windows/ar/15-screen-time-lock.webp",
+     1600,
+     900,
+     "Daily screen time is up"
+    ],
+    [
+     "g/sakan/windows/ar/16-prayer-break.webp",
+     1600,
+     900,
+     "Prayer break at the call"
+    ]
+   ],
+   "ar_ui": true
+  }
+ }
+}
