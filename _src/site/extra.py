@@ -523,3 +523,57 @@ MIHRAB_PRIVACY_EN = '''<h1>Privacy Policy</h1>
 <p>The app collects no data from anyone, of any age.</p>
 <h2>Contact</h2>'''
 DOCNAMES_EN_SUB.update({'hamish': {'terms': 'License and use'}, 'satr': {'terms': 'License and use'}, 'mihrab': {'terms': 'License and downloads'}})
+
+# ---------- foldables: a room's section for the works that support them ----------
+# Only works with store-ready screenshots: Mizan (iPhone Duo, App Store set duo-inner, live since 1.5),
+# Sana (Android foldables, the Google Play fold set, build 30) and Satr (made for foldables; its outer-screen cover shot).
+# Wording follows each app's approved store text / release notes. Hamish supports both but has only test captures so far.
+FOLD = {
+ 'mizan': dict(
+   ar=dict(devices='iPhone Duo',
+     lead='يملأ ميزان شاشتي iPhone Duo، مغلقًا ومفتوحًا.',
+     features=['الشاشة الخارجية والجهاز مغلق، والداخلية حين تفتحه، وعليها الأقسام الخمسة في شريط بجانب الصفحة.',
+               'اطوِ جوالك أو افتحه وأنت في صفحة فتبقى فيها.',
+               'وما فتحته يبقى مفتوحًا، كورقة «معاملة جديدة» بما كتبت فيها.'],
+     caps=['الصق رسالة البنك على الشاشة الداخلية', 'كم تصرف اليوم', 'خطتي', 'التقارير', 'بياناتك على جهازك']),
+   en=dict(devices='iPhone Duo',
+     lead='Mizan fills both displays of iPhone Duo, folded and unfolded.',
+     features=['The outer display when the phone is closed, and the inner one when you open it, with the five sections in a sidebar next to the page.',
+               'Fold or unfold your phone on a page and you stay on it.',
+               'And whatever you opened stays open, like a "New transaction" sheet with what you typed.'],
+     caps=['Pasting a bank message on the inner display', 'What you can spend today', 'My plan', 'Reports', 'Your data stays on your device']),
+   shots=['mizan-duo-1', 'mizan-duo-2', 'mizan-duo-3', 'mizan-duo-4', 'mizan-duo-5'], size=[(1080, 760)] * 5),
+ 'sana': dict(
+   ar=dict(devices='أجهزة أندرويد القابلة للطي',
+     lead='على أجهزة أندرويد القابلة للطي، يستعمل سنا الشاشة كلها والمفصل معها.',
+     features=['لوحان حين تفتح جهازك: القبّة وصفحة الاسم، والسبحة وسجلّها، والإعدادات وصفحتها.',
+               'على الطاولة: لوحة الاسم في الأعلى وشرحه في الأسفل، وبطاقة المشاركة أمامك وخياراتها تحت يدك.',
+               'صفحتان متقابلتان كالكتاب: الاسم ومعناه وآياته في اليمنى، والأحاديث والأثر والعمل في اليسرى.',
+               'فجرٌ عند الفتح: تطلع القبّة وتضيء كلما فتحت الجهاز.',
+               'اسحب الآية أو الحديث بعزوه إلى تطبيق مجاور.'],
+     caps=['لوحان: القبّة وصفحة الاسم', 'صفحتان متقابلتان كالكتاب', 'على الطاولة', 'الفجر عند الفتح', 'بطاقة المشاركة على المفصل', 'على الشاشة الخارجية']),
+   en=dict(devices='Android foldables',
+     lead='On Android foldables, Sana uses the whole screen, and the hinge with it.',
+     features=['Two panes when you open your device: the dome and the name page, the tasbih and its log, and Settings and its page.',
+               'Tabletop: the name panel above and its explanation below, and the share card in front of you with its options under your hand.',
+               'Two facing pages like a book: the name, its meaning and verses on the right, and the hadiths, sayings and practice on the left.',
+               'Dawn as you open: the dome rises and lights up each time you unfold the device.',
+               'Drag a verse or hadith, with its citation, into an app beside it.'],
+     caps=['Two panes: the dome and the name page', 'Two facing pages like a book', 'Tabletop', 'Dawn as you open', 'The share card on the hinge', 'On the outer screen']),
+   shots=['sana-fold-1', 'sana-fold-2', 'sana-fold-3', 'sana-fold-4', 'sana-fold-5', 'sana-fold-6'],
+   size=[(1054, 840), (893, 840), (670, 840), (1054, 840), (893, 840), (586, 840)]),
+ 'satr': dict(
+   ar=dict(devices='الأجهزة القابلة للطي',
+     lead='سطر صُنع للأجهزة القابلة للطي أصلًا، وكل لقطاته أعلاه منها.',
+     features=['حين يكون الجهاز مطويًّا ترى على الشاشة الخارجية غلاف دفترك بجلده وشريطه المطاطي.',
+               'وحين تفتح الجهاز ينفتح الدفتر معه، ويتبع الغلافُ زاوية المفصل.',
+               'وعلى الجوال العادي يعمل صفحةً واحدة.'],
+     caps=['الغلاف على الشاشة الخارجية']),
+   en=dict(devices='foldables',
+     lead='Satr was made for foldables in the first place, and every screen above is from one.',
+     features=['Folded, the outer screen shows your notebook\'s cover, with its leather and elastic band.',
+               'Unfold the phone and the notebook opens with it, the cover following the hinge.',
+               'On a regular phone it works as a single page.'],
+     caps=['The cover on the outer screen']),
+   shots=['satr-fold-1'], size=[(532, 840)]),
+}

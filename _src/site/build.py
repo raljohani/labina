@@ -423,6 +423,23 @@ dots.forEach(function(d,i){{d.addEventListener('click',function(){{works[i].scro
 </script>'''
     write('index.html', shell('', 'لبنة | معرض تطبيقات عربية', 'معرض أعمال لبنة: ميزان وسنا ومدماك وسَكَن ومِحراب وهامِش وسطر، تطبيقات عربية لآيفون وأندرويد والتلفاز، مع صفحات الدعم والخصوصية وشروط الاستخدام.', body, here='', dark_top=True))
 
+def fold_block(k, lang, rel):
+    """a room's foldables section: what the work does on a folding phone, and its screens there"""
+    if k not in FOLD: return ''
+    f = FOLD[k]; t = f[lang]; ar = lang == 'ar'
+    name = APPS[k]['name'] if ar else APPS_EN[k]['name']
+    figs = ''.join(f'<figure><img src="{rel}assets/{s}.webp" alt="{c}" loading="lazy" width="{w}" height="{h}"><figcaption>{c}</figcaption></figure>'
+                   for s, c, (w, h) in zip(f['shots'], t['caps'], f['size']))
+    head = 'على الأجهزة القابلة للطي' if ar else 'On foldables'
+    kicker = ('يدعم ' if ar else 'Supports ') + t['devices']
+    return f'''<section class="fold dark" aria-labelledby="fold-h"><div class="wrap">
+  <p class="fold-kicker">{kicker}</p>
+  <h2 class="h2" id="fold-h">{head}</h2>
+  <p class="fold-lead">{t["lead"]}</p>
+  <ul class="fold-list">{''.join(f'<li>{x}</li>' for x in t["features"])}</ul>
+  <div class="strip fold-strip" tabindex="0" aria-label="{(name + ' على الأجهزة القابلة للطي') if ar else (name + ' on foldables')}">{figs}</div>
+</div></section>'''
+
 # ---------------- exhibit ----------------
 def exhibit(k):
     a = APPS[k]; rel = '../'
@@ -454,6 +471,7 @@ def exhibit(k):
     {f'<div class="strip{" tv" if a.get("tv") else ""}" tabindex="0" aria-label="لقطات من {a["name"]}">{figs}</div>' if a['shots'] else soon_block('ar', k)}
   </div>
 </section>
+{fold_block(k, 'ar', rel)}
 {film}
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">عن العمل</h2>
@@ -848,6 +866,7 @@ def en_exhibit(k):
   </div>
   {show}
 </div></section>
+{fold_block(k, 'en', rel)}
 {film}
 <section class="reading"><div class="wrap narrow">
   <h2 class="h2">About the work</h2>
