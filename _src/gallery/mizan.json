@@ -1,5 +1,307 @@
 {
  "platforms": {
+  "iphone": {
+   "ar": [
+    [
+     "g/mizan/iphone/ar/01-home.webp",
+     506,
+     1100,
+     "الرصيد ومسار الشهر في الرئيسية"
+    ],
+    [
+     "g/mizan/iphone/ar/02-your-day.webp",
+     506,
+     1100,
+     "كم تصرف اليوم من راتبك"
+    ],
+    [
+     "g/mizan/iphone/ar/03-sms.webp",
+     506,
+     1100,
+     "مراجعة عمليات من رسائل البنك"
+    ],
+    [
+     "g/mizan/iphone/ar/04-transactions.webp",
+     506,
+     1100,
+     "سجل المعاملات بحسب اليوم"
+    ],
+    [
+     "g/mizan/iphone/ar/05-add.webp",
+     506,
+     1100,
+     "إضافة معاملة جديدة بسرعة"
+    ],
+    [
+     "g/mizan/iphone/ar/06-budgets.webp",
+     506,
+     1100,
+     "سقوف الميزانية وما صُرف منها"
+    ],
+    [
+     "g/mizan/iphone/ar/07-budget-detail.webp",
+     506,
+     1100,
+     "تفاصيل سقف المطاعم ومعاملاته"
+    ],
+    [
+     "g/mizan/iphone/ar/08-debts.webp",
+     506,
+     1100,
+     "الأقساط والقروض في مكان واحد"
+    ],
+    [
+     "g/mizan/iphone/ar/09-plan.webp",
+     506,
+     1100,
+     "خطة توزيع الراتب على البنود"
+    ],
+    [
+     "g/mizan/iphone/ar/10-reports.webp",
+     506,
+     1100,
+     "تقرير الشهر بالدخل والمصروف"
+    ],
+    [
+     "g/mizan/iphone/ar/11-zakat.webp",
+     506,
+     1100,
+     "حساب الزكاة بالنصاب والحول"
+    ],
+    [
+     "g/mizan/iphone/ar/12-privacy.webp",
+     506,
+     1100,
+     "بياناتك على جهازك وحده"
+    ]
+   ],
+   "en": [
+    [
+     "g/mizan/iphone/ar/01-home.webp",
+     506,
+     1100,
+     "Balance and month path at home"
+    ],
+    [
+     "g/mizan/iphone/ar/02-your-day.webp",
+     506,
+     1100,
+     "What you can spend today"
+    ],
+    [
+     "g/mizan/iphone/ar/03-sms.webp",
+     506,
+     1100,
+     "Reviewing bank SMS transactions"
+    ],
+    [
+     "g/mizan/iphone/ar/04-transactions.webp",
+     506,
+     1100,
+     "Transactions grouped by day"
+    ],
+    [
+     "g/mizan/iphone/ar/05-add.webp",
+     506,
+     1100,
+     "Quickly adding a new transaction"
+    ],
+    [
+     "g/mizan/iphone/ar/06-budgets.webp",
+     506,
+     1100,
+     "Budget limits and spending so far"
+    ],
+    [
+     "g/mizan/iphone/ar/07-budget-detail.webp",
+     506,
+     1100,
+     "Dining budget with its transactions"
+    ],
+    [
+     "g/mizan/iphone/ar/08-debts.webp",
+     506,
+     1100,
+     "Installments and loans in one place"
+    ],
+    [
+     "g/mizan/iphone/ar/09-plan.webp",
+     506,
+     1100,
+     "Salary plan split into items"
+    ],
+    [
+     "g/mizan/iphone/ar/10-reports.webp",
+     506,
+     1100,
+     "Monthly income and spending report"
+    ],
+    [
+     "g/mizan/iphone/ar/11-zakat.webp",
+     506,
+     1100,
+     "Zakat calculated with nisab and hawl"
+    ],
+    [
+     "g/mizan/iphone/ar/12-privacy.webp",
+     506,
+     1100,
+     "Your data stays on device"
+    ]
+   ],
+   "ar_ui": true
+  },
+  "ipad": {
+   "ar": [
+    [
+     "g/mizan/ipad/ar/01-home.webp",
+     750,
+     1000,
+     "الرصيد ومسار الشهر في الرئيسية"
+    ],
+    [
+     "g/mizan/ipad/ar/02-your-day.webp",
+     750,
+     1000,
+     "كم تصرف اليوم من راتبك"
+    ],
+    [
+     "g/mizan/ipad/ar/03-sms.webp",
+     750,
+     1000,
+     "مراجعة عمليات من رسائل البنك"
+    ],
+    [
+     "g/mizan/ipad/ar/04-transactions.webp",
+     750,
+     1000,
+     "سجل المعاملات بحسب اليوم"
+    ],
+    [
+     "g/mizan/ipad/ar/05-add.webp",
+     750,
+     1000,
+     "إضافة معاملة جديدة بسرعة"
+    ],
+    [
+     "g/mizan/ipad/ar/06-budgets.webp",
+     750,
+     1000,
+     "سقوف الميزانية وما صُرف منها"
+    ],
+    [
+     "g/mizan/ipad/ar/07-budget-detail.webp",
+     750,
+     1000,
+     "تفاصيل سقف المطاعم ومعاملاته"
+    ],
+    [
+     "g/mizan/ipad/ar/08-debts.webp",
+     750,
+     1000,
+     "الأقساط والقروض في مكان واحد"
+    ],
+    [
+     "g/mizan/ipad/ar/09-plan.webp",
+     750,
+     1000,
+     "خطة توزيع الراتب على البنود"
+    ],
+    [
+     "g/mizan/ipad/ar/10-reports.webp",
+     750,
+     1000,
+     "تقرير الشهر بالدخل والمصروف"
+    ],
+    [
+     "g/mizan/ipad/ar/11-zakat.webp",
+     750,
+     1000,
+     "حساب الزكاة بالنصاب والحول"
+    ],
+    [
+     "g/mizan/ipad/ar/12-privacy.webp",
+     750,
+     1000,
+     "بياناتك على جهازك وحده"
+    ]
+   ],
+   "en": [
+    [
+     "g/mizan/ipad/ar/01-home.webp",
+     750,
+     1000,
+     "Balance and month path at home"
+    ],
+    [
+     "g/mizan/ipad/ar/02-your-day.webp",
+     750,
+     1000,
+     "What you can spend today"
+    ],
+    [
+     "g/mizan/ipad/ar/03-sms.webp",
+     750,
+     1000,
+     "Reviewing bank SMS transactions"
+    ],
+    [
+     "g/mizan/ipad/ar/04-transactions.webp",
+     750,
+     1000,
+     "Transactions grouped by day"
+    ],
+    [
+     "g/mizan/ipad/ar/05-add.webp",
+     750,
+     1000,
+     "Quickly adding a new transaction"
+    ],
+    [
+     "g/mizan/ipad/ar/06-budgets.webp",
+     750,
+     1000,
+     "Budget limits and spending so far"
+    ],
+    [
+     "g/mizan/ipad/ar/07-budget-detail.webp",
+     750,
+     1000,
+     "Dining budget with its transactions"
+    ],
+    [
+     "g/mizan/ipad/ar/08-debts.webp",
+     750,
+     1000,
+     "Installments and loans in one place"
+    ],
+    [
+     "g/mizan/ipad/ar/09-plan.webp",
+     750,
+     1000,
+     "Salary plan split into items"
+    ],
+    [
+     "g/mizan/ipad/ar/10-reports.webp",
+     750,
+     1000,
+     "Monthly income and spending report"
+    ],
+    [
+     "g/mizan/ipad/ar/11-zakat.webp",
+     750,
+     1000,
+     "Zakat calculated with nisab and hawl"
+    ],
+    [
+     "g/mizan/ipad/ar/12-privacy.webp",
+     750,
+     1000,
+     "Your data stays on device"
+    ]
+   ],
+   "ar_ui": true
+  },
   "iphone-duo-inner": {
    "ar": [
     [
