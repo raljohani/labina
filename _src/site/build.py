@@ -1069,6 +1069,28 @@ if(navigator.clipboard){{navigator.clipboard.writeText(t).then(done,function(){{
     path = 'en/press/' if en else 'press/'
     write(path + 'index.html', shell(rel, f'{t["title"]} | {"Labina" if en else "لبنة"}', t['lede'][:150], body, here='press/', path=path, lang=lang))
 
+def safoof_pages():
+    """/safoof/delete/ only: the account-deletion page Google Play asks for. No room yet (owner's call, 28 Nov 2026)."""
+    for lang in ('ar', 'en'):
+        en = lang == 'en'; rel = '../../../' if en else '../../'
+        name, tag = (SAFOOF['name_en'], SAFOOF['tag_en']) if en else (SAFOOF['name'], SAFOOF['tag'])
+        inner = (SAFOOF_DELETE_EN if en else SAFOOF_DELETE).replace('{mail}', mailto('Delete Safoof account' if en else 'حذف حساب سفوف'))
+        crumbs = (f'<a href="{rel}en/">Gallery</a> → {name} → Delete account' if en
+                  else f'<a href="{rel}">المعرض</a> ← {name} ← حذف الحساب')
+        body = f'''<main id="main"><div class="wrap narrow">
+<div class="dochead">
+  <p class="crumbs">{crumbs}</p>
+  <div class="who"><img src="{rel}assets/safoof-icon.webp" alt="" width="52" height="52"><div><b>{name}</b><span>{tag}</span></div></div>
+</div>
+<article class="prose">
+{inner.strip()}
+</article>
+</div></main>'''
+        path = ('en/' if en else '') + 'safoof/delete/'
+        title = f'Delete account | {name}' if en else f'حذف الحساب | {name}'
+        desc = 'How to delete your Safoof account and data.' if en else 'طريقة حذف حساب سفوف وبياناته.'
+        write(path + 'index.html', shell(rel, title, desc, body, app='safoof', path=path, lang=lang).replace('og-safoof.png', 'og-labina.png'))  # no share image of its own yet
+
 def build():
     # the output is a dedicated folder we own entirely; never the repo itself
     if os.path.realpath(OUT) == os.path.realpath(ROOT) or os.path.isdir(os.path.join(OUT, '.git')):
@@ -1089,6 +1111,6 @@ def build():
     os.makedirs(os.path.join(OUT, 'brand'))
     for f in os.listdir(os.path.join(BRAND, 'svg')): shutil.copy(os.path.join(BRAND, 'svg', f), os.path.join(OUT, 'brand', f))
     shutil.copy(os.path.join(BRAND, 'out', 'labina-512.png'), os.path.join(OUT, 'brand', 'labina-512.png'))
-    press('ar'); press('en'); extras()
+    press('ar'); press('en'); extras(); safoof_pages()
 
 build(); print('built', OUT)

@@ -597,3 +597,34 @@ FOLD['hamish'] = dict(
                'Recitation for two: half the screen turned around for the person listening to you.'],
      caps=[]),
    shots=[], size=[])
+
+# سفوف: صفحة حذف الحساب والبيانات وحدها (طلب المالك ٢٠٢٦-١١-٢٨). لا قاعة ولا سياسة خصوصية حتى تُعتمد مسودتها.
+# الحقائق من جلسة سفوف: الحذف داخل البرنامج يمسح الهاتف؛ وحذف الحساب والدائرة من الخادم بطلب بريدي حتى يُبنى في البرنامج.
+SAFOOF = dict(name='سفوف', tag='تذكير بالأدوية وإدارتها، ودائرة للعائلة.',
+              name_en='Safoof', tag_en='Medicine reminders and management, with a family circle.')
+SAFOOF_DELETE = '''<h1>حذف حساب سفوف وبياناته</h1>
+<p>سفوف يعمل بلا حساب، وكل ما تدخله فيه محفوظ على هاتفك مشفّرًا. ولا يُنشأ حساب إلا لمن يستعمل <b>دائرة العائلة</b>، بالدخول بحساب Google. وما يُرفع إلى الخادم من الدائرة صناديق مشفّرة لا يقرؤها الخادم.</p>
+<h2>١. بياناتك على الهاتف: من داخل البرنامج</h2>
+<p>افتح سفوف، ثم <b>«المزيد» ← «احذف بياناتي»</b>. يُحذف كل ما على هاتفك، ولا يمكن التراجع. وحذف البرنامج من الهاتف يحذفها أيضًا.</p>
+<h2>٢. حسابك ودائرتك على الخادم: بطلب منك، ولو بلا البرنامج</h2>
+<p>إن فقدت هاتفك أو حذفت البرنامج، فراسلنا على <a href="{mail}">support@labina.app</a> بعنوان «حذف حساب سفوف»، واذكر في رسالتك <b>بريد حساب Google الذي دخلت به</b> في البرنامج.</p>
+<p><b>ما يُحذف:</b> حسابك، وعضويتك في كل دائرة أنت فيها، والدوائر التي تملكها بكل قيودها. ولا نحتفظ بشيء منها بعد الحذف.</p>
+<h2>ما لا نستطيع حذفه</h2>
+<ul>
+<li>ما على هاتفك أنت: احذفه من البرنامج كما في البند الأول.</li>
+<li>ما استلمته هواتف أعضاء دائرتك قبل الحذف: يبقى على هواتفهم.</li>
+<li>النسخ الاحتياطية والملفات المصدّرة والتقارير التي حفظتها أو أرسلتها بنفسك.</li>
+</ul>'''
+SAFOOF_DELETE_EN = '''<h1>Delete your Safoof account and data</h1>
+<p>Safoof works without an account, and everything you enter is kept on your phone, encrypted. An account is created only for people who use the <b>family circle</b>, by signing in with Google. What the circle uploads to the server is encrypted boxes that the server cannot read.</p>
+<h2>1. Your data on the phone: inside the app</h2>
+<p>Open Safoof, then <b>More → Delete my data</b>. Everything on your phone is deleted, and this cannot be undone. Deleting the app from your phone also deletes it.</p>
+<h2>2. Your account and circle on the server: on request, even without the app</h2>
+<p>If you lost your phone or deleted the app, write to us at <a href="{mail}">support@labina.app</a> with the subject "Delete Safoof account", and include <b>the Google account email you signed in with</b> in the app.</p>
+<p><b>What is deleted:</b> your account, your membership in every circle you belong to, and the circles you own with all their entries. We keep nothing of them after deletion.</p>
+<h2>What we cannot delete</h2>
+<ul>
+<li>What is on your own phone: delete it inside the app, as in step 1.</li>
+<li>What your circle members' phones received before the deletion: it stays on their phones.</li>
+<li>Backups, exported files and reports that you saved or sent yourself.</li>
+</ul>'''
