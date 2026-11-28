@@ -459,3 +459,5 @@ html:not(.no-js) .gallery:not(.single) .gal-panel:not(.on){display:none}
 .gal-strip figcaption{max-width:30ch}
 .fold-jump{margin-top:22px;padding-bottom:56px}
 .gal-note{font-size:13px;color:var(--nightink2);margin:14px 0 -22px}.gal-note+.gal-sub{margin-top:30px}
+
+.dl-code{display:inline-block;font:700 1.35em/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;padding:.12em .5em;margin:0 .15em;border:1.5px solid currentColor;border-radius:8px;direction:ltr;unicode-bidi:isolate}
